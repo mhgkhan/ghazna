@@ -4,4 +4,10 @@
 
 
 
+p,span,a,button,input,label, textarea, select,option,li {
+    font-family: var(--font-body) !important;
+}
 
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--font-headings) !important;
+}
