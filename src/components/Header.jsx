@@ -8,7 +8,7 @@ export default function Header() {
   const [openedNav, setOpenedNav] = useState(false);
 
   return (
-    <header className="w-full py-2 md:px-0 px-10">
+    <header className="w-full py-2 md:px-0 px-4 sticky top-0">
       <div className="container bg-pink-600 mx-auto flex items-center justify-between md:flex-row flex-col gap-2 border border-1 border-white p-2 rounded-md">
         <div className="logo-area flex items-center justify-between gap-5 md:w-auto w-full">
           <div className="logo flex items-center justify-center gap-1">
