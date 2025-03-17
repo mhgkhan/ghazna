@@ -2,12 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-p,span,a,button,input,label, textarea, select,option,li {
-    font-family: var(--font-body) !important;
+p,
+span,
+a,
+button,
+input,
+label,
+textarea,
+select,
+option,
+li {
+  font-family: var(--font-body) !important;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: var(--font-headings) !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headings) !important;
+}
+
+.logo {
+  color: #ffaf38;
+  background-image: linear-gradient(
+    135deg,
+    white 37%,
+    yellow 37%,
+    white 59%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
 }

@@ -26,9 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <main className="dark:bg-gray-800 bg-white dark:text-white text-black">
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
