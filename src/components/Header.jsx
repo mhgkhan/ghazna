@@ -34,7 +34,7 @@ export default function Header() {
 
     {/* navigation area  */}
         <nav
-          className={` flex items-center justify-between gap-3 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${
+          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${
             openedNav ? "h-[250px]" : "h - 0"
           } overflow-hidden transition-all duration-200 `}
         >
