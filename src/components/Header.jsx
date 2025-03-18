@@ -57,7 +57,7 @@ export default function Header() {
               }
             )}
           </ul>
-          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-black">Login</button>
+          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white">Login</button>
         </nav>
       </div>
     </header>
