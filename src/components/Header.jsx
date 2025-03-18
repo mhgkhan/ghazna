@@ -8,10 +8,12 @@ export default function Header() {
   const [openedNav, setOpenedNav] = useState(false);
 
   return (
-    <header className="w-full py-2 md:px-0 px-4 sticky top-0">
-      <div className="container bg-pink-600 mx-auto flex items-center justify-between md:flex-row flex-col gap-2 border border-1 border-white p-2 rounded-md">
-        <div className="logo-area flex items-center justify-between gap-5 md:w-auto w-full">
-          <div className="logo flex items-center justify-center gap-1">
+    <header className="md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0">
+      <div className="container mx-auto flex items-center justify-between md:flex-row flex-col gap-2 border border-1 dark:border-gray-400 border-gray-600 pr-2 py-1 rounded-md">
+      
+      {/* logo area  */}
+        <div className="logo-area flex items-center justify-between gap-2 md:w-auto w-full">
+          <div className="px-3 logo border-1 border-r  border-gray-400 flex items-center justify-center gap-1">
             <div className="logo-1 flex items-center justify-center text-5xl">
               <span className="[text-shadow:1px_1px_0px_rgba(120,80,80,.5)]">
                 G
@@ -29,18 +31,20 @@ export default function Header() {
             <RxHamburgerMenu />
           </button>
         </div>
+
+    {/* navigation area  */}
         <nav
-          className={`navigation-area md:w-auto w-full md:h-auto h-0 ${
-            openedNav ? "h-[200px]" : "h - 0"
+          className={` flex items-center justify-between gap-3 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${
+            openedNav ? "h-[250px]" : "h - 0"
           } overflow-hidden transition-all duration-200 `}
         >
-          <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none mt-5">
-            {Array.from(["home", "blogs", "projects", "login"]).map(
+          <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
+            {Array.from(["home", "services", "pricing", "blog"]).map(
               (ele, ind) => {
                 return (
                   <li
                     key={ind}
-                    className={`active:border active:border-2 active:border-white active:border-dotted rounded-md p-2 md:w-auto w-full text-center md:bg-inherit bg-pink-500`}
+                    className={`active:border active:border-2 sm:mx-auto active:border-white active:border-dotted rounded-md p-2 md:w-auto w-full text-center md:bg-inherit bg-pink-500`}
                   >
                     <Link
                       href={`/${ele == "home" ? "/" : ele}`}
@@ -53,6 +57,7 @@ export default function Header() {
               }
             )}
           </ul>
+          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-black">Login</button>
         </nav>
       </div>
     </header>
