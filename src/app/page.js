@@ -57,6 +57,38 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* services section  */}
+      <section className="my-5 w-full">
+        <div className="container mx-auto">
+          <h2 className="text-4xl text-center mx-auto font-bold"><span className="text-pink-600">My</span> Services</h2>
+          <div className="my-5 flex items-start justify-center md:flex-row flex-col-reverse md:my-5 md:h-[200px] md:gap-0">
+            <div className="left-services md:w-[40%] w-full">
+            <div className="w-full left-item-services md:mt-[90px] mt-4 h-[90px] bg-pink-600 p-2 flex items-center justify-center flex-col gap-2">
+                <h3 className="lg:text-3xl md:text-2xl text-center font-bold text-white">Graphic Designing </h3>
+                {/* <p className="text-gray-200  text-center w-full p-2 my-1">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam non alias ut a veritatis itaque libero reiciendis voluptas eius eaque.
+                </p> */}
+                <Link href="#contact" className="mx-auto  btn md:px-4 px-3 py-3 rounded-md text-center hover:underline dark:bg-white dark:text-black bg-black text-white active:border active:border-2 dark:active:border-black border-white active:border-dotted">View Pricing</Link>  
+              </div>
+            </div>
+            
+            <div className="md:flex hidden center-line w-[10px] rounded-full bg-pink-600 h-full"></div>
+            
+            <div className="right-services md:w-[40%] w-full ">
+              <div className="w-full h-[90px] right-item-services bg-white p-2 flex items-center justify-center flex-col gap-2">
+                <h3 className="lg:text-3xl md:text-2xl text-center font-bold text-pink-600">Web Development </h3>
+                {/* <p className="text-gray-500 text-center w-full p-2 my-1">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam non alias ut a veritatis itaque libero reiciendis voluptas eius eaque.
+                </p> */}
+                <Link href="#contact" className="mx-auto  btn md:px-4 px-3 py-3 rounded-md text-center hover:underline dark:bg-white dark:text-black bg-black text-white active:border active:border-2 dark:active:border-black border-white active:border-dotted">View Pricing</Link>  
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 }
