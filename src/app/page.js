@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaKeyboard } from "react-icons/fa";
+// import { FaKeyboard } from "react-icons/fa";
 import { DiResponsive } from "react-icons/di";
 import { SiCodesignal } from "react-icons/si";
 
