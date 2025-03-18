@@ -8,10 +8,10 @@ export default function Home() {
     <div className="page">
       <section className="hero w-full my-5">
         <div className="container mx-auto">
-          <div className="hero-area flex items-center justify-center gap-10 md:flex-row flex-col-reverse py-5 md:px-10 px-5">
+          <div className="hero-area flex items-center justify-center md:gap-10 gap-5 md:flex-row flex-col-reverse py-5 md:px-10 px-5">
 
             {/* hero content  */}
-            <div className="hero-content py-5">
+            <div className="hero-content md:py-5 py-1">
               <h1 className="leading-snug my-3 flex-items-center justify-center md:text-5xl text-4xl font-bold">
                 Your <span className="text-blue-400">Developer Partner</span> Hasnain
               </h1>
@@ -21,7 +21,7 @@ export default function Home() {
                 <Link href="#projects" className="btn md:px-4 px-3 py-3  rounded-md mx-1 text-center hover:underline dark:bg-black dark:text-white bg-white text-black active:border active:border-2 dark:active:border-white active:border-dotted active:border-black">Latest Blogs </Link>
               </div>
 
-              <div className="my-10 flex items-center justify-start md:gap-10 gap-5">
+              <div className="md:my-10 my-7 flex items-center justify-start md:gap-10 gap-5">
                 <div className="block">
                   <h2 className="md:text-3xl text-xl font-bold">3 Years</h2>
                   <p className="text-gray-500 my-2">Experience </p>
