@@ -64,7 +64,7 @@ export default function Home() {
           <h2 className="text-4xl text-center mx-auto font-bold"><span className="text-pink-600">My</span> Services</h2>
           <div className="my-5 flex items-start justify-center md:flex-row flex-col-reverse md:my-5 md:h-[200px] md:gap-0">
             <div className="left-services md:w-[40%] w-full">
-            <div className="w-full left-item-services md:mt-[90px] mt-4 h-[90px] bg-pink-600 p-2 flex items-center justify-center flex-col gap-2">
+            <div className="w-full left-item-services md:mt-[90px] mt-4 h-[90px] bg-pink-600 border border-1 border-white border-r-0 p-2 flex items-center justify-center flex-col gap-2">
                 <h3 className="lg:text-3xl md:text-2xl text-center font-bold text-white">Graphic Designing </h3>
                 {/* <p className="text-gray-200  text-center w-full p-2 my-1">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam non alias ut a veritatis itaque libero reiciendis voluptas eius eaque.
@@ -76,7 +76,7 @@ export default function Home() {
             <div className="md:flex hidden center-line w-[10px] rounded-full bg-pink-600 h-full"></div>
             
             <div className="right-services md:w-[40%] w-full ">
-              <div className="w-full h-[90px] right-item-services bg-white p-2 flex items-center justify-center flex-col gap-2">
+              <div className="w-full h-[90px] right-item-services dark:bg-white bg-gray-700 border border-1 border-l-0 border-pink-600 p-2 flex items-center justify-center flex-col gap-2">
                 <h3 className="lg:text-3xl md:text-2xl text-center font-bold text-pink-600">Web Development </h3>
                 {/* <p className="text-gray-500 text-center w-full p-2 my-1">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam non alias ut a veritatis itaque libero reiciendis voluptas eius eaque.
