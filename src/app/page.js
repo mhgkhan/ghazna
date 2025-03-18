@@ -13,7 +13,7 @@ export default function Home() {
             {/* hero content  */}
             <div className="hero-content md:py-5 py-1">
               <h1 className="leading-snug my-3 flex-items-center justify-center md:text-5xl text-4xl font-bold">
-                Your <span className="bg-pink-600">Developer Partner</span> Hasnain
+                Your <span className="text-pink-600">Developer Partner</span> Hasnain
               </h1>
               <p className="my-3 dark:text-gray-300 text-gray-600 text-lg">I am a full-stack developer with a passion for building beautiful and functional websites.</p>
               <div className="cta flex items-center gap-5 my-3">
