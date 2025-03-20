@@ -22,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-m-20 scroll-smooth">
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
       >

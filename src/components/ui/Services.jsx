@@ -27,7 +27,7 @@ const Services = () => {
     useEffect(() => { window.innerWidth == 766 ? setIsMobile(true) : false }, [])
     // alert(height)
     return (
-        <section className="my-10 w-full">
+        <section className="my-10 w-full" id="servicessection">
             <div className="container mx-auto">
                 <HeadingSection start={"My"} end={"Services"} />
 

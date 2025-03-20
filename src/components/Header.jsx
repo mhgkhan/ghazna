@@ -10,8 +10,8 @@ export default function Header() {
   return (
     <header className="md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0 dark:bg-gray-800 bg-pink-600 rounded-md dark:text-white z-50 border border-1 dark:border-gray-400 border-gray-600 ">
       <div className="container mx-auto flex items-center justify-between md:flex-row flex-col gap-2 pr-2 py-1 ">
-      
-      {/* logo area  */}
+
+        {/* logo area  */}
         <div className="logo-area flex items-center justify-between gap-2 md:w-auto w-full">
           <div className="px-3 logo border-1 border-r  border-gray-400 flex items-center justify-center gap-1">
             <div className="logo-1 flex items-center justify-center text-5xl">
@@ -32,14 +32,13 @@ export default function Header() {
           </button>
         </div>
 
-    {/* navigation area  */}
+        {/* navigation area  */}
         <nav
-          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${
-            openedNav ? "h-[250px]" : "h - 0"
-          } overflow-hidden transition-all duration-200 `}
+          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${openedNav ? "h-[250px]" : "h - 0"
+            } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
-            {Array.from(["home", "services", "pricing", "blog"]).map(
+            {Array.from([{ title: "home", link: "/" }, { title: "services", link: "#servicessection" }, { title: "pricing", link: "/pricing" }, { title: "blog", link: "/blog" }]).map(
               (ele, ind) => {
                 return (
                   <li
@@ -47,10 +46,10 @@ export default function Header() {
                     className={`active:border active:border-2 sm:mx-auto active:border-white active:border-dotted rounded-md p-2 md:w-auto w-full text-center md:bg-inherit bg-pink-500`}
                   >
                     <Link
-                      href={`/${ele == "home" ? "/" : ele}`}
+                      href={ele.link}
                       className="text-white w-full block"
                     >
-                      {ele.toUpperCase()}
+                      {ele.title.toUpperCase()}
                     </Link>
                   </li>
                 );
