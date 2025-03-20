@@ -46,3 +46,11 @@ h6 {
 .left-item-services{
   clip-path: polygon(11% 1%, 100% 0%, 100% 100%, 11% 100%, 0% 50%) !important;
 }
+
+
+.pricinglist{
+  list-style: "✔ .";
+  list-style-position: inside;
+
+  /* line-height-step: 5; */
+}
