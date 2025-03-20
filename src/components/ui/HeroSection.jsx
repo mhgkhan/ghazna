@@ -2,6 +2,7 @@ import React from 'react'
 import Link from "next/link";
 import { DiResponsive } from "react-icons/di";
 import { SiCodesignal } from "react-icons/si";
+import Image from 'next/image';
 
 const HeroSection = () => {
     return (
@@ -40,7 +41,7 @@ const HeroSection = () => {
 
                     {/* hero image    */}
                     <div className="her-image md:w-[40%] w-[80%] relative md:h-[400px] h-[300px]">
-                        <img src="/images/hero.jpg" alt="hero" className="object-cover object-center rounded-lg w-full h-full" />
+                        <Image src="/images/hero.jpg" alt="hero" width={400} height={400} className="object-cover object-center rounded-lg w-full h-full" />
 
                         <div className="p-2 md:px-3 px-2 absolute bottom-[10px] left-[-30px] md:bottom-5 md:left-[-30px] text-lg flex items-center justify-center gap-3  bg-white dark:bg-black rounded-md shadow-md dark:shadow-gray-20">
                             <span className="text-lg "><SiCodesignal /></span> <span className="text-sm">Graphic Design</span>

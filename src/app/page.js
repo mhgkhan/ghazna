@@ -10,7 +10,7 @@ export default function Home() {
 
 
   return (
-    <div className="page">
+    <article className="page">
 
       {/* Hero Section  */}
       <HeroSection />
@@ -58,7 +58,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </article>
   );
 }
 
