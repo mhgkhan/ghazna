@@ -16,6 +16,7 @@ export default function Home() {
       <HeroSection />
       {/* services section  */}
       <Services />
+     
       {/* contact section  */}
       <section className="contact my-10 w-full">
         <div className="container mx-auto">

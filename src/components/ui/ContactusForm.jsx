@@ -5,7 +5,12 @@ import { FaPaperPlane } from 'react-icons/fa';
 
 
 const ContactusForm = () => {
-    const submitMessage = e => e.preventDefault();
+    const submitMessage = e => {
+        e.preventDefault();
+        const form = e.target;
+        form.reset();
+        alert("Message send sucessfully")
+    }
     return (
         <div className="contactus-form md:w-[50%]">
             <h3 className="my-2 text-2xl font-bold dark:text-pink-500 text-pink-700 ">Directly Through Form</h3>
