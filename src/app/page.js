@@ -32,16 +32,16 @@ export default function Home() {
 
                 {
                   Array.from([
-                    { icon: <FaTwitter />, text: "@mhghazna", link: "/", color: "text-blue-500" },
-                    { icon: <FaInstagram />, text: "@mhgkhan", link: "/", color: "text-pink-500" },
-                    { icon: <FaFacebook />, text: "@mhghazna", link: "/", color: "text-blue-500" },
-                    { icon: <FaLinkedin />, text: "@mhghazna", link: "/", color: "text-blue-500" },
-                    { icon: <FaGithub />, text: "@mhgkhan", link: "/", color: "dar:text-white text-black" },
-                    { icon: <FaWhatsapp />, text: "@mhghazna", link: "/", color: "text-green-600" },
+                    { icon: <FaTwitter />, text: "@mhghazna", link: "https://x.com/mhghazna", color: "text-blue-500" },
+                    { icon: <FaInstagram />, text: "@mhgkhan", link: "https://instagram.com/mhgkhan", color: "text-pink-500" },
+                    { icon: <FaFacebook />, text: "@mhghazna", link: "https://facebook.com/mhghazna", color: "text-blue-500" },
+                    { icon: <FaLinkedin />, text: "@mhghazna", link: "https://linkedin.com/in/ghznap/", color: "text-blue-500" },
+                    { icon: <FaGithub />, text: "@mhgkhan", link: "https://github.com/mhgkhan", color: "dar:text-white text-black" },
+                    { icon: <FaWhatsapp />, text: "@mhghazna", link: "https://wa.me/923251857693", color: "text-green-600" },
                   ]).map((ele, ind) => {
                     return <div key={ind} className="saccount-block flex items-center justify-center gap-2 rounded-md  my-2 p-2 w-[190px] md:mx-0 mx-auto border border-1  dark:border-white border-gray-900">
                       <span className={`md:text-4xl text-2xl border-r border-1 border-gray-300 pr-2 ${ele.color}`}>{ele.icon}</span>
-                      <Link href={ele.link} className="md:text-xl text-lg dark:text-white text-gray-900 font-bold">{ele.text}</Link>
+                      <Link target="_blank" href={ele.link} className="md:text-xl text-lg dark:text-white text-gray-900 font-bold">{ele.text}</Link>
                     </div>
                   })
                 }
