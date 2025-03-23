@@ -14,10 +14,10 @@ export default function Footer() {
             </div>
           </div>
           <div className="socialmedias flex gap-2">
-            <Link href={"/"} className="flex items-center gap-3 text-2xl text-white"><FaGithub /></Link>
-            <Link href={"/"} className="flex items-center gap-3 text-2xl text-white"><FaFacebook /></Link>
-            <Link href={"/"} className="flex items-center gap-3 text-2xl text-white"><FaInstagram /></Link>
-            <Link href={"/"} className="flex items-center gap-3 text-2xl text-white"><FaLinkedin /></Link>
+            <Link href={"https://github.com/mhgkhan"} className="flex items-center gap-3 text-2xl text-white"><FaGithub /></Link>
+            <Link href={"https://facebook.com/mhghazna"} className="flex items-center gap-3 text-2xl text-white"><FaFacebook /></Link>
+            <Link href={"https://instagram.com/mhghazna"} className="flex items-center gap-3 text-2xl text-white"><FaInstagram /></Link>
+            <Link href={"https://linkedin.com/in/ghaznap"} className="flex items-center gap-3 text-2xl text-white"><FaLinkedin /></Link>
           </div>
         </div>
       </div>
