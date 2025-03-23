@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <article className='page w-full h-full py-10 md:px-4 px-2 bg-gray-50 dark:bg-gray-900'>
+    <article className='page w-full h-full py-10 md:px-4 px-2 bg-gray-50 dark:bg-gray-800'>
       {/* Privacy Policy Page */}
       <section className='intro w-full my-5'>
         <div className='container mx-auto'>
@@ -65,7 +65,7 @@ const page = () => {
           <h2 className="md:text-3xl text-2xl font-semibold text-pink-600">Contact Us</h2>
           <p className='my-4 dark:text-gray-200 text-gray-700 text-justify leading-relaxed'>
             If you have any questions, concerns, or feedback regarding this Privacy Policy or our data practices, please do not hesitate 
-            to reach out to us. You can contact us via email at <a href="mailto:muhammadhasnainghazna@gmail.com" className="text-pink-600 underline">support@example.com</a>. 
+            to reach out to us. You can contact us via email at <a href="mailto:muhammadhasnainghazna@gmail.com" className="text-pink-600 underline">muhammadhasnainghazna@gmail.com</a>. 
             We value your trust and are here to assist you with any inquiries you may have.
           </p>
         </div>
