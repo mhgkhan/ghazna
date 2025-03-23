@@ -30,7 +30,7 @@ const Services = () => {
     useEffect(() => { window.innerWidth == 766 ? setIsMobile(true) : false;
 
 
-        Aos.init()
+        Aos.init({duration:1000})
 
 
     }, [])

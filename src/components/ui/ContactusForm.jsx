@@ -1,10 +1,15 @@
 "use client";
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaPaperPlane } from 'react-icons/fa';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 
 const ContactusForm = () => {
+    useEffect(()=>{
+        Aos.init()
+    })
     const submitMessage = e => {
         e.preventDefault();
         const form = e.target;
@@ -12,7 +17,7 @@ const ContactusForm = () => {
         alert("Message send sucessfully")
     }
     return (
-        <div className="contactus-form md:w-[50%]">
+        <div className="contactus-form md:w-[50%]" data-aos="fade-up" data-aos-duration="1000">
             <h3 className="my-2 text-2xl font-bold dark:text-pink-500 text-pink-700 ">Directly Through Form</h3>
             <p className="dark:text-gray-200 text-gray-600">Send your query directly from here. NOTE: you have only three message attempts</p>
             <form onSubmit={submitMessage} method='post' className="w-full p-2 mt-5">
