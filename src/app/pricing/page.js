@@ -39,14 +39,14 @@ const page = async () => {
           <div className="my-5 w-full flex items-center justify-center flex-wap md:flex-row flex-col gap-5">
             {
               Array.from([
-                { title: "Static Website", features: ["Responsive", "Modren UI", "All pages", "Logic Based"], pricing: {exact:5999, prev: 10000}, image: "" },
-                { title: "Full Stack Website", features: ["Responsive", "Modren UI", "All pages", "Logic Based", "Modren Tech", "Scalable", "User authentication", "On your choice logic", "BMS", "CMS", "Deploy Preview",], pricing: {exact:`upto 2000`, prev: `upto 50000`}, image: "" },
-                { title: "REST API (BACKEND)", features: ["Clean Code", "Your Choice Logic", "Full Secure", "Scalable", "Modren Tech"], pricing: {exact:11999, prev: 15000}, image: "" },
+                { title: "Static Website", features: ["Responsive", "Modren UI", "All pages", "Logic Based"], pricing: {exact:5999, prev: 10000}, image: "/images/services/static.png" },
+                { title: "Full Stack Website", features: ["Responsive", "Modren UI", "All pages", "Logic Based", "Modren Tech", "Scalable", "User authentication", "On your choice logic", "BMS", "CMS", "Deploy Preview",], pricing: {exact:`upto 2000`, prev: `upto 50000`}, image: "/images/services/fullstack.png" },
+                { title: "REST API (BACKEND)", features: ["Clean Code", "Your Choice Logic", "Full Secure", "Scalable", "Modren Tech"], pricing: {exact:11999, prev: 15000}, image: "/images/services/restapi.png" },
 
               ]).map((ele, ind) => {
 
                 return <div key={ind} className="pricing-block my-1 mx-1 rounded-md border border-1 dark:border-gray-300 border-gray-600 w-[300px] p-1 ">
-                  <Image src={"/images/hero.jpg"} width={300} height={300} className='w-full h-[300px] rounded-md' alt='pricing picture' />
+                  <Image src={ele.image} width={300} height={300} className='max-w-full w-auto mx-auto max-h-[200px] h-auto rounded-md' alt='pricing picture' />
 
                   <div className="content px-1 w-full my-2">
                     <h3 className="text-xl font-bold">{ele.title}</h3>
