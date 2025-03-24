@@ -11,7 +11,7 @@ export default function Header() {
 
   useEffect(() => {
     setOpenedNav(false);
-  }, pathname)
+  }, [pathname])
 
   return (
     <header className="md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0 dark:bg-gray-800 bg-pink-600 rounded-md dark:text-white z-50 border border-1 dark:border-gray-400 border-gray-600 ">
