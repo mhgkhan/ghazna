@@ -27,9 +27,11 @@ export default function Header() {
           <button
             onClick={() => setOpenedNav(!openedNav)}
             className="md:hidden hover:bg-gray-100 active:border active:border-1 active:border-black active:border-dotted transition-all duration-200 cursor-pointer w-auto p-3 flex items-center justify-center rounded-md text-3xl text-black bg-white border-none outline-none shadow-md shadow-gray-20"
+            aria-label="Toggle sidebar"
           >
             <RxHamburgerMenu />
           </button>
+
         </div>
 
         {/* navigation area  */}
@@ -56,7 +58,10 @@ export default function Header() {
               }
             )}
           </ul>
-          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white">Login</button>
+          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white" aria-label="Login">
+            Login
+          </button>
+
         </nav>
       </div>
     </header>

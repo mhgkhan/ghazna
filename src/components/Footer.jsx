@@ -9,15 +9,40 @@ export default function Footer() {
           <p className="text-center text-white">Copyright&copy; 2025 <Link href={"/"}>GHAZNA</Link> </p>
           <div className="footer-part flex items-center justify-center flex-col gap-2">
             <div className="pages flex gap-4">
-              <Link href={'/privacy-policy'} className="text-sm text-gray-200 hover:underline">Privacy policy</Link>
-              <Link href={'/termsandconditions'} className="text-sm text-gray-200 hover:underline">Terms & Conditions  </Link>
+              <Link href={'/privacy-policy'} className="text-sm text-white hover:underline">Privacy policy</Link>
+              <Link href={'/termsandconditions'} className="text-sm text-white hover:underline">Terms & Conditions  </Link>
             </div>
           </div>
           <div className="socialmedias flex gap-2">
-            <Link href={"https://github.com/mhgkhan"} className="flex items-center gap-3 text-2xl text-white"><FaGithub /></Link>
-            <Link href={"https://facebook.com/mhghazna"} className="flex items-center gap-3 text-2xl text-white"><FaFacebook /></Link>
-            <Link href={"https://instagram.com/mhghazna"} className="flex items-center gap-3 text-2xl text-white"><FaInstagram /></Link>
-            <Link href={"https://linkedin.com/in/ghaznap"} className="flex items-center gap-3 text-2xl text-white"><FaLinkedin /></Link>
+            <Link
+              href={"https://github.com/mhgkhan"}
+              className="flex items-center gap-3 text-2xl text-white"
+              aria-label="Visit my GitHub profile"
+            >
+              <FaGithub />
+            </Link>
+            <Link
+              href={"https://facebook.com/mhghazna"}
+              className="flex items-center gap-3 text-2xl text-white"
+              aria-label="Visit my Facebook profile"
+            >
+              <FaFacebook />
+            </Link>
+            <Link
+              href={"https://instagram.com/mhghazna"}
+              className="flex items-center gap-3 text-2xl text-white"
+              aria-label="Visit my Instagram profile"
+            >
+              <FaInstagram />
+            </Link>
+            <Link
+              href={"https://linkedin.com/in/ghaznap"}
+              className="flex items-center gap-3 text-2xl text-white"
+              aria-label="Visit my LinkedIn profile"
+            >
+              <FaLinkedin />
+            </Link>
+
           </div>
         </div>
       </div>

@@ -22,15 +22,15 @@ const HeroSection = () => {
                         <div className="md:my-10 my-7 flex items-center justify-start md:gap-10 gap-5">
                             <div className="block">
                                 <h2 className="md:text-3xl text-xl font-bold">3 Years</h2>
-                                <p className="text-gray-500 my-2">Experience</p>
+                                <p className="dark:text-gray-300 text-gray-600 my-2">Experience</p>
                             </div>
                             <div className="block">
                                 <h2 className="md:text-3xl text-xl font-bold">88+</h2>
-                                <p className="text-gray-500 my-2">Clients</p>
+                                <p className="dark:text-gray-300 text-gray-600 my-2">Clients</p>
                             </div>
                             <div className="block">
                                 <h2 className="md:text-3xl text-xl font-bold">10+ Projects</h2>
-                                <p className="text-gray-500 my-2">Completed</p>
+                                <p className="dark:text-gray-300 text-gray-600 my-2">Completed</p>
                             </div>
                         </div>
                     </div>
