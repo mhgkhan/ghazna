@@ -14,28 +14,28 @@ const page = () => {
       </header>
       
       <section className='mb-8'>
-        <h2 className='text-2xl font-semibold mb-4'>Introduction</h2>
+        <h2 className='text-2xl font-semibold mb-4 text-pink-600'>Introduction</h2>
         <p className='text-base leading-relaxed'>
           Welcome to our Terms and Conditions page. By accessing or using our services, you agree to comply with and be bound by the following terms. Please read them carefully.
         </p>
       </section>
       
       <section className='mb-8'>
-        <h2 className='text-2xl font-semibold mb-4'>Use of Our Services</h2>
+        <h2 className='text-2xl font-semibold mb-4 text-pink-600'>Use of Our Services</h2>
         <p className='text-base leading-relaxed'>
           You agree to use our services only for lawful purposes and in a way that does not infringe the rights of others or restrict their use and enjoyment of the services.
         </p>
       </section>
       
       <section className='mb-8'>
-        <h2 className='text-2xl font-semibold mb-4'>Intellectual Property</h2>
+        <h2 className='text-2xl font-semibold mb-4 text-pink-600'>Intellectual Property</h2>
         <p className='text-base leading-relaxed'>
           All content, trademarks, and data on this website, including but not limited to text, graphics, and logos, are the property of their respective owners and are protected by applicable laws.
         </p>
       </section>
       
       <section className='mb-8'>
-        <h2 className='text-2xl font-semibold mb-4'>Limitation of Liability</h2>
+        <h2 className='text-2xl font-semibold mb-4 text-pink-600'>Limitation of Liability</h2>
         <p className='text-base leading-relaxed'>
           We are not liable for any damages arising from the use or inability to use our services. This includes, but is not limited to, direct, indirect, incidental, or consequential damages.
         </p>
