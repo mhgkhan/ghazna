@@ -36,7 +36,7 @@ const Services = () => {
     }, [])
     // alert(height)
     return (
-        <section className="my-10 w-full" id="servicessection">
+        <section className="my-10 w-full overflow-x-hidden" id="servicessection">
             <div className="container mx-auto">
                 <HeadingSection start={"My"} end={"Services"} />
 
