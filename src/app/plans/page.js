@@ -20,7 +20,7 @@ const page = async () => {
 
       <section className="w-full my-5">
         <div className='container mx-auto'>
-          <HeadingSection start={"Pricing For"} end={"Web Development"} />
+          <HeadingSection start={"Plans For"} end={"Web Development"} />
           <p className='my-2 text-center dark:text-gray-200 text-gray-700'>
             Explore our transparent and competitive pricing options designed to deliver value and quality.
           </p>
@@ -75,6 +75,7 @@ const page = async () => {
                         <span className="dark:text-gray-400 line-through text-sm">PKR {ele.pricing.prev}</span>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
               })

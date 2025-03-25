@@ -46,7 +46,7 @@ export default function Header() {
             } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
-            {Array.from([{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "pricing", link: "/pricing" }, { title: "blog", link: "/blog" }]).map(
+            {Array.from([{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "plans", link: "/plans" }, { title: "blog", link: "/blog" }]).map(
               (ele, ind) => {
                 return (
                   <li
