@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function Header() {
   const [openedNav, setOpenedNav] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     setOpenedNav(false);
@@ -19,7 +20,9 @@ export default function Header() {
 
         {/* logo area  */}
         <div className="logo-area flex items-center justify-between gap-2 md:w-auto w-full">
-          <div className="px-3 logo border-1 border-r  border-gray-400 flex items-center justify-center gap-1">
+          <div className="px-3 logo border-1 border-r  border-gray-400 flex items-center justify-center gap-1 cursor-pointer" onClick={()=>{
+            router.push("/");
+          }}>
             <div className="logo-1 flex items-center justify-center text-5xl">
               <span className="[text-shadow:1px_1px_0px_rgba(120,80,80,.5)]">
                 G
@@ -64,7 +67,7 @@ export default function Header() {
               }
             )}
           </ul>
-          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white" aria-label="Login">
+          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white cursor-pointer" aria-label="Login" onClick={()=>router.push("/login")}>
             Login
           </button>
 
