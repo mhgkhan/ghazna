@@ -30,44 +30,44 @@ export const metadata = {
   author: "Muhammad Hasnain Ghazna",
   publisher: "Ghazna Dev",
   robots: "index, follow",
-  og: {
-    title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
-    description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
-    image: "/images/hero.jpg",
-    url: "https://ghazna.dev",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
-    description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
-    image: "/images/hero.jpg",
-    site: "@ghaznadev",
-  },
-  viewport: "width=device-width, initial-scale=1.0",
-  // themeColor: "#ffffff",
-  graphc: {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
-    url: "https://ghazna.dev",
-    description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
-    publisher: {
-      "@type": "Person",
-      name: "Muhammad Hasnain Ghazna",
-    },
-    image: {
-      "@type": "ImageObject",
-      url: "/images/hero.jpg",
-      width: 1200,
-      height: 630,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://ghazna.dev/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-  },
+  // og: {
+  //   title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+  //   description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
+  //   image: "/images/hero.jpg",
+  //   url: "https://ghazna.dev",
+  //   type: "website",
+  // },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+  //   description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
+  //   image: "/images/hero.jpg",
+  //   site: "@ghaznadev",
+  // },
+  // viewport: "width=device-width, initial-scale=1.0",
+  // // themeColor: "#ffffff",
+  // graphc: {
+  //   "@context": "https://schema.org",
+  //   "@type": "WebSite",
+  //   name: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+  //   url: "https://ghazna.dev",
+  //   description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
+  //   publisher: {
+  //     "@type": "Person",
+  //     name: "Muhammad Hasnain Ghazna",
+  //   },
+  //   image: {
+  //     "@type": "ImageObject",
+  //     url: "/images/hero.jpg",
+  //     width: 1200,
+  //     height: 630,
+  //   },
+  //   potentialAction: {
+  //     "@type": "SearchAction",
+  //     target: "https://ghazna.dev/search?q={search_term_string}",
+  //     "query-input": "required name=search_term_string",
+  //   },
+  // },
 };
 
 export default function RootLayout({ children }) {
@@ -89,35 +89,3 @@ export default function RootLayout({ children }) {
   );
 }
 
-export async function generateRobotsTxt() {
-  return `User-agent: *
-Disallow:
-
-Sitemap: https://ghazna.dev/sitemap.xml`;
-}
-
-export async function generateSitemap() {
-  const baseUrl = "https://ghazna.dev";
-  const staticPaths = [
-    "/",
-    "/about",
-    "/portfolio",
-    "/blog",
-    "/contact",
-  ];
-
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${staticPaths
-    .map(
-      (path) => `
-  <url>
-    <loc>${baseUrl}${path}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`
-    )
-    .join("")}
-</urlset>`;
-}
