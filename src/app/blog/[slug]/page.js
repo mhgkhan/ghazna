@@ -11,7 +11,7 @@ const page = async ({ params }) => {
         <article className='min-h-screen'>
             <section role='banner' className="my-5">
                 <div className='container mx-auto sm:px-2 flex lg:flex-row flex-col items-start justify-center gap-10  '>
-                    <div className='content lg:w-[70%] w-full lg:border lg:border-1 lg:border-gray-300 rounded-md'>
+                    <div className='content lg:w-[70%] w-full sm:px-2'>
                         <div className='header w-full relative max-h-[400px] h-[300px]'>
                             <div className="image-blog w-full h-full">
                                 <Image src={"/images/services/fullstack.png"} alt='blog-picture' width={600} height={400} className='relative max-w-full max-h-full object-cover object-center' />
@@ -43,10 +43,10 @@ const page = async ({ params }) => {
                         </div>
 
                     </div>
-                    <aside className='lg:w-[28%] w-full lg:border lg:border-1 lg:border-gray-300 rounded-md py-5'>
+                    <aside className='lg:w-[28%] w-full lg:border lg:border-1 lg:border-gray-300 rounded-md py-5 '>
                         <h2 className='lg:mx-auto lg:text-center mx-2 text-left font-bold text-2xl'> Related Articles </h2>
 
-                        <div className='relatedArticlesContainer flex items-center justify-center gap-2 lg:flex-col flex-row flex-wrap my-5 lg:px-2'>
+                        <div className='relatedArticlesContainer flex items-center justify-center gap-2 lg:flex-col flex-row flex-wrap my-5 lg:px-2 px-1'>
                             {
                                 Array.from([1, 2, 3, 4, 5, 6, 7, 8]).map((ele, ind) => {
                                     return <div key={ind} className='related-block lg:w-full w-auto flex items-center justify-start gap-3 border border-1 border-gray-500 rounded-md px-2'>
