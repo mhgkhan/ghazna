@@ -13,11 +13,11 @@ const page = () => {
         </div>
       </section>
 
-      <section className="blogs-container container mx-auto my-5 px-3 flex items-center justify-center gap-5 flex-wrap">
+      <section className="blogs-container container mx-auto my-5 px-3 flex items-center justify-center md:gap-5 gap-2 flex-wrap">
 
         {
           Array.from([1, 2, 3, 4, 5]).map((ele, ind) => {
-            return <div key={ind} className="blog-card md:w-[300px] w-[98%]  my-2 rounded-md shadow-md dark:shadow-gray-900 shadow-gray-300 p-1 md:h-[300px] h-auto border border-1 border-gray-400 ">
+            return <div key={ind} className="blog-card md:w-[300px] w-[98%]  md:my-2 my-1 rounded-md shadow-md dark:shadow-gray-900 shadow-gray-300 p-1 md:h-[300px] h-auto border border-1 border-gray-400 ">
               <Link href="/blog/ghaznakhan">
                 <div className="Image-area w-full h-[180px] border border-1 border-gray-300 dark:border-gray-500 rounded-md">
                   <Image src="/images/services/fullstack.png" width={"350"} height={200} alt='Blog-Slug-picture' className='w-full h-full object-cover object-center rounded-md' ></Image>
