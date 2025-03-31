@@ -17,9 +17,9 @@ const page = () => {
 
         {
           Array.from([1, 2, 3, 4, 5]).map((ele, ind) => {
-            return <div key={ind} className="blog-card md:w-[300px] w-[98%]  my-2 rounded-md shadow-md shadow-gray-900 p-1 md:h-[300px] h-auto border border-1 dark:border-gray-400 border-gray-600 ">
+            return <div key={ind} className="blog-card md:w-[300px] w-[98%]  my-2 rounded-md shadow-md dark:shadow-gray-900 shadow-gray-300 p-1 md:h-[300px] h-auto border border-1 border-gray-400 ">
               <Link href="https://mhgkhanp.netlify.app">
-                <div className="Image-area w-full h-[180px] border border-1 border-gray-600 dark:border-gray-400 rounded-md">
+                <div className="Image-area w-full h-[180px] border border-1 border-gray-300 dark:border-gray-500 rounded-md">
                   <Image src="/images/services/fullstack.png" width={"350"} height={200} alt='Blog-Slug-picture' className='w-full h-full object-cover object-center rounded-md' ></Image>
                 </div>
                 <div className="content-area px-2 py-2">
