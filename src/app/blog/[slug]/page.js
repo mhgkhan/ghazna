@@ -38,8 +38,8 @@ const page = async ({ params }) => {
                             </div>
                         </div>
 
-                        <div className='blogpost-content px-1 py-5'>
-                            here is the content of the blog 
+                        <div className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{__html: `<h1> Hello world </h1>`}}>
+                            
                         </div>
 
                     </div>
