@@ -8,8 +8,8 @@ const page = () => {
     <article className="min-h-screen">
       <section role="heading" className="w-full">
         <div className="container mx-auto">
-          <h1 className="md:p-auto p-5 text-4xl font-bold">Blog</h1>
-          <p className="md:p-auto p-5 my-2 text-gray-700 dark:text-gray-200">Explore the latest articles and tutorials on modern web development technologies.</p>
+          <h1 className="md:p-auto px-5 py-4 text-4xl font-bold">Blog</h1>
+          <p className="md:p-auto px-5 my-2 text-gray-700 dark:text-gray-200">Explore the latest articles, tutorials and news on current world.</p>
         </div>
       </section>
 
