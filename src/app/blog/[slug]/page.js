@@ -4,8 +4,8 @@ import React from 'react'
 import { FaBookOpen, FaCalendar, FaHeart } from 'react-icons/fa';
 
 const page = async ({ params }) => {
-    const parm = await params;
-    const { slug } = parm;
+    // const parm = await params;
+    // const { slug } = parm;
 
     return (
         <article className='min-h-screen'>
