@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { FaBookOpen, FaCalendar } from 'react-icons/fa';
+import { FaBookOpen, FaCalendar, FaHeart } from 'react-icons/fa';
 
 const page = async ({ params }) => {
     const parm = await params;
@@ -17,7 +17,7 @@ const page = async ({ params }) => {
                                 <Image src={"/images/services/fullstack.png"} alt='blog-picture' width={600} height={400} className='relative max-w-full max-h-full object-cover object-center' />
                                 <div className="rounded-md dark:bg-[#e7e3e3c2] bg-[#5f5c5cc5] title-area-head-blog absolute bottom-0 w-full h-auto p-5">
                                     <h1 className='lg:text-4xl md:text-2xl text-xl dark:text-black text-white font-bold'>
-                                        HOW TO CREATE A WEBSITE USING HTML CSS AND JS
+                                        WELCOEM TO THE GHAZNA BLOGPOST PAGE,
                                     </h1>
                                 </div>
                             </div>
@@ -38,8 +38,29 @@ const page = async ({ params }) => {
                             </div>
                         </div>
 
-                        <div className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{__html: `<h1> Hello world </h1>`}}>
-                            
+                        <div id="blogpost-content" className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{
+                            __html: `
+                            <h1 > HI, & NOTE: THIS WEBSITE IS UNDER DEVELOPMENT, SO PLEASE WAIT FOR TO COMPLETION  </h1>
+                            <br />
+                            <br />
+                            <a href="mailto:muhammadhasnainghazna@gmail.com"> Contact us </a> for contributions.                            
+                          ` }}>
+
+                        </div>
+
+                        <div className="my-5 px-2 bl">
+                            <div className="actions-buttons flex items-center justify-center gap-5 w-full">
+                                <button className="p-2 font-bold text-center border-none bg-blue-600 md:w-[45%] w-full flex items-center justify-center gap-2">Like</button>
+                                {/* <button className="p-2 font-bold text-center border-none bg-blue-600 w-[45%]">Dislike</button> */}
+                            </div>
+                            <div className="my-5">
+                                <form>
+                                    <h2 className='md:text-2xl text-xl my-5'>Leave your query </h2>
+                                    <label htmlFor="message" className='italic'>Type your comment.</label>
+                                    <textarea rows={7} name='comment' id='message' required minLength={5} maxLength={500} autoComplete="off" className='w-full p-2  border-none rounded-md my-2 dark:bg-gray-700 focus:border-dotted focus:border-2 bg-white dark:focus:bg-gray-600 focus:gray-300 bg-none border border-1 border-gray-500 outline-none' placeholder='Type...'></textarea>
+                                    <button type="submit" className='w-auto p-3 rounded-md border-none bg-blue-600 font-bold text-center hover:bg-blue-500'>Submit</button>
+                                </form>
+                            </div>
                         </div>
 
                     </div>
@@ -58,7 +79,6 @@ const page = async ({ params }) => {
                                 })
                             }
                         </div>
-
                     </aside>
                 </div>
             </section>

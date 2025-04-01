@@ -59,5 +59,36 @@ h6 {
 
 .title-area-head-blog{
   background: #5f5c5cc5;
+}
 
+
+.blogpost-content a{
+  text-decoration: underline !important;
+  color:blue !important;
+}
+.blogpost-content h1{
+ font-size: 2rem !important;
+ margin: .7rem 0px !important;
+}
+.blogpost-content:has(h2,h3,h4,h6){
+  margin: .7rem 0px !important;
+}
+
+.blogpost-content h2{
+  font-size: 1.5rem !important;
+}
+
+.blogpost-content h3{
+  font-size: 1.3rem !important;
+}
+.blogpost-content h4{
+  font-size: 1rem !important;
+}
+
+
+ 
+@media screen and (max-width:700px){
+  #blogpost-content:has(h1,h2,h3,h4){
+    font-size: 80% !important;
+  }
 }

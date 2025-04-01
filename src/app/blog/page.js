@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaComment, FaEye, FaHeart, FaMehRollingEyes } from 'react-icons/fa'
+import { FaComment, FaComments, FaEye, FaHeart, FaMehRollingEyes } from 'react-icons/fa'
 
 const page = () => {
   return (
@@ -26,17 +26,20 @@ const page = () => {
                   <h3 className='text-xl font-bold'> How to create a software without coding/AI How?</h3>
                 </div>
                 <div className='blog-card-footer px-3 w-full flex items-center justify-between py-1 pt-2 gap-7 border-1 border-t border-gray-500'>
-                  <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-2">
-                    <span className="text-2xl"><FaEye /></span> <span className='text-sm'>300+ Views </span>
+                  <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
+                    <span className="text-2xl"><FaHeart /></span> <span className='text-sm'>300+</span>
                   </div>
-                  <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-2">
-                    <span className="text-2xl"><FaHeart /></span> <span className='text-sm'>300+ Likes </span>
+                  <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
+                    <span className="text-2xl"><FaComments /></span> <span className='text-sm'>200+</span>
+                  </div>
+                  <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
+                    <span className="text-2xl"><FaEye /></span> <span className='text-sm'>300+ </span>
                   </div>
                 </div>
-              </Link>
+              </Link> 
             </div>
           })
-        }
+        } 
 
 
       </section>
