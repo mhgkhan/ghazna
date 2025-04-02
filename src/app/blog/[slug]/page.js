@@ -50,7 +50,7 @@ const page = async ({ params }) => {
 
                         <div className="my-5 px-2 bl">
                             <div className="actions-buttons flex items-center justify-center gap-5 w-full">
-                                <button className="p-2 font-bold text-center border-none bg-blue-600 md:w-[45%] w-full flex items-center justify-center gap-2">Like</button>
+                                <button className="p-2 font-bold text-center border-none bg-blue-600 md:w-[45%] w-full flex items-center justify-center gap-2 dark:text-white text-black">Like</button>
                                 {/* <button className="p-2 font-bold text-center border-none bg-blue-600 w-[45%]">Dislike</button> */}
                             </div>
                             <div className="my-5">
@@ -58,7 +58,7 @@ const page = async ({ params }) => {
                                     <h2 className='md:text-2xl text-xl my-5'>Leave your query </h2>
                                     <label htmlFor="message" className='italic'>Type your comment.</label>
                                     <textarea rows={7} name='comment' id='message' required minLength={5} maxLength={500} autoComplete="off" className='w-full p-2  border-none rounded-md my-2 dark:bg-gray-700 bg-gray-300 focus:border-dotted focus:border-2  dark:focus:bg-gray-600 focus:gray-300 bg-none border border-1 border-gray-500 outline-none' placeholder='Type...'></textarea>
-                                    <button type="submit" className='w-auto p-3 rounded-md border-none bg-blue-600 font-bold text-center hover:bg-blue-500'>Submit</button>
+                                    <button type="submit" className='w-auto p-3 rounded-md border-none bg-blue-600 font-bold text-center hover:bg-blue-500 dark:text-white text-black'>Submit</button>
                                 </form>
                                 <div className="mt-10 comments">
                                     <h3 className="md:text-2xl my-5 text-xl">Comments </h3>
