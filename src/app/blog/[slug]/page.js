@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { FaBookOpen, FaCalendar, FaHeart } from 'react-icons/fa';
+import { FaBookOpen, FaCalendar, FaHeart, FaUserCircle } from 'react-icons/fa';
 
 const page = async ({ params }) => {
     // const parm = await params;
@@ -17,7 +17,7 @@ const page = async ({ params }) => {
                                 <Image src={"/images/services/fullstack.png"} alt='blog-picture' width={600} height={400} className='relative max-w-full max-h-full object-cover object-center' />
                                 <div className="rounded-md dark:bg-[#e7e3e3c2] bg-[#5f5c5cc5] title-area-head-blog absolute bottom-0 w-full h-auto p-5">
                                     <h1 className='lg:text-4xl md:text-2xl text-xl dark:text-black text-white font-bold'>
-                                        WELCOEM TO THE GHAZNA BLOGPOST PAGE,
+                                        WELCOME TO THE GHAZNA BLOGPOST PAGE,
                                     </h1>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@ const page = async ({ params }) => {
                             </div>
                         </div>
 
-                        <div id="blogpost-content" className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{
+                        <article id="blogpost-content" className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{
                             __html: `
                             <h1 > HI, & NOTE: THIS WEBSITE IS UNDER DEVELOPMENT, SO PLEASE WAIT FOR TO COMPLETION  </h1>
                             <br />
@@ -46,7 +46,7 @@ const page = async ({ params }) => {
                             <a href="mailto:muhammadhasnainghazna@gmail.com"> Contact us </a> for contributions.                            
                           ` }}>
 
-                        </div>
+                        </article>
 
                         <div className="my-5 px-2 bl">
                             <div className="actions-buttons flex items-center justify-center gap-5 w-full">
@@ -54,12 +54,33 @@ const page = async ({ params }) => {
                                 {/* <button className="p-2 font-bold text-center border-none bg-blue-600 w-[45%]">Dislike</button> */}
                             </div>
                             <div className="my-5">
-                                <form>
+                                <form className='my-5'>
                                     <h2 className='md:text-2xl text-xl my-5'>Leave your query </h2>
                                     <label htmlFor="message" className='italic'>Type your comment.</label>
-                                    <textarea rows={7} name='comment' id='message' required minLength={5} maxLength={500} autoComplete="off" className='w-full p-2  border-none rounded-md my-2 dark:bg-gray-700 focus:border-dotted focus:border-2 bg-white dark:focus:bg-gray-600 focus:gray-300 bg-none border border-1 border-gray-500 outline-none' placeholder='Type...'></textarea>
+                                    <textarea rows={7} name='comment' id='message' required minLength={5} maxLength={500} autoComplete="off" className='w-full p-2  border-none rounded-md my-2 dark:bg-gray-700 bg-gray-300 focus:border-dotted focus:border-2  dark:focus:bg-gray-600 focus:gray-300 bg-none border border-1 border-gray-500 outline-none' placeholder='Type...'></textarea>
                                     <button type="submit" className='w-auto p-3 rounded-md border-none bg-blue-600 font-bold text-center hover:bg-blue-500'>Submit</button>
                                 </form>
+                                <div className="mt-10 comments">
+                                    <h3 className="md:text-2xl my-5 text-xl">Comments </h3>
+                                    {
+                                        Array.from([1, 2, 3, 4, 5]).map((ele, ind) => {
+                                            return <div key={ind} className="my-5 comment w-full px-2 rounded-sm border-b border-1 border-dotted border-gray-500 py-2">
+                                                <div className="comment-header flex items-center justify-between gap-5 my-">
+                                                    <div className="flex items-end justify-center gap-2">
+                                                        <FaUserCircle className='text-2xl' />
+                                                        <span className="text-sm dark:text-gray-200 text-gray-600">MHGKHAN</span>
+                                                    </div>
+                                                    <div className='flex items-end justify-center gap-2'>
+                                                        <FaCalendar className='text-2xl' />
+                                                        <span className="text-sm dark:text-gray-200 text-gray-600">12/12/2024</span>
+                                                    </div>
+                                                </div>
+                                                <p className='mt-2 px-2'>this is the comment on this BLOGPOSTthis is the comment on this BLOGPOSTthis is the comment on this BLOGPOST</p>
+                                            </div>
+
+                                        })
+                                    }
+                                </div>
                             </div>
                         </div>
 
