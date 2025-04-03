@@ -6,7 +6,7 @@ const page = () => {
     return (
         <article className="min-h-screen">
             <section className="w-full">
-                <div className="md:w-[50%] w-[95%] mx-auto my-5 border-2 border-dotted border-white rounded-md p-4" >
+                <div className="md:w-[50%] w-[95%] mx-auto my-5 rounded-md p-4" >
                     <h1 className="text-4xl font-bold">Register</h1>
                     <p className="my-2 text-gray-700 dark:text-gray-200">Welcome, create a new account for free with your valid credientials.</p>
 
