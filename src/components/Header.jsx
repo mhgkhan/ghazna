@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-export default function Header() {
+export default function Header({isLogged}) {
   const [openedNav, setOpenedNav] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -67,9 +67,13 @@ export default function Header() {
               }
             )}
           </ul>
-          <button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white cursor-pointer" aria-label="Login" onClick={()=>router.push("/login")}>
+          {
+            isLogged?<button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white cursor-pointer" aria-label="Login" onClick={()=>router.push("/login")}>
+            Logout
+          </button>:<button className="p-2 dark:bg-white bg-black rounded-md border-none dark:text-black text-white cursor-pointer" aria-label="Login" onClick={()=>router.push("/login")}>
             Login
           </button>
+          }
 
         </nav>
       </div>
