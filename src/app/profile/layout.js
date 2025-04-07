@@ -1,5 +1,3 @@
-// import Header from "@/components/Header";
-
 import Footer from "@/components/Footer";
 import ProfileSidebar from "@/components/ui/profile/ProfileSidebar";
 
@@ -21,4 +19,3 @@ export default async function ProfileRootLayout({ children }) {
         </html>
     </>
 }
-
