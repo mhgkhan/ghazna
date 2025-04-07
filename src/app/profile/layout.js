@@ -1,16 +1,24 @@
 // import Header from "@/components/Header";
 
+import Footer from "@/components/Footer";
 import ProfileSidebar from "@/components/ui/profile/ProfileSidebar";
 
 
 export default async function ProfileRootLayout({ children }) {
     return <>
-        <div className="flex items-center justify-between w-full my-5 h-full gap-5 relative">
-           <ProfileSidebar />
-            <article className="w-full bg-blue-900 p-2 relative">
-                {children}
-            </article>
-        </div>
+        <html lang="en" className="dark:text-white text-black">
+            <body>
+                <main className="min-h-screen bg-gray-100 dark:bg-gray-800 text-black dark:text-white">
+                    <div className="flex items-start justify-between w-full h-full md:gap-3 gap-1 relative">
+                        <ProfileSidebar />
+                        <article className="w-full h-full bg-gray-900 p-2 relative py-5 rounded-md">
+                            {children}
+                        </article>
+                    </div>
+                    <Footer />
+                </main>
+            </body>
+        </html>
     </>
 }
 
