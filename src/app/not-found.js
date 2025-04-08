@@ -16,11 +16,7 @@ const notFound = () => {
                         <h2 className='text-2xl font-bold text-center mx-auto'>Quick Links</h2>
                         <div className="links flex items-center justify-center gap-5 flex-wrap my-2">
                           <Link href="/" className="text-blue-500 font-bold flex items-center justify-center flex-col gap-2 p-2"><span className="text-xl dark:text-white text-black"><FaHome /> </span>HOME</Link>
-                          <Link href="/" className="text-blue-500 font-bold flex items-center justify-center flex-col gap-2 p-2"><span className="text-xl dark:text-white text-black"><FaHome /> </span>HOME</Link>
-                          <Link href="/" className="text-blue-500 font-bold flex items-center justify-center flex-col gap-2 p-2"><span className="text-xl dark:text-white text-black"><FaHome /> </span>HOME</Link>
-                          <Link href="/" className="text-blue-500 font-bold flex items-center justify-center flex-col gap-2 p-2"><span className="text-xl dark:text-white text-black"><FaHome /> </span>HOME</Link>
-                          <Link href="/" className="text-blue-500 font-bold flex items-center justify-center flex-col gap-2 p-2"><span className="text-xl dark:text-white text-black"><FaHome /> </span>HOME</Link>
-                        </div>
+                          {/* <Link href="/about" className="text-blue-500 font-bold flex items-center justify-center flex-col gap-2 p-2"><span className="text-xl dark:text-white text-black"><FaHome /> </span>ABOUT</Link> */}
                     </div>
                 </div>
             </div>
