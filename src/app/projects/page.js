@@ -5,8 +5,8 @@ const page = () => {
     return (
         <article>
             <header className="projects-header py-5 px-3 my-5">
-                <h1 className='md:text-3xl text-xl font-bold my-3'>My Projects/Previus work/ Archaive </h1>
-                <p className='dark:text-gray-200 text-gray-600'>blablablablabla</p>
+                <h1 className='text-4xl font-bold my-3'>My Projects/Previous work/ Archive </h1>
+                <p className='dark:text-gray-200 text-gray-600'>Explore a collection of my past projects, showcasing creativity, problem-solving, and technical expertise.</p>
             </header>
 
             <div className="my-5 p-2 flex items-center justify-center  flex-wrap">
