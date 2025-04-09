@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const page = () => {
@@ -10,20 +11,24 @@ const page = () => {
             </header>
 
             <div className="my-5 p-2 flex items-center justify-center  flex-wrap">
-                {Array.from([0,1,2,34374,3833,3,3,2,23,3,3,2,3,3,2,3,2,3,32,24,3,2,2,34,3,3,2,223,2,3,2,3,43,2,23,3,32,3,3,3,3,3,3,3,]).map((ele, ind) => {
-                    return <div key={ind} className="project-block border border-1 border-gray-500 border-dotted border-t-0 px-4 py-3 md:w-[400px] md:h-[300px] h-auto w-full">
+                {Array.from([
+                    { title: "Ghazna Programmar", subtitle: "My previous Portfolio & Blog website.", year: "2024", image: "/images/projects/ghazaprogrammar.png", link: "https://mhgkhanp.netlify.app/" },
+                    { title: "Ghazna Shop", subtitle: "An Ecommerce Project with all functionalities.", year: "2024", image: "/images/projects/ghaznashop.png", link: "https://ghazna.shop/" },
+                    { title: "KSTP", subtitle: "Khyber Stdents Testing Portal.", year: "2024", image: "/images/projects/kstp.png", link: "https://ghazna.shop/" },
+                    { title: "GH Urlshortner", subtitle: "A fullstack URL Shortner Project", year: "2023", image: "/images/projects/usgh.png", link: "https://usgh.netlify.app/" },
+                ]).map((ele, ind) => {
+                    return <Link href={ele.link} key={ind} className="project-block border border-1 border-gray-500 border-dotted border-t-0 px-4 py-3 md:w-[400px] md:h-[300px] h-auto w-full">
                         <div className="w-full h-[195px]">
-                            <Image src={"/images/website.jpg"} alt="alternate" width={300} height={250} className='rounded-md w-full h-full object-fill object-center' />
+                            <Image src={ele.image} alt="alternate" width={300} height={250} className='rounded-md w-full h-full object-fill object-center' />
                         </div>
                         <div className="proejct-content border-1 border-b border-b-1 border-gray-600 p-1">
-                            <h3 className="text-lg font-bold">Title of the project </h3>
-                            <p className='text-sm dark:text-gray-300 text-gray-700 my-1'>Some text about the upepr project.</p>
+                            <h3 className="text-lg font-bold">{ele.title}</h3>
+                            <p className='text-sm dark:text-gray-300 text-gray-700 my-1'>{ele.subtitle}</p>
                         </div>
-                        <span className='text-sm text-gray-600 dark:text-gray-300 px-2'>2025</span>
-                    </div>
+                        <span className='text-sm text-gray-600 dark:text-gray-300 px-2'>{ele.year}</span>
+                    </Link>
                 })}
             </div>
-
         </article>
     )
 }
