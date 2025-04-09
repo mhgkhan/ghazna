@@ -75,6 +75,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
         <meta name="apple-mobile-web-app-title" content="Ghazna Dev" />
+        <meta name="google-site-verification" content="aEOz-kvCP4vwXvUH4LYGzWDDpM_kvPkPXUOiU284dyo" />
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
