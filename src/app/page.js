@@ -11,25 +11,20 @@ export default function Home() {
 
   return (
     <article className="page">
-
       {/* Hero Section  */}
       <HeroSection />
       {/* services section  */}
       <Services />
-     
       {/* contact section  */}
       <section className="contact my-10 w-full">
         <div className="container mx-auto">
           <HeadingSection start={"Contact"} end={"Us"} />
           <div className="my-5 flex items-start justify-center gap-5 p-3 md:flex-row flex-col-reverse w-full">
-
             {/* social media icons section  */}
             <div className="social-medias md:w-[50%]">
               <h3 className="my-2 text-2xl font-bold dark:text-white text-gray-900 ">Through Social Media</h3>
               <p className="dark:text-gray-200 text-gray-600">Contact with me on online social media platforms.</p>
-
               <div className="accounts mt-5 flex items-center justify-start flex-wrap gap-2 w-full">
-
                 {
                   Array.from([
                     { icon: <FaTwitter />, text: "@mhghazna", link: "https://x.com/mhghazna", color: "text-blue-500" },
@@ -45,16 +40,10 @@ export default function Home() {
                     </div>
                   })
                 }
-
               </div>
-
             </div>
-
-
-
             {/* contact us form section  */}
             <ContactusForm />
-
           </div>
         </div>
       </section>
