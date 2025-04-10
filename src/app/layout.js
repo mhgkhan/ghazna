@@ -17,12 +17,12 @@ const headingsFont = Poppins({
 
 export const metadata = {
   title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
-  description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
+  description: "Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technology Javascript and their frameworks like NextJs, ReactJs, TailwindCSS, Nodejs, ExpressJs etc.",
   image: "/images/hero.jpg",
   url: "https://ghazna.dev",
   type: "website",
   keywords: [
-    "ghazna", "ghazna.dev", "ghazna dev", "hasnain", "hasnain ghazna", 
+    "ghazna", "ghazna.dev", "ghazna dev","muhammad hasnain", "ghazna khan", "hasnain", "hasnain ghazna", 
     "hasnain dev", "hasnain ghazna dev", "Muhammad Hasnain Ghazna", 
     "Web Developer", "Fullstack Developer", "React Developer", 
     "JavaScript Developer", "Portfolio", "Web Development Blog"
