@@ -9,12 +9,12 @@ import Aos from 'aos';
 const Services = () => {
 
     const [leftServices, setLeftServices] = useState([
-        { title: "Web Development", link: "/plans" },
+        { title: "Web Development", link: "/plans/webdevelopment/" },
         { title: "Data Entry", link: "/plans/dataentry" },
     ]);
     const [rightServices, setRightServices] = useState([
         { title: "Graphic Designing", link: "/plans/graphicdesigning" },
-        { title: "Printing Studio" , link:"/plans/printings"},
+        { title: "Printing Studio" , link:"/plans/printing"},
     ]);
 
     // const [services, setServices] = useState([
