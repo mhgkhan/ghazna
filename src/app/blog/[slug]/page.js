@@ -23,7 +23,7 @@ const page = async ({ params }) => {
     
 
     return (
-        <article className='min-h-screen'>
+        <article className='min-h-screen md:p-0 px-2' >
             <section role='banner' className="my-5">
                 <div className='container mx-auto sm:px-2 flex lg:flex-row flex-col items-start justify-center gap-10  '>
                     <div className='content lg:w-[70%] w-full sm:px-2'>
