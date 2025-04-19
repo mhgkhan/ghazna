@@ -16,6 +16,9 @@ const BlogPostHeader = ({title, views}) => {
                     </h1>
                 </div>
             </div>
+            <div className='blog-post-description px-2 pl-4 py-2 border-l-4 border-gray-500 rounded-md my-2 dark:text-gray-300 text-gray-600'>
+                <p className='italic md:text-lg text-sm dark:text-gray-400 text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.</p>    
+            </div>
             <div className='w-full flex items-center justify-between gap-3 p-2'>
                 <div className='flex items-start justify-between flex-wrap gap-2'>
                     <Image src={"/web-app-manifest-192x192.png"} width={20} height={20} alt='user picture' className='w-[30px] h-[30px] rounded-full' />
