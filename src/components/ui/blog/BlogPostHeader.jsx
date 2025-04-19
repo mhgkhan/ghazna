@@ -6,9 +6,9 @@ import { FaBookOpen, FaCalendar } from 'react-icons/fa'
 const BlogPostHeader = ({title, views}) => {
     return (
         <>
-            <div className='header w-full relative max-h-[400px] h-[300px]'>
+            <div className='header relative max-h-[400px] h-[300px] max-w-full w-auto'>
                 <div className="image-blog w-full h-full">
-                    <Image src={"/images/website.jpg"} alt='blog-picture' width={600} height={400} className='relative max-w-full max-h-full object-cover object-center' />
+                    <Image src={"https://i.ibb.co/ZpKcCwWm/pexels-pixabay-158826.jpg"} alt='blog-picture' width={600} height={400} className='relative max-w-full max-h-full object-cover object-center' />
                 </div>
                 <div className="rounded-md dark:bg-[#e7e3e3c2] bg-[#5f5c5cc5] title-area-head-blog absolute bottom-0 w-full h-auto p-5">
                     <h1 className='lg:text-4xl md:text-2xl text-xl dark:text-black text-white font-bold'>
@@ -17,7 +17,8 @@ const BlogPostHeader = ({title, views}) => {
                 </div>
             </div>
             <div className='blog-post-description px-2 pl-4 py-2 border-l-4 border-gray-500 rounded-md my-2 dark:text-gray-300 text-gray-600'>
-                <p className='italic md:text-lg text-sm dark:text-gray-400 text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.</p>    
+                <p className='italic md:text-lg text-sm dark:text-gray-400 text-gray-600'>
+                This blog dives into the fascinating intersection of technology and history, exploring how artificial intelligence is reshaping efforts to decode, preserve, and revive ancient languages and scripts. It highlights the potential of AI to connect modern society with the rich heritage of the past.</p>    
             </div>
             <div className='w-full flex items-center justify-between gap-3 p-2'>
                 <div className='flex items-start justify-between flex-wrap gap-2'>
