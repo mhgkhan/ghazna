@@ -4,6 +4,14 @@ import React from 'react'
 import DOMPurify from 'dompurify';
 
 const BlogPostContent = ({ body, title }) => {
+
+    const pureHtml = DOMPurify.sanitize(body, {
+        USE_PROFILES: { html: true },
+        // ADD_ATTR: ['target', 'rel'],
+        // FORBID_TAGS: ['script', 'iframe'],
+        // FORBID_ATTR: ['style', 'onerror', 'onclick']
+    })
+
     return (
         <article id="blogpost-content" className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{
             __html: `
