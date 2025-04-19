@@ -5,16 +5,16 @@ import DOMPurify from 'dompurify';
 
 const BlogPostContent = ({ body, title }) => {
 
-    const pureHtml = DOMPurify.sanitize(body, {
-        USE_PROFILES: { html: true },
-        // ADD_ATTR: ['target', 'rel'],
-        // FORBID_TAGS: ['script', 'iframe'],
-        // FORBID_ATTR: ['style', 'onerror', 'onclick']
-    })
+    // const pureHtml = DOMPurify.sanitize(body, {
+    //     USE_PROFILES: { html: true },
+    //     // ADD_ATTR: ['target', 'rel'],
+    //     // FORBID_TAGS: ['script', 'iframe'],
+    //     // FORBID_ATTR: ['style', 'onerror', 'onclick']
+    // })
 
     return (
         <article id="blogpost-content" className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{
-            __html: `
+            __html: DOMPurify.sanitize(`
                      <section style="margin-bottom: 30px; padding: 20px;">
                 <h1 style="font-size: 28px; margin-bottom: 15px;">The Forgotten Languages of the Digital Age: Reviving Ancient Scripts with AI</h1>
                 <p style="font-size: 18px; margin-bottom: 20px;">
@@ -52,7 +52,10 @@ const BlogPostContent = ({ body, title }) => {
                 </article>
             </section>
                     
-                    `      }}>
+                    ` , {
+                USE_PROFILES: { html: true },
+            })
+        }}>
 
         </article >
         // <>
