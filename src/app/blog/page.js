@@ -31,7 +31,7 @@ const page = async () => {
             return <div key={ind} className="blog-card md:w-[300px] w-[98%]  md:my-2 my-1 rounded-md shadow-md dark:shadow-gray-900 shadow-gray-300 p-1 md:h-[300px] h-auto border border-1 border-gray-400 ">
               <Link href={`/blog/${ind+1}`}>
                 <div className="Image-area w-full h-[180px] border border-1 border-gray-300 dark:border-gray-500 rounded-md">
-                  <Image src="https://i.ibb.co/ZpKcCwWm/pexels-pixabay-158826.jpg" width={"350"} height={200} alt='Blog-Slug-picture' className='w-full h-full object-cover object-center rounded-md' ></Image>
+                  <Image src="/images/website.jpg" width={"350"} height={200} alt='Blog-Slug-picture' className='w-full h-full object-cover object-center rounded-md' ></Image>
                 </div>
                 <div className="content-area px-2 py-2">
                   <h3 className='text-xl font-bold'> {ele.title.length < 45 ? ele.title : ele.title.substring(0, 45)}</h3>
