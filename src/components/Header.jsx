@@ -45,7 +45,7 @@ export default function Header({isLogged}) {
 
         {/* navigation area  */}
         <nav
-          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${openedNav ? "h-[250px]" : "h - 0"
+          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${openedNav ? "h-[280px]" : "h - 0"
             } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
