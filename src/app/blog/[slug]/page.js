@@ -19,7 +19,8 @@ const page = async ({ params }) => {
     const thisBlog = await fetchBlog(slug);
 
 
-    const  blog = blog.data;
+
+    const  blog = thisBlog.data;
     
 
     return (
