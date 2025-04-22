@@ -16,10 +16,10 @@ const fetchBlog = async function (slug) {
 const page = async ({ params }) => {
 
     const {slug} = await params;
-    const blog = await fetchBlog(slug);
+    const thisBlog = await fetchBlog(slug);
 
 
-    const thisBlog = blog.data;
+    const  blog = blog.data;
     
 
     return (
