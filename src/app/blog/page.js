@@ -4,14 +4,20 @@ import React from 'react'
 import { FaComments, FaEye, FaHeart } from 'react-icons/fa'
 
 const fetchBlogs = async function () {
-  const request = await fetch(`https://dummyjson.com/posts`);
+  const request = await fetch(`https://mhgkhanp.netlify.app/api/get/blogs`);
   const response = await request.json();
-  return response.posts;
+  console.log(response);
+  
+  return response.data;
 }
 
 const page = async () => {
 
   const blogs = await fetchBlogs();
+
+
+  // console.log("the blog is ",blogs);
+  
 
 
   return (
@@ -31,19 +37,19 @@ const page = async () => {
             return <div key={ind} className="blog-card md:w-[300px] w-[95%]  md:my-2 my-1 rounded-md shadow-md dark:shadow-gray-900 shadow-gray-300 p-1 h-auto border border-1 border-gray-400 ">
               {/* <Link href={`/blog/${ind+1}`}> */}
                 <div className="Image-area w-full h-[180px] border border-1 border-gray-300 dark:border-gray-500 rounded-md">
-                  <Image src="/images/website.jpg" width={"350"} height={200} alt='Blog-Slug-picture' className='w-full h-full object-cover object-center rounded-md' ></Image>
+                  <Image src={ele.img} width={"350"} height={200} alt={`Ghazna Dev ${ele.title}`} className='w-full h-full object-cover object-center rounded-md' ></Image>
                 </div>
                 <div className="content-area px-2 py-2">
-                  <h3 className='text-xl font-bold'> {ele.title.length < 45 ? ele.title : ele.title.substring(0, 45)}</h3>
-                  <p className='text-sm text-gray-600 my-2 dark:text-gray-300'>{ele.body.length < 100 ? ele.body : ele.body.substring(0, 100) + "..."}</p>
+                  <h3 className='text-xl font-bold'> {ele.title.length < 45 ? ele?.title : ele.title.substring(0, 45)}</h3>
+                  <p className='text-sm text-gray-600 my-2 dark:text-gray-300'>{ele.description.length < 100 ? ele.description : ele.description.substring(0, 100) + "..."}</p>
                 </div>
-                <Link href={"/blog/blogpost"} className='my-2 w-full block dark:bg-white bg-black dark:text-black text-white text-center py-2 rounded-md hover:bg-gray-800 transition-all duration-300 ease-in-out'>
+                <Link href={`/blog/${ele.slug}`} className='my-2 w-full block dark:bg-white bg-black dark:text-black text-white text-center py-2 rounded-md hover:bg-gray-800 transition-all duration-300 ease-in-out'>
                 Read More
                 </Link>
 
                 <div className='blog-card-footer px-3 w-full flex items-center justify-between py-1 pt-2 gap-7 border-1 border-t border-gray-500'>
                   <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
-                    <span className="text-2xl"><FaHeart /></span> <span className='text-sm'>{ele.reactions.likes}</span>
+                    <span className="text-2xl"><FaHeart /></span> <span className='text-sm'>{300}</span>
                   </div>
                   <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
                     <span className="text-2xl"><FaComments /></span> <span className='text-sm'>200+</span>

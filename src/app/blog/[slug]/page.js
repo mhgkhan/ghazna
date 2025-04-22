@@ -7,19 +7,19 @@ import BlogPostLikebutton from '@/components/ui/blog/BlogPostLikebutton';
 import BlogPostRelatedArticles from '@/components/ui/blog/BlogPostRelatedArticles';
 
 
-// const fetchBlog = async function (id) {
-//     const request = await fetch(`https://dummyjson.com/posts/${id}`);
-//     const response = await request.json();
-//     return response;
-//   }
+const fetchBlog = async function (slug) {
+    const request = await fetch(`https://mhgkhanp.netlify.app/api/blog/blogpost/${slug}`);
+    const response = await request.json();
+    return response;
+  }
 
 const page = async ({ params }) => {
 
-    // const {slug} = await params;
-    // const blog = await fetchBlog(slug);
+    const {slug} = await params;
+    const blog = await fetchBlog(slug);
 
 
-    const blog = true;
+    const thisBlog = blog.data;
     
 
     return (
@@ -29,9 +29,9 @@ const page = async ({ params }) => {
                     <div className='content lg:w-[70%] w-full sm:px-2'>
                         {
                             // blog ? <><BlogPostHeader title={blog.title} views={blog.views} />
-                            blog ? <><BlogPostHeader title={"The Forgotten Languages of the Digital Age: Reviving Ancient Scripts with AI"} views={5000} />
+                            blog ? <><BlogPostHeader title={blog?.title} views={5000} image={blog.img} />
 
-                            <BlogPostContent body={blog.body} title={blog.title} />
+                            <BlogPostContent body={blog.content} title={blog.blog.title} description={blog.description} />
     
                             <div className="my-5 px-2 bl">
                                 <BlogPostLikebutton />
