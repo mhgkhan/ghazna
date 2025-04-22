@@ -8,7 +8,7 @@ import BlogPostRelatedArticles from '@/components/ui/blog/BlogPostRelatedArticle
 
 
 const fetchBlog = async function (slug) {
-    const request = await fetch(`https://mhgkhanp.netlify.app/api/blog/blogpost/${slug}`);
+    const request = await fetch(`https://mhgkhanp.netlify.app/api/get/blogs/blog/${slug}`);
     const response = await request.json();
     return response;
   }
