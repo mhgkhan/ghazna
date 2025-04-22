@@ -6,9 +6,9 @@ import { FaBookOpen, FaCalendar } from 'react-icons/fa'
 const BlogPostHeader = ({title, views}) => {
     return (
         <>
-            <div className='header relative max-h-[400px] h-[300px] max-w-full w-auto'>
+            <div className='header relative max-h-[400px] h-[300px] w-full'>
                 <div className="image-blog w-full h-full">
-                    <Image src={"https://i.ibb.co/ZpKcCwWm/pexels-pixabay-158826.jpg"} alt='blog-picture' width={600} height={400} className='relative max-w-full max-h-full object-cover object-center' />
+                    <Image src={"https://i.ibb.co/ZpKcCwWm/pexels-pixabay-158826.jpg"} alt='blog-picture' width={600} height={400} className='w-full h-full relative max-w-full max-h-full object-fill object-center rounded-md' />
                 </div>
                 <div className="rounded-md dark:bg-[#e7e3e3c2] bg-[#5f5c5cc5] title-area-head-blog absolute bottom-0 w-full h-auto p-5">
                     <h1 className='lg:text-4xl md:text-2xl text-xl dark:text-black text-white font-bold'>
