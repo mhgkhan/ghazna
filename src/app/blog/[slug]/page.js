@@ -22,6 +22,9 @@ const page = async ({ params }) => {
 
     const  blog = thisBlog.data;
     
+    // console.log();
+    
+
 
     return (
         <article className='min-h-screen md:p-0 px-2' >
@@ -32,7 +35,7 @@ const page = async ({ params }) => {
                             // blog ? <><BlogPostHeader title={blog.title} views={blog.views} />
                             blog ? <><BlogPostHeader title={blog?.title} views={5000} image={blog.img} />
 
-                            <BlogPostContent body={blog.content} title={blog.blog.title} description={blog.description} />
+                            <BlogPostContent body={blog.content} title={blog.title} description={blog.description} />
     
                             <div className="my-5 px-2 bl">
                                 <BlogPostLikebutton />
