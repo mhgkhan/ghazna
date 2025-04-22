@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 
 export default function Footer() {
   return (
-    <footer className="w-full dark:bg-gray-700 bg-pink-600">
+    <footer className="w-full dark:bg-gray-700 bg-gray-800">
       <div className="container mx-auto ">
         <div className="footer-area flex items-start md:justify-between justify-center gap-4 flex-wrap p-4">
           <p className="text-center text-white">Copyright&copy; 2025 <Link href={"/"}>GHAZNA</Link> </p>
