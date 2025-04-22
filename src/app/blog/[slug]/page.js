@@ -52,5 +52,4 @@ const page = async ({ params }) => {
         </article>
     )
 }
-
 export default page
