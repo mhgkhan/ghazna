@@ -46,7 +46,7 @@ const page = () => {
             <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
               <h4 className='md:text-lg text-sm text-pink-600 font-bold my-2 px-1'>Followers</h4>
               <div className='flex items-center justify-center gap-3'>
-                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[49%] bg-green-600 rounded-md'></div></div>
+                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[20%] bg-green-600 rounded-md'></div></div>
                 <span>20%</span>
               </div>
             </div>
@@ -54,7 +54,7 @@ const page = () => {
             <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
               <h4 className='md:text-lg text-sm text-pink-600 font-bold my-2 px-1'>Blog Views </h4>
               <div className='flex items-center justify-center gap-3'>
-                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[49%] bg-green-600 rounded-md'></div></div>
+                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[50%] bg-green-600 rounded-md'></div></div>
                 <span>20%</span>
               </div>
             </div>
@@ -62,7 +62,7 @@ const page = () => {
             <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
               <h4 className='md:text-lg text-sm text-pink-600 font-bold my-2 px-1'>BLog Likes </h4>
               <div className='flex items-center justify-center gap-3'>
-                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[49%] bg-green-600 rounded-md'></div></div>
+                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[80%] bg-green-600 rounded-md'></div></div>
                 <span>20%</span>
               </div>
             </div>
