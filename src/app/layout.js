@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
       >
         <main className="dark:bg-gray-800 bg-white dark:text-white text-black min-h-screen">
-          <Header isLogged={true} />
+          <Header isLogged={false} />
           {children}
           <Footer />
         </main>
@@ -89,4 +89,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
