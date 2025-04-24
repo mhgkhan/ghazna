@@ -1,3 +1,4 @@
+import HeadingSection from '@/components/ui/HeadingSection'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -13,12 +14,10 @@ const page = () => {
             <div className='coverImage md:z-auto w-full h-full relative'>
               <Image src={"/images/website.jpg"} alt='profile picture' width={700} height={300} className='w-full h-full object-fit object-cover rounded-md' />
             </div>
-
             <div className='profile-data w-full md:absolute static md:top-[150px]  flex md:items-start md:justify-start items-center justify-center gap-5 md:h-[150px] md:flex-row flex-col md:mt-auto mt-[-70px]'>
               <div className='profileImg md:z-auto z-10 md:w-[200px] md:h-[200px] w-[130px] h-[130px] rounded-full shadow-md shadow-gray-300 mx-5 border-8 border-pink-500'>
                 <Image src={"/images/hero.jpg"} alt='profile picture' width={200} height={200} className='rounded-full w-full h-full object-fit object-cover' />
               </div>
-
               <div className='profileInfo flex md:h-[200px] ha-auto md:items-end items-center flex-col md:justify-end justify-center md:mt-14 md:w-auto w-full'>
                 <h3 className='md:text-2xl text-xl font-bold md:w-full inline-block'>Muhammad Hasnain  </h3>
                 <h4 className='user-email italic md:text-xl text-sm dark:text-gray-400 text-gray-500'>muhammadhasnainghazna@gmail.com</h4>
@@ -31,6 +30,49 @@ const page = () => {
           </div>
         </div>
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className='w-full mt-10'>
+        <div className='container mx-auto my-5'>
+          {/* <HeadingSection start={"Quick"} end={"Links"} key={"key"} /> */}
+          <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-600 underline px-2'>Porfile Status  </h2>
+          <div className="flex items-center justify-center flex-wrap gap-5 my-5">
+
+            <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
+              <h4 className='md:text-lg text-sm text-pink-600 font-bold my-2 px-1'>Followers</h4>
+              <div className='flex items-center justify-center gap-3'>
+                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[49%] bg-green-600 rounded-md'></div></div>
+                <span>20%</span>
+              </div>
+            </div>
+
+            <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
+              <h4 className='md:text-lg text-sm text-pink-600 font-bold my-2 px-1'>Blog Views </h4>
+              <div className='flex items-center justify-center gap-3'>
+                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[49%] bg-green-600 rounded-md'></div></div>
+                <span>20%</span>
+              </div>
+            </div>
+
+            <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
+              <h4 className='md:text-lg text-sm text-pink-600 font-bold my-2 px-1'>BLog Likes </h4>
+              <div className='flex items-center justify-center gap-3'>
+                <div className='line w-full h-[8px] rounded-full bg-red-500'><div className='term h-full w-[49%] bg-green-600 rounded-md'></div></div>
+                <span>20%</span>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
     </section>
   )
 }
