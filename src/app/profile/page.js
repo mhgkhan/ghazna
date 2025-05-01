@@ -37,10 +37,12 @@ const page = () => {
       <br />
       <br />
       <br />
+
+      
       <div className='w-full mt-10'>
         <div className='container mx-auto my-5'>
           {/* <HeadingSection start={"Quick"} end={"Links"} key={"key"} /> */}
-          <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-600 underline px-2'>Porfile Status  </h2>
+          <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-600 underline px-2 text-center mx-auto'>Porfile Status  </h2>
           <div className="flex items-center justify-center flex-wrap gap-5 my-5">
 
             <div className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] '>
