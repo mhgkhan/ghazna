@@ -4,9 +4,18 @@ const visitorSchema = new mongoose.Schema({
     IpToken: {
         type: String,
         required: true,
+    },
+    browser: {
+        type: String,
+        required: true
+    },
+    platform: {
+        type: String,
+        required: true
     }
-},{
-    timestamps:true
+
+}, {
+    timestamps: true
 });
 
 const VisitorModel = mongoose.models.visitors || mongoose.model('visitors', visitorSchema);
