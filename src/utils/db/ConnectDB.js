@@ -15,7 +15,7 @@ export default connectDB = async () => {
       useFindAndModify: false,
     });
 
-    console.log("MongoDB connected");
+    console.log("DataBase connected");
   } catch (error) {
     console.error(error);
   }
