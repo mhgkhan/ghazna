@@ -107,7 +107,7 @@ const page = async ({ params }) => {
                       "1 Free Revision"
                     ],
                     pricing: { exact: 1000, prev: 1500 },
-                    image: "/images/services/graphic-basic.png",
+                    image: "/images/plans/logodesign.png",
                     link: "/contact?service=graphic-basic"
                   },
                   {
@@ -118,7 +118,7 @@ const page = async ({ params }) => {
                       "2 Free Revisions"
                     ],
                     pricing: { exact: 2500, prev: 3500 },
-                    image: "/images/services/graphic-standard.png",
+                    image: "/images/plans/logodesign.png",
                     link: "/contact?service=graphic-standard"
                   },
                   {
@@ -129,7 +129,7 @@ const page = async ({ params }) => {
                       "Up to 4 Revisions"
                     ],
                     pricing: { exact: 5000, prev: 8000 },
-                    image: "/images/services/graphic-premium.png",
+                    image: "/images/plans/logodesign.png",
                     link: "/contact?service=graphic-premium"
                   }
                 ]).map((ele, ind) => {
@@ -187,7 +187,7 @@ const page = async ({ params }) => {
                         "Simple Formatting"
                       ],
                       pricing: { exact: 500, prev: 800 },
-                      image: "/images/services/data-basic.png",
+                      image: "/images/plans/dataentry.png",
                       link: "/contact?service=data-basic"
                     },
                     {
@@ -198,7 +198,7 @@ const page = async ({ params }) => {
                         "Verified Accuracy"
                       ],
                       pricing: { exact: 1500, prev: 2000 },
-                      image: "/images/services/data-standard.png",
+                      image: "/images/plans/dataentry.png",
                       link: "/contact?service=data-standard"
                     },
                     {
@@ -209,7 +209,7 @@ const page = async ({ params }) => {
                         "Chart & Report Generation"
                       ],
                       pricing: { exact: 3000, prev: 4500 },
-                      image: "/images/services/data-premium.png",
+                      image: "/images/plans/dataentry.png",
                       link: "/contact?service=data-premium"
                     }
                   ]
@@ -263,19 +263,19 @@ const page = async ({ params }) => {
                     title: "Basic Prints",
                     features: ["100 Business Cards or Flyers", "Standard Paper", "Basic Design Included"],
                     pricing: { exact: 1500, prev: 2000 },
-                    image: "/images/services/print-basic.png"
+                    image: "/images/plans/printing.png"
                   },
                   {
                     title: "Standard Prints",
                     features: ["100 Color Brochures or Posters", "Premium Quality Print", "Design & Proofing"],
                     pricing: { exact: 3500, prev: 5000 },
-                    image: "/images/services/print-standard.png"
+                    image: "/images/plans/printing.png"
                   },
                   {
                     title: "Premium Bulk Printing",
                     features: ["500+ Items", "Custom Material (Glossy, Matte)", "Design + Fast Delivery"],
                     pricing: { exact: 7000, prev: 10000 },
-                    image: "/images/services/print-premium.png"
+                    image: "/images/plans/printing.png"
                   }
                 ]).map((ele, ind) => {
 
