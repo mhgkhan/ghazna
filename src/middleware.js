@@ -53,7 +53,7 @@ export async function middleware(request) {
 
    
     if (request.nextUrl.pathname.startsWith("/profile")) {
-        console.log("Profile page accessed by visitor with IP: ", ip);
+        console.log("Profile page accessed by visitor with IP:  ", ip);
     }
 
     return NextResponse.next();
