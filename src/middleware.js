@@ -10,11 +10,8 @@ ConnectDB();
 export async function middleware(request) {
 
 
-    if (request.nextUrl.pathname.startsWith("/profile")) {
-        console.log("Profile page accessed by visitor with IP: ", ip);
-    }
-
-
+    
+    
 
     // console.log(request);
     const ageent = userAgent(request)
@@ -55,6 +52,9 @@ export async function middleware(request) {
     }
 
    
+    if (request.nextUrl.pathname.startsWith("/profile")) {
+        console.log("Profile page accessed by visitor with IP: ", ip);
+    }
 
     return NextResponse.next();
 }
