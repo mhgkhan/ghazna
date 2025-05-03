@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const visitorSchema = new mongoose.Schema({
-    IpToken: {
+    ip: {
         type: String,
         required: true,
     },
@@ -12,6 +12,13 @@ const visitorSchema = new mongoose.Schema({
     platform: {
         type: String,
         required: true
+    },
+    visitPages:{
+        type: Array,
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
     }
 
 }, {
