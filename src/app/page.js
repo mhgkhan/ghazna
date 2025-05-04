@@ -5,8 +5,8 @@ import Services from "@/components/ui/Services";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
+export default async function Home(request) {
 
-export default function Home() {
 
 
   return (
