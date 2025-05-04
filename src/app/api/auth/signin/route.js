@@ -57,7 +57,7 @@ export async function POST(reqiest) {
                 }
 
                 // sending email for login info 
-                const emailData = {
+                const options = {
                     from: FreezeEnv.EMAIL_SMTP,
                     to: checkUser.data.email,
                     subject: "Login Info",
@@ -87,7 +87,7 @@ export async function POST(reqiest) {
                     text: `You have successfully logged in to your account on ${new Date().toLocaleString()}`,
                 };
 
-                const sendEmailing = sendMail(emailData);
+                const sendEmailing = await sendMail(options);
                 
 
                 return sendNormalResponse(true, 200, "User is logged in", { token: token })
