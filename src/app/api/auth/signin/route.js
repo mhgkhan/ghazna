@@ -36,8 +36,11 @@ export async function POST(reqiest) {
             else {
 
                 const response = new NextResponse();
+
                 // checking if user is verified or not
-                if (!checkUser.data.isVerified) {
+                if (!checkUser?.data?.isVerified) {
+                    // console.log(checkUser);
+                    
                     return sendNormalResponse(false, 400, "Please check your email and verify your account", null)
                 }
                 // generating the token 
@@ -84,13 +87,8 @@ export async function POST(reqiest) {
                     text: `You have successfully logged in to your account on ${new Date().toLocaleString()}`,
                 };
 
-                const sendEmailing = await sendMail(emailData);
-                // if (!sendEmailing.success) {
-                //     console.log(sendEmailing.message);
-                    
-                //     return sendNormalResponse(false, 400, "Email not sent", null)
-                // }
-                console.log("Email sent successfully", sendEmailing.message);
+                const sendEmailing = sendMail(emailData);
+                
 
                 return sendNormalResponse(true, 200, "User is logged in", { token: token })
             }

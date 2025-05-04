@@ -86,13 +86,6 @@ export async function POST(request) {
 
         const sendEmailing = await sendMail(options);
 
-        // if (!sendEmailing.success) {
-        //     console.log("the message is ", sendEmailing.message);
-            
-        //     return sendNormalResponse(false, 400, "Email not sent", null)
-        // }
-
-        console.log("Email sent successfully", sendEmailing.message);
         // sending the response
         return sendNormalResponse(true, 200, "Account created! Verification Link Sended to your account.", { user: savedUserInfo, token })
 

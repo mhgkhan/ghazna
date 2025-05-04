@@ -5,9 +5,9 @@ import FreezeEnv from './EnvConfig';
 export const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
-  secure: true,
+    secure: true,
     auth: {
-        user: 'ghazna.dev@gmail.com',
+        user: FreezeEnv.EMAIL_SMTP,
         pass: FreezeEnv.PASSWORD_SMTP
     }
 });
@@ -16,30 +16,13 @@ export const transporter = nodemailer.createTransport({
 
 export const sendMail = async (mailOptions) => {
 
+    let obj = {}
     try {
-        let obj = {
-            success: false,
-            message: ""
-        }
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.log('Error sending email:', error);
-                obj.message = error.message
-                obj.success = false
-            } else {
-                console.log('Email sent:', info.response);
-                obj.message = info.response
-                obj.success = true
-            }
-        });
-        return obj;
+        const sending = await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully", sending);
     } catch (error) {
         console.log("Error in sending email", error);
-        let obj = {
-            success: false,
-            message: error.message
-        }
         return obj;
     }
 }
