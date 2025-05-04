@@ -1,5 +1,5 @@
 const { default: connectDB } = require("@/utils/db/connectDB");
-
+import bcrypt from "bcryptjs"
 
 
 connectDB();
@@ -33,12 +33,14 @@ export async function POST(request) {
         // creating token for verification 
 
         const token = JWT.sign({ email: body.email, isVerfiied: false }, FreezeEnv.VERIFICATION_SECRET_KEY);
+        const hashingPassword = bcrypt.hash(body.password, 10);
+
 
         const { name, email, password } = body;
         const addUserInfo = new User({
             name,
             email,
-            password,
+            password: hashingPassword,
             role: "user",
             isVerified: false,
             verificationToken: token,
