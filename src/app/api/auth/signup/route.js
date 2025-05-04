@@ -4,7 +4,6 @@ import bcrypt from "bcryptjs"
 
 connectDB();
 
-import { sendMail } from "@/config/EmailSeindingProcesses";
 import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
@@ -13,6 +12,7 @@ import { validateRequestBody } from "@/utils/functions/utilityFunctions";
 import User from "@/utils/models/Users";
 import JWT from "jsonwebtoken";
 
+import { sendMail } from "@/config/EmailSeindingProcesses";
 
 
 export async function POST(request) {
@@ -51,10 +51,10 @@ export async function POST(request) {
 
         const savedUserInfo = await addUserInfo.save();
 
-        const sendingMail = await sendMail({
+        const options = {
             from: FreezeEnv.EMAIL_SMTP,
             to: email,
-            subject: "Verify Your Email – Ghazna.dev",
+            subject: "Verify Your Email  Ghazna.dev",
             html: `
                 <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
                     <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -80,10 +80,20 @@ export async function POST(request) {
                 </div>
             `,
             text: `Click on the link to verify your email: ${FreezeEnv.VERIFICATION_URL}/${token}`
-        })
+        }
 
 
 
+        const sendEmailing = await sendMail(options);
+
+        // if (!sendEmailing.success) {
+        //     console.log("the message is ", sendEmailing.message);
+            
+        //     return sendNormalResponse(false, 400, "Email not sent", null)
+        // }
+
+        console.log("Email sent successfully", sendEmailing.message);
+        // sending the response
         return sendNormalResponse(true, 200, "Account created! Verification Link Sended to your account.", { user: savedUserInfo, token })
 
 

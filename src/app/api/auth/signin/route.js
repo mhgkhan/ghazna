@@ -84,7 +84,13 @@ export async function POST(reqiest) {
                     text: `You have successfully logged in to your account on ${new Date().toLocaleString()}`,
                 };
 
-                await sendMail(emailData);
+                const sendEmailing = await sendMail(emailData);
+                // if (!sendEmailing.success) {
+                //     console.log(sendEmailing.message);
+                    
+                //     return sendNormalResponse(false, 400, "Email not sent", null)
+                // }
+                console.log("Email sent successfully", sendEmailing.message);
 
                 return sendNormalResponse(true, 200, "User is logged in", { token: token })
             }
@@ -96,7 +102,7 @@ export async function POST(reqiest) {
 
     } catch (error) {
         console.log(error);
-        
+
         return sendNormalResponse(false, 500, "Internal server error", null)
     }
 }
