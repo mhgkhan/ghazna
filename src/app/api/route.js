@@ -1,7 +1,9 @@
-import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
+import ConnectDB from "@/utils/db/ConnectDB";
+ConnectDB();
 export async function GET(request) {
+
 
     // const platForm = await headers.get("");
     const platform = request.headers.get("sec-ch-ua-platform")

@@ -27,3 +27,4 @@ const visitorSchema = new mongoose.Schema({
 
 const VisitorModel = mongoose.models.visitors || mongoose.model('visitors', visitorSchema);
 export default VisitorModel;
+
