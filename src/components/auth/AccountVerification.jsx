@@ -1,14 +1,17 @@
 "use client";
 
 
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-const AccountVerification = ({token}) => {
+const AccountVerification = ({ token }) => {
     const [isVerified, setIsVerified] = useState(false);
     const [isError, setIsError] = useState(false);
     const [message, setMessage] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+
+    const router = useRouter();
 
 
     const tokenVerification = async (token) => {
@@ -41,6 +44,10 @@ const AccountVerification = ({token}) => {
     useEffect(() => {
         if (token) {
             tokenVerification(token);
+
+            setTimeout(() => {
+                router.push("/auth/login");
+            }, 5000);
         } else {
             setIsError(true);
             setMessage("Token is required.");
