@@ -13,8 +13,8 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     address: {
-        ...defaultType,
-        default: null,
+        // ...defaultType,
+        type: String,
     },
     role: {
         type: String,
