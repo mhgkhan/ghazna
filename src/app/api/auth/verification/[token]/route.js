@@ -1,10 +1,14 @@
 import FreezeEnv from "@/config/EnvConfig";
+import connectDB from "@/utils/db/connectDB";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import User from "@/utils/models/Users";
 import JWT from "jsonwebtoken";
 
 
+
+
+connectDB();
 
 export async function PUT(request, { params }) {
     try {

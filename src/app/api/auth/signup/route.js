@@ -9,8 +9,8 @@ import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import { validateRequestBody } from "@/utils/functions/utilityFunctions";
+
 import User from "@/utils/models/Users";
-import JWT from "jsonwebtoken";
 
 export async function POST(request) {
     try {
@@ -33,7 +33,7 @@ export async function POST(request) {
         // creating token for verification 
 
         const token = JWT.sign({ email: body.email, isVerfiied: false }, FreezeEnv.VERIFICATION_SECRET_KEY);
-        const hashingPassword = bcrypt.hash(body.password, 10);
+        const hashingPassword = await bcrypt.hash(body.password, 10);
 
 
         const { name, email, password } = body;
