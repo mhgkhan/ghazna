@@ -46,7 +46,7 @@ const AccountVerification = ({ token }) => {
             tokenVerification(token);
 
             setTimeout(() => {
-                router.push("/auth/login");
+                router.push("/login");
             }, 5000);
         } else {
             setIsError(true);
