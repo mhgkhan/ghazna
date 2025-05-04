@@ -5,7 +5,7 @@ import FreezeEnv from './EnvConfig';
 export const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false,
+    secure: true,
     auth: {
         user: 'ghazna.dev@gmail.com',
         pass: FreezeEnv.PASSWORD_SMTP
