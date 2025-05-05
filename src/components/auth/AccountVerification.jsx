@@ -52,6 +52,9 @@ const AccountVerification = ({ token }) => {
             setIsError(true);
             setMessage("Token is required.");
             setIsLoading(false);
+            setTimeout(() => {
+                router.push("/not-found");
+            }, 2000);
         }
     }, [])
 
