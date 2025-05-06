@@ -5,6 +5,7 @@ const obj = {
   PASSWORD_SMTP: process.env.SMTP_PASSWORD,
   EMAIL_SMTP: process.env.SMTP_EMAIL,
   VERIFICATION_URL: process.env.VERIFICATION_URL,
+  FORGET_PASSWORD_URL: process.env.FORGET_PASSWORD_URL,
 
 };
 
