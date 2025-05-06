@@ -1,10 +1,15 @@
 import { sendMail } from "@/config/EmailSeindingProcesses";
 import FreezeEnv from "@/config/EnvConfig";
+import connectDB from "@/utils/db/connectDB";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import User from "@/utils/models/Users";
 import JWT from "jsonwebtoken";
 
+
+
+
+connectDB();
 
 export async function POST(request) {
     const { email } = await request.json();
@@ -52,7 +57,7 @@ export async function POST(request) {
             </body>
         </html>
         `,
-        text: `Hello ${checkUser.data.name || "User"},\n\nWe received a request to reset your password. If this was you, use the following link:\n${resetLink}\n\nThis link will expire in 1 hour. If you didn’t request this, please ignore this email.\n\n- Ghazna.Dev Team`,
+        text: `Hello ${checkUser.data.name || "User"},\n\nWe received a request to reset your password. If this was you, use the following link:\n ${FreezeEnv.FORGET_PASSWORD_URL + token} \n\nThis link will expire in 1 hour. If you didn’t request this, please ignore this email.\n\n- Ghazna.Dev Team`,
     };
 
 
