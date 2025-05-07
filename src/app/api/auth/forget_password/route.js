@@ -25,6 +25,10 @@ export async function POST(request) {
     // creating email verification tokwn 
     const token = JWT.sign({ email: email }, FreezeEnv.VERIFICATION_SECRET_KEY);
 
+    // storing this token to the user
+    const updateUser = await User.findOneAndUpdate({ email: email }, { resetPasswordToken: token }, { new: true });
+    if (!updateUser) return sendNormalResponse(false, 500, "Error in updating user", null);
+
 
 
     const options = {
