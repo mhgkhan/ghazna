@@ -56,9 +56,7 @@ const LoginFormComponent = () => {
                     setIsErr(false);
                     setResMessage(response.message);
 
-                    setTimeout(() => {
-                        router.push("/profile");
-                    }, 2000);
+                    router.push("/profile");
                 }
 
 

@@ -52,7 +52,7 @@ export async function POST(reqiest) {
                 if (!user) {
                     return sendNormalResponse(false, 400, "User not found", null)
                 }
-                const response = new NextResponse();
+
 
 
                 // sending email for login info 
@@ -62,9 +62,9 @@ export async function POST(reqiest) {
                     subject: "Login Info",
                     html: `
                     <html>
-                        <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; padding: 20px; color: #333;">
-                            <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                                <h2 style="font-size: 22px; font-weight: 600; color: #444; margin-bottom: 20px;">🔐 Login Alert</h2>
+                    <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; padding: 20px; color: #333;">
+                    <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 22px; font-weight: 600; color: #444; margin-bottom: 20px;">🔐 Login Alert</h2>
                                 <p style="font-size: 16px; line-height: 1.6;">
                                     Hello <strong>${checkUser.data.name || "User"}</strong>,<br><br>
                                         We noticed a successful login to your account.
@@ -85,10 +85,14 @@ export async function POST(reqiest) {
                                             `,
                     text: `You have successfully logged in to your account on ${new Date().toLocaleString()}`,
                 };
-
-
                 const sendEmailing = await sendMail(options);
+
+
+                const response = new NextResponse();
+
+
                 response.cookies.set("USER_AUTH_TOKEN", token, { httpOnly: true, secure: true, sameSite: "strict" });
+
                 return NextResponse.json({
                     success: true,
                     message: "User logged in successfully",
@@ -96,6 +100,7 @@ export async function POST(reqiest) {
                         token: token
                     }
                 }, { status: 200 })
+
             }
         }
 
