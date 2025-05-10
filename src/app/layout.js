@@ -2,6 +2,7 @@ import { Poppins, Rubik } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { cookies } from "next/headers";
 
 const rubikFont = Rubik({
   variable: "--font-body",
@@ -22,9 +23,9 @@ export const metadata = {
   url: "https://ghazna.dev",
   type: "website",
   keywords: [
-    "ghazna", "ghazna.dev", "ghazna dev","muhammad hasnain", "ghazna khan", "hasnain", "hasnain ghazna", 
-    "hasnain dev", "hasnain ghazna dev", "Muhammad Hasnain Ghazna", 
-    "Web Developer", "Fullstack Developer", "React Developer", 
+    "ghazna", "ghazna.dev", "ghazna dev", "muhammad hasnain", "ghazna khan", "hasnain", "hasnain ghazna",
+    "hasnain dev", "hasnain ghazna dev", "Muhammad Hasnain Ghazna",
+    "Web Developer", "Fullstack Developer", "React Developer",
     "JavaScript Developer", "Portfolio", "Web Development Blog"
   ],
   author: "Muhammad Hasnain Ghazna",
@@ -70,7 +71,13 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+
+  const usercCookies = await cookies();
+  const cookieName = usercCookies.get("USER_AUTH_TOKEN");
+
+
   return (
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
@@ -81,7 +88,7 @@ export default function RootLayout({ children }) {
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
       >
         <main className="dark:bg-gray-800 bg-white dark:text-white text-black min-h-screen">
-          <Header isLogged={false} />
+          <Header isLogged={cookieName ? true : false} />
           {children}
           <Footer />
         </main>
