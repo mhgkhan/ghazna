@@ -82,14 +82,10 @@ export async function POST(request) {
             text: `Click on the link to verify your email: ${FreezeEnv.VERIFICATION_URL}/${token}`
         }
 
-
-
         const sendEmailing = await sendMail(options);
 
         // sending the response
         return sendNormalResponse(true, 200, "Account created! Verification Link Sended to your account.", { user: savedUserInfo, token })
-
-
 
     } catch (error) {
         console.log(error);

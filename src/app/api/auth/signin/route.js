@@ -35,19 +35,16 @@ export async function POST(reqiest) {
             }
             else {
 
-                const response = new NextResponse();
 
                 // checking if user is verified or not
                 if (!checkUser?.data?.isVerified) {
                     // console.log(checkUser);
-                    
+
                     return sendNormalResponse(false, 400, "Please check your email and verify your account", null)
                 }
                 // generating the token 
                 const token = JWT.sign({ email: checkUser.data.email, id: checkUser.data._id, isVerified: true }, FreezeEnv.AUTH_SECRET_KEY);
                 // storing cookies 
-                response.cookies.set("token", token, { httpOnly: true, secure: true, sameSite: "strict" });
-                response.cookies.set("userId", checkUser.data._id, { httpOnly: true, secure: true, sameSite: "strict" });
 
                 // updating user lastlogin time 
                 const user = await User.findByIdAndUpdate(checkUser.data._id, { lastLogin: new Date() }, { new: true });
@@ -55,6 +52,8 @@ export async function POST(reqiest) {
                 if (!user) {
                     return sendNormalResponse(false, 400, "User not found", null)
                 }
+                const response = new NextResponse();
+
 
                 // sending email for login info 
                 const options = {
@@ -87,14 +86,18 @@ export async function POST(reqiest) {
                     text: `You have successfully logged in to your account on ${new Date().toLocaleString()}`,
                 };
 
-                const sendEmailing = await sendMail(options);
-                
 
-                return sendNormalResponse(true, 200, "User is logged in", { token: token })
+                const sendEmailing = await sendMail(options);
+                response.cookies.set("USER_AUTH_TOKEN", token, { httpOnly: true, secure: true, sameSite: "strict" });
+                return NextResponse.json({
+                    success: true,
+                    message: "User logged in successfully",
+                    data: {
+                        token: token
+                    }
+                }, { status: 200 })
             }
         }
-
-
 
 
 
