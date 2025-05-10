@@ -1,18 +1,27 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { userAgent } from "next/server";
 
 
 
 
 export async function middleware(request) {
-    console.log("Middleware is running");
 
-    const {browser, device, os} = userAgent(request);
-    const ip = request.ip ?? request.headers.get("x-forwarded-for") ?? "unknown";
-    const thisPage = request.nextUrl.pathname;
+    const savedCookies = await cookies();
 
-
+    const userCookie = savedCookies.get("USER_AUTH_TOKEN");
+    if (request.nextUrl.pathname.startsWith("/profile")) {
+        if (userCookie) {
+            return NextResponse.next();
+        }
+        else {
+            return NextResponse.redirect(new URL("/login", request.url))
+        }
+    }
 
 
     return NextResponse.next();
+}
+
+export const config = {
+    matcher: ["/profile/:pages*", "/login", "/signup"]
 }
