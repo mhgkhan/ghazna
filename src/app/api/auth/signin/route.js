@@ -95,7 +95,7 @@ export async function POST(reqiest) {
 
 
                 // response.cookies.set("USER_AUTH_TOKEN", token, { httpOnly: true, secure: true, sameSite: "strict" });
-                await setCookie('USER_AUTH_TOKEN', token, { cookies });
+                await setCookie('USER_AUTH_TOKEN', token, { cookies, httpOnly: true, sameSite: "strict", maxAge: 60 * 60 * 24 * 7, secure: true });
 
                 return NextResponse.json({
                     success: true,
