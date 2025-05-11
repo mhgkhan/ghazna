@@ -7,6 +7,8 @@ import JWT from "jsonwebtoken";
 import FreezeEnv from "@/config/EnvConfig";
 import connectDB from "@/utils/db/connectDB";
 import { sendMail } from "@/config/EmailSeindingProcesses";
+import { setCookie } from "cookies-next/server";
+import { cookies } from "next/headers";
 
 
 connectDB();
@@ -91,7 +93,9 @@ export async function POST(reqiest) {
                 const response = new NextResponse();
 
 
-                response.cookies.set("USER_AUTH_TOKEN", token, { httpOnly: true, secure: true, sameSite: "strict" });
+
+                // response.cookies.set("USER_AUTH_TOKEN", token, { httpOnly: true, secure: true, sameSite: "strict" });
+                await setCookie('USER_AUTH_TOKEN', token, { cookies });
 
                 return NextResponse.json({
                     success: true,
