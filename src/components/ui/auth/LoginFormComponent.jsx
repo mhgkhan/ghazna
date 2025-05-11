@@ -1,11 +1,12 @@
 "use client"
 
 
-import { useRouter } from 'next/navigation';
+import { redirect, RedirectType, useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 const LoginFormComponent = () => {
 
+    
 
     const router = useRouter();
 
@@ -56,13 +57,15 @@ const LoginFormComponent = () => {
                     setIsErr(false);
                     setResMessage(response.message);
 
-                    router.push("/profile");
+                    router.prefetch("/login")
+                    router.push("/profile")
+                    
                 }
 
 
             } catch (error) {
                 setIsErr(true);
-                setResMessage("Some Error Occured");
+                setResMessage(error.message);
                 setLoading(false)
                 return;
             } finally {
