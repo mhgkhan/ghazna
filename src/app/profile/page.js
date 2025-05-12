@@ -4,6 +4,8 @@ import React from 'react'
 import { FaEdit, FaEye } from 'react-icons/fa'
 
 const page = () => {
+
+
   return (
     <section className='dashboard-hero w-full px-2'>
       {/* <h1 className='text-4xl text-black'>Hello MHGKHn</h1> */}

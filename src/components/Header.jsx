@@ -4,8 +4,15 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+// import { deleteCookie } from "cookies-next/client";
+import { useCookiesNext } from 'cookies-next';
 
 export default function Header({ isLogged }) {
+
+  const { deleteCookie } = useCookiesNext();
+
+
+
   const [openedNav, setOpenedNav] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -49,7 +56,7 @@ export default function Header({ isLogged }) {
             } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
-            {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }, { title: "Old Website", link: "http://mhgkhanp.netlify.app" }] : [{ title: "Dashboard", link: "/profile/" }, { title: "Blogs", link: "/profile/blogs/" }, { title: "Notifications", link:"/profile/notifications/"}]).map(
+            {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }, { title: "Old Website", link: "http://mhgkhanp.netlify.app" }] : [{ title: "Dashboard", link: "/profile/" }, { title: "Blogs", link: "/profile/blogs/" }, { title: "Notifications", link: "/profile/notifications/" }]).map(
               (ele, ind) => {
                 return (
                   <li
@@ -68,7 +75,12 @@ export default function Header({ isLogged }) {
             )}
           </ul>
           {
-            isLogged ? <button className="p-2 dark:bg-white  bg-black rounded-md border-2 border-dotted border-gray-200 dark:text-black text-white cursor-pointer" aria-label="Login" onClick={() => router.push("/login")}>
+            isLogged ? <button className="p-2 dark:bg-white  bg-black rounded-md border-2 border-dotted border-gray-200 dark:text-black text-white cursor-pointer" aria-label="Login" onClick={async () => {
+
+              await fetch(`/api/logout`);
+              deleteCookie("USER_AUTH_TOKEN");
+              router.refresh();
+            }}>
               Logout
             </button> : <button className="p-2 dark:bg-white  bg-black rounded-md border-2 border-dotted border-gray-200 dark:text-black text-white cursor-pointer" aria-label="Login" onClick={() => router.push("/login")}>
               Login
