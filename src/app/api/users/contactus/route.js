@@ -3,8 +3,13 @@ import ContactUsModel from "@/utils/models/ContactusModel";
 import { sendMail } from "@/config/EmailSeindingProcesses";
 import { validateRequestBody } from "@/utils/functions/utilityFunctions";
 import { headers } from "next/headers";
+import connectDB from "@/utils/db/connectDB";
+import FreezeEnv from "@/config/EnvConfig";
+import { userAgent } from "next/server";
 
 
+
+connectDB();
 
 export async function POST(request) {
 
@@ -23,6 +28,16 @@ export async function POST(request) {
             return sendNormalResponse(false, 400, "Unknown request", null);
         }
 
+        const agent = userAgent(request);
+        // console.log(agent);
+
+
+        const browser = agent?.browser?.name || "unknown"
+        const os = agent?.os?.name || "unknown"
+        const platform = agent?.platform?.type || "unknown"
+
+
+
         // checking the length of the requested ip messages 
         const readThisIpMessages = await ContactUsModel.find({ ip });
 
@@ -32,8 +47,13 @@ export async function POST(request) {
             }
         }
 
+
+
         const addMessageToDB = new ContactUsModel({
-            ...body
+            ...body,
+            ip,
+            browser,
+            os
         });
 
         const saveMessage = await addMessageToDB.save();
@@ -41,7 +61,7 @@ export async function POST(request) {
         const options = {
             from: FreezeEnv.EMAIL_SMTP,
             to: "muhammadhasnainghazna@gmail.com",
-            subject: "📬 New Message Received – Contact Us Form",
+            subject: "📬 New Message Received - Contact Us Form",
 
             html: `
     <html>
@@ -107,6 +127,8 @@ export async function POST(request) {
 
 
     } catch (error) {
+        console.log(error);
+
         return sendNormalResponse(false, 500, error.message, null)
     }
 }

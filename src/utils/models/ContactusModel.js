@@ -8,7 +8,9 @@ const contactUsSchema = mongoose.Schema({
     phone: defaultType,
     email: defaultType,
     message: defaultType,
-    ip: defaultType
+    ip: defaultType,
+    browser: defaultType,
+    os: defaultType,
 });
 
 const ContactUsModel = mongoose.models.contactmessages || mongoose.model("contactmessages", contactUsSchema);
