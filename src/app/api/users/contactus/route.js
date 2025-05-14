@@ -84,7 +84,11 @@ export async function POST(request) {
           </div>
 
           <p style="font-size: 14px; color: #666; margin-top: 30px;">
-            📅 <strong>Received On:</strong> ${new Date().toLocaleString()}
+            📅 <strong>Received On:</strong> ${new Date().toLocaleString()} <br />
+            📅 <strong>Browser:</strong> ${browser} <br />
+            📅 <strong>Os (Platform):</strong> ${os} <br />
+            📅 <strong>IP:</strong> ${ip} <br />
+
           </p>
 
           <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
