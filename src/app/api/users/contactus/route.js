@@ -124,7 +124,7 @@ export async function POST(request) {
 
         await sendMail(options);
 
-        return sendNormalResponse(true, 201, "Messaged Send Sucessfully", saveMessage)
+        return sendNormalResponse(true, 201, "Your message has been send sucessfully.", saveMessage)
 
 
 
