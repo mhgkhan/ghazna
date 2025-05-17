@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 // import { deleteCookie } from "cookies-next/client";
 import { useCookiesNext } from 'cookies-next';
+import FormsButton from "./ui/buttonsandlinks/FormsButton";
+
+import { CgLogIn, CgLogOut } from "react-icons/cg"
 
 export default function Header({ isLogged }) {
 
@@ -73,20 +76,17 @@ export default function Header({ isLogged }) {
                 );
               }
             )}
-          </ul>
           {
-            isLogged ? <button className="p-2 dark:bg-white  bg-black rounded-md border-2 border-dotted border-gray-200 dark:text-black text-white cursor-pointer" aria-label="Login" onClick={async () => {
-
+            isLogged ? <FormsButton text={"Logout"} icon={<CgLogOut />} loading={false} type={"button"} clickFun={async () => {
               await fetch(`/api/logout`);
               deleteCookie("USER_AUTH_TOKEN");
               router.refresh();
-            }}>
-              Logout
-            </button> : <button className="p-2 dark:bg-white  bg-black rounded-md border-2 border-dotted border-gray-200 dark:text-black text-white cursor-pointer" aria-label="Login" onClick={() => router.push("/login")}>
-              Login
-            </button>
-          }
-
+            }} /> 
+            
+            : <FormsButton text={"Login"} icon={<CgLogIn />} loading={false} type={"button"} clickFun={() => {
+              router.push("/login")
+            }} />}
+            </ul>
         </nav>
       </div>
     </header>
