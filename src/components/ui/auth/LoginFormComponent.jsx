@@ -3,6 +3,9 @@
 
 import { redirect, RedirectType, useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import FormsButton from '../buttonsandlinks/FormsButton';
+import RespMessage from '../dailogs/RespMessage';
+import Loading from '@/components/Loading';
 
 const LoginFormComponent = () => {
 
@@ -85,9 +88,10 @@ const LoginFormComponent = () => {
             <br />
             <input disabled={loading} onChange={(e) => setEmail(e.target.value)} value={email} type="email" name="email" autoComplete='off' placeholder="Email address" className="dark:text-white text-black font-bold dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 w-full outline-none border border-2 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
             <input disabled={loading} onChange={(e) => setPassword(e.target.value)} value={password} type="password" name="password" autoComplete='off' placeholder="Password" className="my-3 dark:text-white text-black font-bold dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 w-full outline-none border border-2 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
-            <button disabled={loading} type='submit' className="disabled:bg-gray-600 disabled:text-gray-800  submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"> Login </button>
+            {/* <button disabled={loading} type='submit' className="disabled:bg-gray-600 disabled:text-gray-800  submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"> Login </button> */}
+                <FormsButton loading={loading} type={'submit'} text={"Login"} />
 
-            {resMessage.length > 0 ? <div onClick={hideMessage} className={`my-5 py-5 px-3  rounded-md ${isErr ? "bg-red-600" : "bg-green-700"} text-white font-bold italic`}>{resMessage}</div> : ""}
+            {loading? <Loading /> :  resMessage.length > 0 ? <RespMessage hide={hideMessage} isErr={isErr} message={resMessage} /> : ""}
         </form>
     )
 }
