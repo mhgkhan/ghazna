@@ -39,7 +39,7 @@ const CheckVisitors = () => {
 
     return (
         <div className="block">
-            <h2 className="md:text-3xl text-xl font-bold">{`${users && users ? users : "wait..."}+`}</h2>
+            <h2 className="md:text-3xl text-xl font-bold">{`${users && users ? users+"+" : "..."}`}</h2>
             <p className="dark:text-gray-300 text-gray-600 my-2">Visitors </p>
         </div>
     )
