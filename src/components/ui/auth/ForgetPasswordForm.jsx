@@ -1,10 +1,10 @@
 "use client"
 
-import Loading from '@/components/Loading';
 import React, { useState } from 'react'
 import RespMessage from '../dailogs/RespMessage';
 import FormsButton from '../buttonsandlinks/FormsButton';
 import { FaPaperPlane } from 'react-icons/fa';
+import SmallLoading from '../SmallLoading';
 
 const ForgetPasswordForm = () => {
 
@@ -79,7 +79,7 @@ const ForgetPasswordForm = () => {
 
         <input onChange={(e) => setEmail(e.target.value)} value={email} disabled={loading} type="email" name="email" autoComplete='off' placeholder="Email address" className="dark:text-white text-black font-bold dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 w-full outline-none border border-1 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
         <FormsButton loading={loading} type={submitForm} text={"Submit"} icon={<FaPaperPlane />} />
-        {loading ? <Loading /> : message.length > 0 ? <RespMessage hide={hideMessage} isErr={error} message={message} /> : ""}
+        {loading ? <SmallLoading /> : message.length > 0 ? <RespMessage hide={hideMessage} isErr={error} message={message} /> : ""}
 
     </form>
 

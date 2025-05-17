@@ -2,8 +2,8 @@
 
 import React from 'react'
 import FormsButton from '../buttonsandlinks/FormsButton';
-import Loading from '@/components/Loading';
 import RespMessage from '../dailogs/RespMessage';
+import SmallLoading from '../SmallLoading';
 
 const SignupFormComponent = () => {
 
@@ -112,7 +112,7 @@ const SignupFormComponent = () => {
             {/* <button disabled={loading} className="my-3 disabled:bg-gray-600 disabled:text-gray-800 submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"> Register  </button> */}
             <FormsButton loading={loading} type={"submit"} text={"Register"} />
 
-            {loading ? <Loading /> : message.length > 0 ? <RespMessage hide={hideMessage} isErr={error} message={message} key={"keye"} /> : ""}
+            {loading ? <SmallLoading /> : message.length > 0 ? <RespMessage hide={hideMessage} isErr={error} message={message} key={"keye"} /> : ""}
 
         </form>
     )

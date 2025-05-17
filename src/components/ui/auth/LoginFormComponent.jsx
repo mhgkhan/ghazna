@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import FormsButton from '../buttonsandlinks/FormsButton';
 import RespMessage from '../dailogs/RespMessage';
-import Loading from '@/components/Loading';
+import SmallLoading from '../SmallLoading';
 
 const LoginFormComponent = () => {
 
@@ -91,7 +91,7 @@ const LoginFormComponent = () => {
             {/* <button disabled={loading} type='submit' className="disabled:bg-gray-600 disabled:text-gray-800  submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"> Login </button> */}
                 <FormsButton loading={loading} type={'submit'} text={"Login"} />
 
-            {loading? <Loading /> :  resMessage.length > 0 ? <RespMessage hide={hideMessage} isErr={isErr} message={resMessage} /> : ""}
+            {loading? <SmallLoading /> :  resMessage.length > 0 ? <RespMessage hide={hideMessage} isErr={isErr} message={resMessage} /> : ""}
         </form>
     )
 }

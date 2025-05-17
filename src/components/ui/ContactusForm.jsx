@@ -5,8 +5,8 @@ import { FaPaperPlane } from 'react-icons/fa';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import FormsButton from './buttonsandlinks/FormsButton';
-import Loading from '../Loading';
 import RespMessage from './dailogs/RespMessage';
+import SmallLoading from './SmallLoading';
 
 
 const ContactusForm = () => {
@@ -104,7 +104,7 @@ const ContactusForm = () => {
                 <FormsButton type={"submit"} loading={loading} text={"Send"} icon={<FaPaperPlane />} />
             </form>
             {
-                loading ? <Loading /> : resMessage.length > 0 ? <RespMessage message={resMessage} isErr={isErr} hide={hideThis} /> : ""
+                loading ? <SmallLoading /> : resMessage.length > 0 ? <RespMessage message={resMessage} isErr={isErr} hide={hideThis} /> : ""
             }
         </div>
     )
