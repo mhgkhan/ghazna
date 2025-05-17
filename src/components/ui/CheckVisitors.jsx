@@ -3,8 +3,13 @@
 
 
 import React, { useEffect, useState } from 'react'
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+
 
 const CheckVisitors = () => {
+
+
 
     const [users, setUsers] = useState(null);
     const [isFetch, setIsFetch] = useState(false);
@@ -31,11 +36,16 @@ const CheckVisitors = () => {
 
     useEffect(() => {
         fetchVisitors();
+
+
+
+        Aos.init({ duration: 1000 })
+
     }, [])
 
 
     return (
-        <div className="block">
+        <div className="block" data-aos="fade-down">
             <h2 className="md:text-3xl text-xl font-bold">{`${users && users ? users : "wait..."}+`}</h2>
             <p className="dark:text-gray-300 text-gray-600 my-2">Visitors </p>
         </div>
