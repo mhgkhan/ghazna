@@ -1,6 +1,9 @@
 "use client"
 
 import React from 'react'
+import FormsButton from '../buttonsandlinks/FormsButton';
+import Loading from '@/components/Loading';
+import RespMessage from '../dailogs/RespMessage';
 
 const SignupFormComponent = () => {
 
@@ -60,8 +63,16 @@ const SignupFormComponent = () => {
             })
             const data = await res.json();
 
-            setError(data.success);
+            setError(!data.success);
             setMessage(data.message);
+
+            setFormData({
+                firstname: "",
+                lastname: "",
+                email: "",
+                password: "",
+                cPassword: ""
+            })
             return;
 
         } catch (error) {
@@ -98,9 +109,10 @@ const SignupFormComponent = () => {
             <input disabled={loading} onChange={handleChange} value={formData.password} type="password" name="password" autoComplete='off' placeholder="Password" className="my-3 dark:text-white text-black font-bold dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 w-full outline-none border border-1 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
             <input disabled={loading} onChange={handleChange} value={formData.cPassword} type="password" name="cPassword" autoComplete='off' placeholder="Confirm password" className=" dark:text-white text-black font-bold dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 w-full outline-none border border-1 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
             {/* <br /> */}
-            <button disabled={loading} className="my-3 disabled:bg-gray-600 disabled:text-gray-800 submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"> Register  </button>
+            {/* <button disabled={loading} className="my-3 disabled:bg-gray-600 disabled:text-gray-800 submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"> Register  </button> */}
+            <FormsButton loading={loading} type={"submit"} text={"Register"} />
 
-            {message.length > 0 ? <div onClick={hideMessage} className={`my-5 py-5 px-3  rounded-md ${error ? "bg-red-600" : "bg-green-700"} text-white font-bold italic`}>{message}</div> : ""}
+            {loading ? <Loading /> : message.length > 0 ? <RespMessage hide={hideMessage} isErr={error} message={message} key={"keye"} /> : ""}
 
         </form>
     )
