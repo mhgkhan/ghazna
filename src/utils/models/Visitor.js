@@ -4,19 +4,21 @@ const visitorSchema = new mongoose.Schema({
     ip: {
         type: String,
         required: true,
+        unique: true
     },
     browser: {
         type: String,
-        required: true
     },
-    platform: {
+    visitPages: {
         type: String,
-        required: true
     },
-    visitPages:{
-        type: Array,
+    os: {
+        type: String,
     },
-    user:{
+    device: {
+        type: String
+    },
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     }

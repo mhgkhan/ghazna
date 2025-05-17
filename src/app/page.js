@@ -2,11 +2,23 @@ import ContactusForm from "@/components/ui/ContactusForm";
 import HeadingSection from "@/components/ui/HeadingSection";
 import HeroSection from "@/components/ui/HeroSection";
 import Services from "@/components/ui/Services";
+import FreezeEnv from "@/config/EnvConfig";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
-export default async function Home(request) {
+export default async function Home(req) {
 
+
+  // console.log((await headers()).get("x-forwarded-for"))
+  const userHeaders = await headers();
+
+  const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
+
+  // calling to api 
+  const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }) })
+  const res = await request.json();
+  console.log(res);
 
 
   return (

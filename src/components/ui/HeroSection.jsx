@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DiResponsive } from "react-icons/di";
 import { SiCodesignal } from "react-icons/si";
 import Image from 'next/image';
+import CheckVisitors from "@/components/ui/CheckVisitors"
 
 const HeroSection = () => {
     return (
@@ -28,10 +29,7 @@ const HeroSection = () => {
                                 <h2 className="md:text-3xl text-xl font-bold">88+</h2>
                                 <p className="dark:text-gray-300 text-gray-600 my-2">Clients</p>
                             </div>
-                            <div className="block">
-                                <h2 className="md:text-3xl text-xl font-bold">10+ Projects</h2>
-                                <p className="dark:text-gray-300 text-gray-600 my-2">Completed</p>
-                            </div>
+                            <CheckVisitors />
                         </div>
                     </div>
                     {/* Hero Image */}
