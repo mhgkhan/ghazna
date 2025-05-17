@@ -70,6 +70,16 @@ const ContactusForm = () => {
             setIsErr(!res.success);
             setResMessage(res.message)
 
+            if (res.success) {
+                setFormData({
+                    name: "",
+                    phone: "",
+                    email: "",
+                    subject: "",
+                    message: ""
+                })
+            }
+
 
         } catch (error) {
             setIsErr(true);
