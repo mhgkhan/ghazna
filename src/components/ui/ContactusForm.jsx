@@ -5,6 +5,8 @@ import { FaPaperPlane } from 'react-icons/fa';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import FormsButton from './buttonsandlinks/FormsButton';
+import Loading from '../Loading';
+import RespMessage from './dailogs/RespMessage';
 
 
 const ContactusForm = () => {
@@ -82,6 +84,8 @@ const ContactusForm = () => {
 
     }
 
+    const hideThis = () => setResMessage("");
+
 
     return (
         <div className="contactus-form md:w-[50%]" data-aos="fade-up" data-aos-duration="1000">
@@ -100,7 +104,7 @@ const ContactusForm = () => {
                 <FormsButton type={"submit"} loading={loading} text={"Send"} icon={<FaPaperPlane />} />
             </form>
             {
-                resMessage.length > 0 ? <div className={`text-xl italic text-white p-5 rounded-md ${isErr ? "bg-red-600" : "bg-green-600"}`}>{resMessage}</div> : ""
+                loading ? <Loading /> : resMessage.length > 0 ? <RespMessage message={resMessage} isErr={isErr} hide={hideThis} /> : ""
             }
         </div>
     )
