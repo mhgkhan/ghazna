@@ -8,4 +8,3 @@ const LinkButton = ({ text, link }) => {
 }
 
 export default LinkButton
-s

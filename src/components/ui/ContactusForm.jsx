@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FaPaperPlane } from 'react-icons/fa';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
-import { useSetCookie } from 'cookies-next';
+import FormsButton from './buttonsandlinks/FormsButton';
 
 
 const ContactusForm = () => {
@@ -39,7 +39,7 @@ const ContactusForm = () => {
     const submitMessage = async e => {
         e.preventDefault();
 
-        console.log(formData)
+        // console.log(formData)
 
         setIsErr(false);
         setResMessage("");
@@ -65,7 +65,7 @@ const ContactusForm = () => {
 
             const res = await request.json();
 
-            setIsErr(res.success);
+            setIsErr(!res.success);
             setResMessage(res.message)
 
 
@@ -97,7 +97,7 @@ const ContactusForm = () => {
                     <input onChange={changeInput} disabled={loading} value={formData.subject} type="text" name="subject" placeholder="Subject" className="dark:text-white text-black font-bold dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 md:w-[50%] w-full outline-none border border-1 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit" />
                 </div>
                 <textarea onChange={changeInput} disabled={loading} value={formData.message} name="message" placeholder="Type message" rows={5} className="font-bold w-full dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md p-2 outline-none border border-1 dark:border-gray-300 border-gray-800 focus:border-2 focus:border-dotted bg-inherit"></textarea>
-                <button disabled={loading} type="submit" className="submit w-auto p-3 border-1 border border-gray-500 text-white hover:bg-pink-600 bg-pink-700 text-center my-2 flex items-center justify-center gap-2 rounded-md active:border-2 active:border-dotted"><span><FaPaperPlane /></span> Send</button>
+                <FormsButton type={"submit"} loading={loading} text={"Send"} icon={<FaPaperPlane />} />
             </form>
             {
                 resMessage.length > 0 ? <div className={`text-xl italic text-white p-5 rounded-md ${isErr ? "bg-red-600" : "bg-green-600"}`}>{resMessage}</div> : ""
