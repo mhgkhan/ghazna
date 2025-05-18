@@ -87,7 +87,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
       >
-        <main className="dark:bg-gray-800 bg-white dark:text-white text-black min-h-screen">
+        <main className="dark:bg-gray-800 bg-white dark:text-white text-black min-h-screen pt-2">
           <Header isLogged={cookieName ? true : false} />
           {children}
           <Footer />

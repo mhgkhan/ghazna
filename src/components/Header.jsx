@@ -15,7 +15,6 @@ export default function Header({ isLogged }) {
   const { deleteCookie } = useCookiesNext();
 
 
-
   const [openedNav, setOpenedNav] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
