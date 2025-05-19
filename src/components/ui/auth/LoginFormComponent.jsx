@@ -60,9 +60,9 @@ const LoginFormComponent = () => {
                     setIsErr(false);
                     setResMessage(response.message);
 
-                    router.prefetch("/login")
-                    router.push("/profile")
-                    
+                    // router.prefetch("/login")
+                    // router.push("/profile")
+                    window.location.href = "/profile"
                 }
 
 
