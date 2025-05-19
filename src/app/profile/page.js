@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaEdit, FaEye } from 'react-icons/fa'
+import { FaBlog, FaCog, FaEdit, FaEye, FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
 
 const page = () => {
 
@@ -67,6 +67,34 @@ const page = () => {
           </div>
         </div>
       </div>
+
+     
+
+<div className='w-full mt-10'>
+  <div className='container mx-auto my-5'>
+    <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-400 underline px-2 text-center mx-auto'>Quick Links</h2>
+    
+    <div className="flex items-center justify-center flex-wrap gap-5 my-5">
+      {[
+        { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
+        { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
+        { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/settings' },
+        { title: 'Logout', icon: <FaSignOutAlt size={30} className="text-red-400" />, href: '/logout' },
+      ].map((link, ind) => (
+        <a
+          key={ind}
+          href={link.href}
+          className='p-4 border border-gray-600 rounded-xl w-[200px] text-center cursor-pointer 
+                     hover:bg-gray-800 transition-all duration-300 bg-gray-900'
+        >
+          <div className="flex justify-center mb-2">{link.icon}</div>
+          <h4 className='md:text-lg text-sm text-gray-100 font-semibold'>{link.title}</h4>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
 
     </section>
   )
