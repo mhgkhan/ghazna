@@ -78,10 +78,10 @@ const page = () => {
       {[
         // { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
         { title: 'Create Blog', icon: <FaBloggerB size={30} className="text-yellow-300" />, href: '/profile/blogs/create' },
-        { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/settings' },
+        { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/profile/settings' },
         // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
         // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
-        { title: 'History', icon: <FaHistory size={30} className="text-green-400" />, href: '/edit-profile' },
+        { title: 'History', icon: <FaHistory size={30} className="text-green-400" />, href: '/profile/history' },
         // { title: 'Logout', icon: <FaSignOutAlt size={30} className="text-red-400" />, href: '/logout' },
       ].map((link, ind) => (
         <a
