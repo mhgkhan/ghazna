@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaBlog, FaCog, FaEdit, FaEye, FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
+import { FaBlog, FaBloggerB, FaCog, FaEdit, FaEye, FaHistory, FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
 
 const page = () => {
 
@@ -54,9 +54,9 @@ const page = () => {
               {title:"Blog Views", count:80},
             ]).map((ele,ind)=>{
               return  <div key={ind} className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-500'>
-              <h4 className='md:text-lg text-sm text-center  text-pink-600 font-bold my-2 px-1'>{ele.title}</h4>
+              <h4 className='md:text-lg text-sm text-center  dark:text-pink-400 text-pink-600 font-bold my-2 px-1'>{ele.title}</h4>
               <hr />
-              <h2 className='text-5xl text-center text-green-800 font-bold  py-2'>{ele.count}</h2>
+              <h2 className='text-5xl text-center text-green-800 dark:text-green-300 font-bold  py-2'>{ele.count}</h2>
             </div>
 
 
@@ -76,10 +76,13 @@ const page = () => {
     
     <div className="flex items-center justify-center flex-wrap gap-5 my-5">
       {[
-        { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
-        { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
+        // { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
+        { title: 'Create Blog', icon: <FaBloggerB size={30} className="text-yellow-300" />, href: '/profile/blogs/create' },
         { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/settings' },
-        { title: 'Logout', icon: <FaSignOutAlt size={30} className="text-red-400" />, href: '/logout' },
+        // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
+        // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
+        { title: 'History', icon: <FaHistory size={30} className="text-green-400" />, href: '/edit-profile' },
+        // { title: 'Logout', icon: <FaSignOutAlt size={30} className="text-red-400" />, href: '/logout' },
       ].map((link, ind) => (
         <a
           key={ind}
