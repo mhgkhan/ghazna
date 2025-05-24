@@ -99,7 +99,7 @@ const BlogForm = () => {
 
 
     return (
-        <div className="blog-form-start my-5">
+        <div className="blog-form-start my-5 md:px-1 px-2">
 
 
             {/* blog image  */}
@@ -208,7 +208,7 @@ const BlogForm = () => {
 
                         </div>
                         <div>
-                            <div className="flex items-center justify-center gap-5">
+                            <div className="flex items-center justify-center md:flex-row flex-col gap-5">
                                 <textarea onChange={e => setTypingAttributes(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align='center'
                     
                     " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
@@ -248,7 +248,7 @@ const BlogForm = () => {
 
                 </div>
 
-                <div className="submit-buttons flex items-center gap-5 my-10">
+                <div className="submit-buttons flex md:flex-row flex-col items-center gap-5 my-10">
                         <FormsButton type={"button"} loading={false} text={"Publish Blogpost "} icon={<FaRepublican />} />
                         <FormsButton type={"button"} loading={false} text={"Preview Blogpost "} icon={<FaTablet />} />
                         
