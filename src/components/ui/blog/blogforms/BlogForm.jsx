@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react'
 import FormsButton from '@/components/ui/buttonsandlinks/FormsButton'
-import { FaPlus, FaPlusCircle } from 'react-icons/fa'
+import { FaPlus, FaPlusCircle, FaRepublican, FaTablet } from 'react-icons/fa'
 
 
 const BlogForm = () => {
@@ -190,6 +190,7 @@ const BlogForm = () => {
 
                             <div className="w-[50%]">
                                 <select onChange={changeDailogtype} name="blog-content-type" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400">
+                                    {/* <option disabled defaultChecked >Tag</option> */}
                                     {
                                         Array.from(theTags[dailog.title.toLowerCase()]).map((tag, index) => {
                                             return (
@@ -207,13 +208,17 @@ const BlogForm = () => {
 
                         </div>
                         <div>
-                            <textarea onChange={e => setTypingAttributes(e.target.value)} rows={10} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align=&dblquote; center &dblquote;
+                            <div className="flex items-center justify-center gap-5">
+                                <textarea onChange={e => setTypingAttributes(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align='center'
                     
-                    " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" /><textarea onChange={e => setTypingCss(e.target.value)} rows={10} name="css classes" autoComplete='off' placeholder="Type Css eg 
+                    " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+                    <textarea onChange={e => setTypingCss(e.target.value)} rows={8} name="css classes" autoComplete='off' placeholder="Type Css eg 
                     color:white;
                     font-size: 20px;
                     
                     " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+
+                            </div>
                         </div>
 
                         <FormsButton type={"button"} loading={false} text={"Add"} clickFun={clickToSave} />
@@ -241,6 +246,13 @@ const BlogForm = () => {
 
                     </div>
 
+                </div>
+
+                <div className="submit-buttons flex items-center gap-5 my-10">
+                        <FormsButton type={"button"} loading={false} text={"Publish Blogpost "} icon={<FaRepublican />} />
+                        <FormsButton type={"button"} loading={false} text={"Preview Blogpost "} icon={<FaTablet />} />
+                        
+                    
                 </div>
 
             </div>
