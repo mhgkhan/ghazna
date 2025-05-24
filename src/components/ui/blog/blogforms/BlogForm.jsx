@@ -87,6 +87,10 @@ const BlogForm = () => {
     const clickToSave = () => {
         finalHtml.push(`<${currentTag} style="${typingCss}">${typingTitle}</${currentTag}>`);
         setFinalHtml([...finalHtml]);
+        setTypingHtml("");
+        setTypingTitle("");
+        setTypingCss("");
+        setOpenedDailog(false);
     }
 
 
@@ -218,9 +222,9 @@ const BlogForm = () => {
 
 
 
-                <div className="preview mt-10">
+                <div className="preview mt-10 ">
                     <h2 className='text-2xl font-bold my-5'>Your Blog Preview </h2>
-                    <div className="preview-main my-10">
+                    <div className="preview-main my-10 md:w-[80%] mx-auto border border-1 border-white rounded-md">
 
 
                         {
