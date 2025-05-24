@@ -63,6 +63,7 @@ const BlogForm = () => {
     const [typingHtml, setTypingHtml] = useState("");
     const [typingTitle, setTypingTitle] = useState("");
     const [typingCss, setTypingCss] = useState("");
+    const [typingAttributes, setTypingAttributes] = useState("")
     const [currentTag, setCurrentTag] = useState("");
 
 
@@ -85,7 +86,7 @@ const BlogForm = () => {
 
 
     const clickToSave = () => {
-        finalHtml.push(`<${currentTag} style="${typingCss}">${typingTitle}</${currentTag}>`);
+        finalHtml.push(`<${currentTag} ${typingAttributes}  style="${typingCss}">${typingTitle}</${currentTag}>`);
         setFinalHtml([...finalHtml]);
         setTypingHtml("");
         setTypingTitle("");
@@ -200,12 +201,15 @@ const BlogForm = () => {
                             </div>
 
                             <div className="w-[50%]">
+
                                 <input type="text" onChange={e => setTypingTitle(e.target.value)} name="heading-text" autoComplete='off' placeholder="Enter your heading text" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
                             </div>
 
                         </div>
                         <div>
-                            <textarea onChange={e => setTypingCss(e.target.value)} rows={10} name="css classes" autoComplete='off' placeholder="Type Css eg 
+                            <textarea onChange={e => setTypingAttributes(e.target.value)} rows={10} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align=&dblquote; center &dblquote;
+                    
+                    " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" /><textarea onChange={e => setTypingCss(e.target.value)} rows={10} name="css classes" autoComplete='off' placeholder="Type Css eg 
                     color:white;
                     font-size: 20px;
                     
