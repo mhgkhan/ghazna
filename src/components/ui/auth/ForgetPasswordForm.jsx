@@ -52,7 +52,7 @@ const ForgetPasswordForm = () => {
 
                 const res = await request.json();
 
-                setError(res.success);
+                setError(!res.success);
                 setMessage(res.message)
 
 
@@ -60,6 +60,10 @@ const ForgetPasswordForm = () => {
                 setError(true)
                 setMessage(error.message)
                 return;
+            }
+            finally{
+                setLoading(false);
+                setEmail("");
             }
 
 
