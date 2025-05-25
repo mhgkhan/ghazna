@@ -8,7 +8,7 @@ const BlogPostHeader = ({title, views, image}) => {
         <>
             <div className='header relative max-h-[400px] h-[300px] w-full'>
                 <div className="image-blog w-full h-full">
-                    <Image src={image} alt='blog-picture' width={600} height={400} className='w-full h-full relative max-w-full max-h-full object-scale-down rounded-md' />
+                    <Image src={image?image:"/images/website.jpg"} alt='blog-picture' width={600} height={400} className='w-full h-full relative max-w-full max-h-full object-scale-down rounded-md' />
                 </div>
                 <div className="rounded-md dark:bg-[#e7e3e3c2] bg-[#5f5c5cc5] title-area-head-blog absolute bottom-0 w-full h-auto p-5">
                     <h1 className='lg:text-4xl md:text-2xl text-xl dark:text-black text-white font-bold'>

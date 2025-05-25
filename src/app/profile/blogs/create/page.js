@@ -8,14 +8,10 @@ const page = () => {
       <section className="blog-form w-full">
         <div className="container mx-auto relative">
 
-          <div className="blog-form relative w-full h-full">
-            <h1 className="text-3xl font-bold my-5 text-center">Create a New Blog Post</h1>
+          <h1 className="text-3xl font-bold my-5 text-center">Create a New Blog Post</h1>
 
-            <BlogForm />  
+          <BlogForm />
 
-         
-
-          </div>
 
 
         </div>
