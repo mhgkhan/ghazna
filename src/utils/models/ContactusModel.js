@@ -11,6 +11,8 @@ const contactUsSchema = mongoose.Schema({
     ip: defaultType,
     browser: defaultType,
     os: defaultType,
+},{
+    tiemstamps: true,
 });
 
 const ContactUsModel = mongoose.models.contactmessages || mongoose.model("contactmessages", contactUsSchema);
