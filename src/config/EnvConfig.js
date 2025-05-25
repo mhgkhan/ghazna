@@ -7,7 +7,7 @@ const obj = {
   VERIFICATION_URL: process.env.VERIFICATION_URL,
   FORGET_PASSWORD_URL: process.env.FORGET_PASSWORD_URL,
   DOMAIN: process.env.DOMAIN,
-
+  GoogleSiteVerificationContent: process.env.GOOGLE_SITE_VERIFICATION_CONTENT,
 };
 
 const FreezeEnv = Object.freeze(obj);

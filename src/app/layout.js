@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
+import GoogleSiteVerification from "@/components/GoogleSiteVerification";
+import FreezeEnv from "@/config/EnvConfig";
 
 const rubikFont = Rubik({
   variable: "--font-body",
@@ -82,7 +84,7 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
         <meta name="apple-mobile-web-app-title" content="Ghazna Dev" />
-        <meta name="google-site-verification" content="aEOz-kvCP4vwXvUH4LYGzWDDpM_kvPkPXUOiU284dyo" />
+        <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
