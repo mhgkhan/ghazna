@@ -270,34 +270,26 @@ const BlogForm = () => {
 
             </div>
             {
-                openedPreview ? <div className={`preview-dailog ${openedPreview ? 'absolute inset-1' : ""} bg-gray-800`}>
+                openedPreview ? <div className={`preview-dailog ${openedPreview ? 'absolute inset-1' : ""} dark:bg-gray-800 bg-gray-200`}>
                     {/* Preview the Upper Blogpost */}
                     <div className={`preview-area relative border-2 border-white rounded-md p-5 ${openedPreview ? "block" : "hidden"}`}>
                         <h2 className='text-2xl font-bold my-5'>Your Blog Preview </h2>
                         <div className="absolute top-5 right-5 p-3 rounded-md bg-red-600 text-white font-bold text-xl cursor-pointer" onClick={() => setOpenedPreview(false)}><CgClose /></div>
 
                         <BlogPostHeader title={title} image={imgLink} views={200} />
-                        {/* <div dangerouslySetInnerHTML={{ __html: finalHtml.join("").toString() }} className='blogpost-content px-1 py-5' /> */}
 
-                        {/* <div className='blogpost-content px-1 py-5' dangerouslySetInnerHTML={{ __html: finalHtml.join("") }}> </div> */}
                         <BlogPostContent body={finalHtml.join("").toString()} />
 
-                        {/* <div className="preview-main my-10 md:w-[80%] mx-auto border border-1 border-white rounded-md">
-                        {
-                            finalHtml.map((content, index) => {
-                                return <div dangerouslySetInnerHTML={{ __html: content }} key={index} className="blog-content-preview"></div>;
-                            })
-                        }
-                    </div> */}
+
                     </div>
                 </div> : ""
             }
 
             {
-                openedHtml ? <div className={`preview-dailog ${openedHtml ? 'absolute inset-1' : ""} bg-gray-800`}>
+                openedHtml ? <div className={`preview-dailog ${openedHtml ? 'absolute inset-1' : ""} dark:bg-gray-800 bg-gray-200`}>
                     <div className="absolute top-5 right-5 p-3 rounded-md bg-red-600 text-white font-bold text-xl cursor-pointer" onClick={() => setOpenedHtml(false)}><CgClose /></div>
-                    <h3 className='font-bold text-2xl my-5 px-3'>Your Blogpost Generated HTML</h3>
-                    <div className="html-preview-area relative border-2 border-white rounded-md p-5">
+                    <h3 className='font-bold text-2xl my-5 px-3 dark:text-white text-gray-800'>Your Blogpost Generated HTML</h3>
+                    <div className="html-preview-area relative border-2 dark:border-white border-gray-800 rounded-md p-5">
                         <pre className='dark:text-white text-gray-800 font-mono text-sm'>
                             {finalHtml.join("\n")}
                         </pre>
