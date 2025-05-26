@@ -16,7 +16,7 @@ export default async function Home(req) {
   const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
 
   // calling to api 
-  const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }) })
+  const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache:"force-cache" })
   const res = await request.json();
   console.log(res);
 
