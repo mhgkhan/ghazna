@@ -18,7 +18,7 @@ export default async function Home(req) {
   // calling to api 
   const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache:"force-cache" })
   const res = await request.json();
-  console.log(res);
+  // console.log(res);
 
 
   return (

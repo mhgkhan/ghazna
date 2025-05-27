@@ -11,19 +11,19 @@ const fetchBlog = async function (slug) {
     const request = await fetch(`https://mhgkhanp.netlify.app/api/get/blogs/blog/${slug}`);
     const response = await request.json();
     return response;
-  }
+}
 
 const page = async ({ params }) => {
 
-    const {slug} = await params;
+    const { slug } = await params;
     const thisBlog = await fetchBlog(slug);
 
 
 
-    const  blog = thisBlog.data;
-    
+    const blog = thisBlog.data;
+
     // console.log();
-    
+
 
 
     return (
@@ -33,17 +33,17 @@ const page = async ({ params }) => {
                     <div className='content lg:w-[70%] w-full sm:px-2'>
                         {
                             // blog ? <><BlogPostHeader title={blog.title} views={blog.views} />
-                            blog ? <><BlogPostHeader title={blog?.title} views={5000} image={blog.img} />
+                            blog ? <><BlogPostHeader title={blog?.title} views={5000} image={blog.img} description={blog?.description} />
 
-                            <BlogPostContent body={blog.content} title={blog.title} description={blog.description} />
-    
-                            <div className="my-5 px-2 bl">
-                                <BlogPostLikebutton />
-                                <div className="my-5">
-                                    <BlogPostsCommentForm />
-                                    <BlogPostComments />
-                                </div>
-                            </div></>:"Loading ..."
+                                <BlogPostContent body={blog.content} title={blog.title} description={blog.description} />
+
+                                <div className="my-5 px-2 bl">
+                                    <BlogPostLikebutton />
+                                    <div className="my-5">
+                                        <BlogPostsCommentForm />
+                                        <BlogPostComments />
+                                    </div>
+                                </div></> : "Loading ..."
                         }
 
                     </div>

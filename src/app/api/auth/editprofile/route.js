@@ -40,6 +40,8 @@ export async function PUT(request) {
     if (!updatedUser) {
         return sendNormalResponse(false, "Failed to update profile", 500, null);
     }
+
+    
     // Optionally, you can return the updated user data
     const { password, ...userWithoutPassword } = updatedUser._doc;
     // Return success response

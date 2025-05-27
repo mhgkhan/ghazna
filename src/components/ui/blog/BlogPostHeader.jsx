@@ -3,7 +3,7 @@ import Image from "next/image"
 
 import { FaBookOpen, FaCalendar } from 'react-icons/fa'
 
-const BlogPostHeader = ({title, views, image}) => {
+const BlogPostHeader = ({title, views, image,description}) => {
     return (
         <>
             <div className='header relative max-h-[400px] h-[300px] w-full'>
@@ -18,7 +18,7 @@ const BlogPostHeader = ({title, views, image}) => {
             </div>
             <div className='blog-post-description px-2 pl-4 py-2 border-l-4 border-gray-500 rounded-md my-2 dark:text-gray-300 text-gray-600'>
                 <p className='italic md:text-lg text-sm dark:text-gray-400 text-gray-600'>
-                This blog dives into the fascinating intersection of technology and history, exploring how artificial intelligence is reshaping efforts to decode, preserve, and revive ancient languages and scripts. It highlights the potential of AI to connect modern society with the rich heritage of the past.</p>    
+                {description}</p>    
             </div>
             <div className='w-full flex items-center justify-between gap-3 p-2'>
                 <div className='flex items-start justify-between flex-wrap gap-2'>

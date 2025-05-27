@@ -289,8 +289,8 @@ const BlogForm = () => {
                 openedHtml ? <div className={`preview-dailog ${openedHtml ? 'absolute inset-1' : ""} dark:bg-gray-800 bg-gray-200`}>
                     <div className="absolute top-5 right-5 p-3 rounded-md bg-red-600 text-white font-bold text-xl cursor-pointer" onClick={() => setOpenedHtml(false)}><CgClose /></div>
                     <h3 className='font-bold text-2xl my-5 px-3 dark:text-white text-gray-800'>Your Blogpost Generated HTML</h3>
-                    <div className="html-preview-area relative border-2 dark:border-white border-gray-800 rounded-md p-5">
-                        <pre className='dark:text-white text-gray-800 font-mono text-sm'>
+                    <div className="html-preview-area relative border-2 dark:border-white border-gray-800 rounded-md p-5 ">
+                        <pre className='dark:text-white text-gray-800 font-mono text-sm text-wrap'>
                             {finalHtml.join("\n")}
                         </pre>
                     </div>
