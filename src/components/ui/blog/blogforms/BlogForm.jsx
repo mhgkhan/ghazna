@@ -201,9 +201,8 @@ const BlogForm = () => {
                             <div className="flex items-center justify-between my-3 gap-5">
 
                                 <div className="w-[50%]">
-                                    <select onChange={changeDailogtype} name="blog-content-type" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400">
-                                        {/* <option disabled defaultChecked >Tag</option> */}
-                                        {
+                                    <select onChange={changeDailogtype} defaultValue={theTags[dailog.title.toLowerCase()][0]} name="blog-content-type" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400">
+                                        <option defaultChecked value={theTags[dailog.title.toLowerCase()][0]} disabled selected>Select Tag </option>                                        {
                                             Array.from(theTags[dailog.title.toLowerCase()]).map((tag, index) => {
                                                 return (
                                                     <option key={index} value={tag}>{tag}</option>
@@ -269,6 +268,19 @@ const BlogForm = () => {
                 </div>
 
             </div>
+
+
+
+
+
+
+
+
+
+            {/* preview part  */}
+
+
+
             {
                 openedPreview ? <div className={`preview-dailog ${openedPreview ? 'absolute inset-1' : ""} dark:bg-gray-800 bg-gray-200`}>
                     {/* Preview the Upper Blogpost */}
@@ -276,10 +288,9 @@ const BlogForm = () => {
                         <h2 className='text-2xl font-bold my-5'>Your Blog Preview </h2>
                         <div className="absolute top-5 right-5 p-3 rounded-md bg-red-600 text-white font-bold text-xl cursor-pointer" onClick={() => setOpenedPreview(false)}><CgClose /></div>
 
-                        <BlogPostHeader title={title} image={imgLink} views={200} />
+                        <BlogPostHeader title={title} image={imgLink} views={200} description={description} />
 
                         <BlogPostContent body={finalHtml.join("").toString()} />
-
 
                     </div>
                 </div> : ""
