@@ -6,6 +6,7 @@ import JWT from "jsonwebtoken";
 import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import BlogPostModel from "@/utils/models/BlogPostModel";
+import User from "@/utils/models/Users";
 
 connectDB();
 
@@ -89,8 +90,9 @@ export async function POST(request) {
 
 
     } catch (error) {
+        console.log(error);
+        
         return sendNormalResponse(false, 500, "Internal Server Error", error.message);
     }
 
 }
-

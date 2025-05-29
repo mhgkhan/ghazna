@@ -5,11 +5,15 @@ import BlogPostHeader from '@/components/ui/blog/BlogPostHeader';
 import BlogPostContent from '@/components/ui/blog/BlogPostContent';
 import BlogPostLikebutton from '@/components/ui/blog/BlogPostLikebutton';
 import BlogPostRelatedArticles from '@/components/ui/blog/BlogPostRelatedArticles';
+import Loading from '@/components/Loading';
+import FreezeEnv from '@/config/EnvConfig';
 
 
 const fetchBlog = async function (slug) {
-    const request = await fetch(`https://mhgkhanp.netlify.app/api/get/blogs/blog/${slug}`);
+    const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs/${slug}`);
     const response = await request.json();
+    console.log(response);
+    
     return response;
 }
 
@@ -22,7 +26,7 @@ const page = async ({ params }) => {
 
     const blog = thisBlog.data;
 
-    // console.log();
+    console.log(blog);
 
 
 
@@ -43,7 +47,7 @@ const page = async ({ params }) => {
                                         <BlogPostsCommentForm />
                                         <BlogPostComments />
                                     </div>
-                                </div></> : "Loading ..."
+                                </div></> : <Loading />
                         }
 
                     </div>

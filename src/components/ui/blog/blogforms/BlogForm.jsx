@@ -7,6 +7,8 @@ import { FaHtml5, FaPlus, FaPlusCircle, FaRepublican, FaTablet } from 'react-ico
 import { CgClose } from 'react-icons/cg'
 import BlogPostHeader from '../BlogPostHeader'
 import BlogPostContent from '../BlogPostContent'
+import SmallLoading from '../../SmallLoading'
+import RespMessage from '../../dailogs/RespMessage'
 
 
 const BlogForm = () => {
@@ -142,13 +144,15 @@ const BlogForm = () => {
                     title,
                     description,
                     category,
-                    tags: tags.split(" "),
+                    tags: tags,
                     image: imgLink,
                     content: finalHtml.join("").toString()
                 })
             });
 
             const data = await response.json();
+            console.log(data);
+
 
             if (data.success) {
                 setResMessage("Blog post created successfully");
@@ -161,7 +165,7 @@ const BlogForm = () => {
                 setTags("");
                 setFinalHtml([]);
 
-                window.location.href = `/blog/${data.blog.slug}`; // Redirect to the newly created blog post
+                window.location.href = `/blog/${data.data.slug}`; // Redirect to the newly created blog post
             } else {
                 setIsErr(true);
                 setResMessage(data.message || "Failed to create blog post");
@@ -332,7 +336,7 @@ const BlogForm = () => {
                     </div>
 
                     <div className="submit-buttons flex md:flex-row flex-col items-center gap-5 my-10">
-                        <FormsButton type={"button"} loading={false} text={"Publish Blogpost "} icon={<FaRepublican />} />
+                        <FormsButton type={"button"} loading={loading} text={"Publish Blogpost "} icon={<FaRepublican />} clickFun={submitBlogPost} />
                         {
                             openedPreview ? <FormsButton type={"button"} loading={false} text={"Close Preview "} icon={<CgClose />} clickFun={() => setOpenedPreview(false)} /> : <FormsButton type={"button"} loading={false} text={"Preview Blogpost "} icon={<FaTablet />} clickFun={() => setOpenedPreview(true)} />
                         }
@@ -341,6 +345,17 @@ const BlogForm = () => {
 
                         }
                     </div>
+
+                    {
+                        loading ? <SmallLoading /> : ""
+                    }
+                    {
+                        resMessage.length > 0 ? <RespMessage isErr={isErr} message={resMessage} hide={() => {
+                            setResMessage("");
+                            setIsErr(false)
+                        }} /> : ""
+                    }
+
 
                 </div>
 
