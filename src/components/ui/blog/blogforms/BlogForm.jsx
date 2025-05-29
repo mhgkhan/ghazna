@@ -109,6 +109,83 @@ const BlogForm = () => {
     }
 
 
+
+    const [loading, setLoading] = useState(false);
+    const [isErr, setIsErr] = useState(false);
+    const [resMessage, setResMessage] = useState("");
+
+
+    const submitBlogPost = async e => {
+        e.preventDefault();
+
+        if (!imgLink || !title || !description || !category || !tags) {
+            setIsErr(true);
+            setResMessage("Please fill all the fields");
+            return;
+        }
+        if (finalHtml.length < 0) {
+            setIsErr(true);
+            setResMessage("Please add some content to your blog post");
+            return;
+        }
+        setIsErr(false);
+        setLoading(true);
+
+        try {
+
+            const response = await fetch("/api/blogs/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title,
+                    description,
+                    category,
+                    tags: tags.split(" "),
+                    image: imgLink,
+                    content: finalHtml.join("").toString()
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setResMessage("Blog post created successfully");
+                setIsErr(false);
+                // Reset the form
+                setImgLink("");
+                setTitle("");
+                setDescription("");
+                setCategory("general");
+                setTags("");
+                setFinalHtml([]);
+
+                window.location.href = `/blog/${data.blog.slug}`; // Redirect to the newly created blog post
+            } else {
+                setIsErr(true);
+                setResMessage(data.message || "Failed to create blog post");
+            }
+
+
+
+
+        } catch (error) {
+            setIsErr(true);
+            setResMessage("Something went wrong, please try again later");
+            // console.error("Error submitting blog post:", error);
+
+        } finally {
+            setLoading(false);
+        }
+
+
+
+
+    }
+
+
+
     return (
         <div className="blog-form relative">
             <div className="blog-form-start my-5 md:px-1 px-2 relative w-full h-full">
