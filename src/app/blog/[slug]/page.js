@@ -12,7 +12,7 @@ import FreezeEnv from '@/config/EnvConfig';
 const fetchBlog = async function (slug) {
     const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs/${slug}`);
     const response = await request.json();
-    console.log(response);
+    // console.log(response);
     
     return response;
 }

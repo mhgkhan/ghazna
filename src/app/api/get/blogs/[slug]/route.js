@@ -6,8 +6,10 @@ import BlogPostModel from "@/utils/models/BlogPostModel";
 connectDB();
 export async function GET(request, { params }) {
     const { slug } = await params;
+    console.log("slug is ", slug);
+    
 
-    console.log(slug)
+    // console.log(slug)
 
     if (!slug || slug == "undefined") {
         // return new Response(JSON.stringify({ success: false, message: "Invalid slug" }), { status: 400 });
@@ -15,10 +17,10 @@ export async function GET(request, { params }) {
     }
 
     try {
-        const blog = await BlogPostModel.findOne({ slug: slug });
+        const blog = await BlogPostModel.findOne({ slug });
 
         if (!blog) {
-            return sendNormalResponse(false, 404, "Blog not found", null);
+            return sendNormalResponse(false, 404, "Blog not found", {blog, slug});
         }
 
         return sendNormalResponse(true, 200, "Fetched sucess", blog)
