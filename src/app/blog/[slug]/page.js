@@ -26,7 +26,7 @@ const page = async ({ params }) => {
 
     const blog = thisBlog.data;
 
-    console.log(blog);
+    // console.log(blog);
 
 
 

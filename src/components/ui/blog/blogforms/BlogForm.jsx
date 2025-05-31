@@ -61,6 +61,7 @@ const BlogForm = () => {
     const addContent = () => { }
 
 
+    const [activeRawHtml, setActiveRawHtml] = useState(false);
 
 
 
@@ -125,11 +126,7 @@ const BlogForm = () => {
             setResMessage("Please fill all the fields");
             return;
         }
-        if (finalHtml.length < 0) {
-            setIsErr(true);
-            setResMessage("Please add some content to your blog post");
-            return;
-        }
+
         setIsErr(false);
         setLoading(true);
 
@@ -146,7 +143,7 @@ const BlogForm = () => {
                     category,
                     tags: tags,
                     image: imgLink,
-                    content: finalHtml.join("").toString()
+                    content: activeRawHtml ? rawHtml : finalHtml.join("").toString()
                 })
             });
 
@@ -188,6 +185,7 @@ const BlogForm = () => {
 
     }
 
+    const [rawHtml, setRawHtml] = useState("");
 
 
     return (
@@ -247,28 +245,41 @@ const BlogForm = () => {
                 <div className="blog-content-inp w-full">
                     <h2 className='text-2xl font-bold my-3'>Blog Content</h2>
                     {/* action buttons  */}
-                    <div className="flex items-center justify-start gap-3 flex-wrap">
+                    <div className="blog-content-actions-container flex items-center justify-between my-3 gap-5 flex-wrap">
+
+                        <div className="flex items-center justify-start gap-3 flex-wrap">
 
 
 
-                        <div onClick={openHeadingBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
-                            <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
-                            Heading
+                            <button disabled={activeRawHtml} onClick={openHeadingBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
+                                <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
+                                Heading
+                            </button>
+
+                            <button disabled={activeRawHtml} onClick={openParagraphBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
+                                <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
+                                Paragraph
+                            </button>
+
+                            <button disabled={activeRawHtml} onClick={openImageBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
+                                <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
+                                Image
+                            </button>
+
+                            <button disabled={activeRawHtml} onClick={openOthersBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
+                                <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
+                                Others
+                            </button>
                         </div>
 
-                        <div onClick={openParagraphBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
-                            <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
-                            Paragraph
-                        </div>
+                        <div onClick={() => { setActiveRawHtml(!activeRawHtml) }} className={`flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2  ${activeRawHtml ? "bg-red-500" : "bg-gray-100"} bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer`}>
+                            {
+                                activeRawHtml ? <CgClose className='dark:text-white text-gray-800 font-bold text-xl mx-1' /> : <FaHtml5 className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
+                            }
+                            {
+                                activeRawHtml ? "Disable Raw HTML" : "Enable Raw HTML"
 
-                        <div onClick={openImageBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
-                            <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
-                            Image
-                        </div>
-
-                        <div onClick={openOthersBox} className='flex items-center justify-center gap-3 rounded-md border-2 border-gray-400 dark:border-white p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer'>
-                            <FaPlusCircle className='dark:text-white text-gray-800 font-bold text-xl mx-1' />
-                            Others
+                            }
                         </div>
                     </div>
 
@@ -282,7 +293,7 @@ const BlogForm = () => {
                             <div className="flex items-center justify-between my-3 gap-5">
 
                                 <div className="w-[50%]">
-                                    <select onChange={changeDailogtype} defaultValue={theTags[dailog.title.toLowerCase()][0]} name="blog-content-type" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400">
+                                    <select disabled={activeRawHtml} onChange={changeDailogtype} defaultValue={theTags[dailog.title.toLowerCase()][0]} name="blog-content-type" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400">
                                         <option defaultChecked value={theTags[dailog.title.toLowerCase()][0]} disabled selected>Select Tag </option>                                        {
                                             Array.from(theTags[dailog.title.toLowerCase()]).map((tag, index) => {
                                                 return (
@@ -295,16 +306,16 @@ const BlogForm = () => {
 
                                 <div className="w-[50%]">
 
-                                    <input type="text" onChange={e => setTypingTitle(e.target.value)} name="heading-text" autoComplete='off' placeholder="Enter your heading text" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+                                    <input disabled={activeRawHtml} type="text" onChange={e => setTypingTitle(e.target.value)} name="heading-text" autoComplete='off' placeholder="Enter your heading text" className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
                                 </div>
 
                             </div>
                             <div>
                                 <div className="flex items-center justify-center md:flex-row flex-col gap-5">
-                                    <textarea onChange={e => setTypingAttributes(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align='center'
+                                    <textarea disabled={activeRawHtml} onChange={e => setTypingAttributes(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align='center'
                     
                     " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
-                                    <textarea onChange={e => setTypingCss(e.target.value)} rows={8} name="css classes" autoComplete='off' placeholder="Type Css eg 
+                                    <textarea disabled={activeRawHtml} onChange={e => setTypingCss(e.target.value)} rows={8} name="css classes" autoComplete='off' placeholder="Type Css eg 
                     color:white;
                     font-size: 20px;
                     
@@ -314,6 +325,13 @@ const BlogForm = () => {
                             </div>
 
                             <FormsButton type={"button"} loading={false} text={"Add"} clickFun={clickToSave} />
+                        </div> : ""
+                    }
+                    {
+                        activeRawHtml ? <div className="raw-html-input my-5">
+                            <textarea disabled={loading} onChange={e => setRawHtml(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align='center'
+                    
+                    " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
                         </div> : ""
                     }
 
@@ -382,7 +400,7 @@ const BlogForm = () => {
 
                         <BlogPostHeader title={title} image={imgLink} views={200} description={description} />
 
-                        <BlogPostContent body={finalHtml.join("").toString()} />
+                        <BlogPostContent body={!activeRawHtml ? finalHtml.join("").toString() : rawHtml} />
 
                     </div>
                 </div> : ""
