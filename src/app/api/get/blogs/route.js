@@ -1,6 +1,8 @@
+import connectDB from "@/utils/db/connectDB";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import BlogPostModel from "@/utils/models/BlogPostModel";
 
+connectDB();
 export async function GET(request) {
     try {
 
