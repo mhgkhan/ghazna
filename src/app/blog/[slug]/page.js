@@ -13,7 +13,7 @@ const fetchBlog = async function (slug) {
     const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs/${slug}`);
     const response = await request.json();
     // console.log(response);
-    
+
     return response;
 }
 
@@ -37,9 +37,9 @@ const page = async ({ params }) => {
                     <div className='content lg:w-[70%] w-full sm:px-2'>
                         {
                             // blog ? <><BlogPostHeader title={blog.title} views={blog.views} />
-                            blog ? <><BlogPostHeader title={blog?.title} views={5000} image={blog.image} description={blog?.description} publishedAt={blog.createdAt} />
+                            blog ? <><BlogPostHeader title={blog?.blog?.title} views={5000} image={blog?.blog?.image} description={blog?.blog?.description} publishedAt={blog?.blog?.createdAt} postedBy={blog?.user?.name} userImg={blog?.user?.profilePicture} />
 
-                                <BlogPostContent body={blog.content} title={blog.title} description={blog.description} />
+                                <BlogPostContent body={blog?.blog?.content} title={blog?.blog?.title} description={blog?.blog?.description} />
 
                                 <div className="my-5 px-2 bl">
                                     <BlogPostLikebutton />
