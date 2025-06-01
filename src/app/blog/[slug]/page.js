@@ -43,7 +43,7 @@ const page = async ({ params }) => {
                     <div className='content lg:w-[70%] w-full sm:px-2'>
                         {
                             // blog ? <><BlogPostHeader title={blog.title} views={blog.views} />
-                            blog ? <><BlogPostHeader slug={slug} title={blog?.blog?.title} views={5000} image={blog?.blog?.image} description={blog?.blog?.description} publishedAt={blog?.blog?.createdAt} postedBy={blog?.user?.name} userImg={blog?.user?.profilePicture} ip={ip} />
+                            blog ? <><BlogPostHeader slug={slug} title={blog?.blog?.title} views={blog?.blog?.tempViews} image={blog?.blog?.image} description={blog?.blog?.description} publishedAt={blog?.blog?.createdAt} postedBy={blog?.user?.name} userImg={blog?.user?.profilePicture} ip={ip} />
 
                                 <BlogPostContent body={blog?.blog?.content} title={blog?.blog?.title} description={blog?.blog?.description} />
                                 <div className="my-5 px-2 bl">

@@ -52,6 +52,12 @@ export async function POST(request, { params }) {
                 const viewsCount = updatedBlogviws.length;
                 // update the blog post with the new views count
 
+                const blogViewsUpdate = await BlogPostModel.findOneAndUpdate(
+                    { slug: slug },
+                    { tempViews: viewsCount }, // Increment the views count by 1
+                    { new: true } // Return the updated document
+                );
+
                 return sendNormalResponse(true, 200, "Sucess", { views: viewsCount });
             }
         }

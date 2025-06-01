@@ -58,7 +58,7 @@ const page = async () => {
                   <span className="text-2xl"><FaComments /></span> <span className='text-sm'>200+</span>
                 </div>
                 <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
-                  <span className="text-2xl"><FaEye /></span> <span className='text-sm'>{ele.views} </span>
+                  <span className="text-2xl"><FaEye /></span> <span className='text-sm'>{ele.tempViews??0} </span>
                 </div>
               </div>
               {/* </Link> */}

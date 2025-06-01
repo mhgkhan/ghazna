@@ -28,6 +28,10 @@ const blogPostSchema = new mongoose.Schema({
         type: String,
         default: "draft", // or "saved"
     },
+    tempViews: {
+        type: Number,
+        default: 0,
+    },
 
     isPublished: {
         type: Boolean,

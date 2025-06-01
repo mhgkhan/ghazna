@@ -19,11 +19,20 @@ export async function GET(request, { params }) {
     }
 
     try {
+
+        // updating the blogpost view count 
+        const blogViewsUpdate = await BlogPostModel.findOneAndUpdate(
+            { slug: slug },
+            { $inc: { tempViews: 1 } }, // Increment the views count by 1
+            { new: true } // Return the updated document
+        );
+
         const blog = await BlogPostModel.findOne({ slug });
+
         // console.log("blog is ", blog);
         const user = await User.findOne({ _id: blog?.author }).select("name profilePicture");
         // console.log("user is ", user);
-        const blogViews = await BlogViews.findOne({ blogId: blog?._id });
+        // const blogViews = await BlogViews.findOne({ blogId: blog?._id });
 
 
         if (!blog || !user) {
@@ -33,8 +42,7 @@ export async function GET(request, { params }) {
 
         const resData = {
             blog,
-            user,
-            views: blogViews ? blogViews.length : 0,
+            user
         }
 
 

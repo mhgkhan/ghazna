@@ -11,9 +11,6 @@ const BlogPostHeaderData = ({ userImg, views, publishedAt, postedBy, slug, ip })
     const [response, setResponse] = useState({ views: views, message: "" });
     const [loading, setLoading] = useState(false);
 
-    console.log("IP is ", ip);
-    console.log("Slug is ", slug);
-
 
 
 
