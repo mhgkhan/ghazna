@@ -3,7 +3,7 @@ import Image from "next/image"
 
 import { FaBookOpen, FaCalendar } from 'react-icons/fa'
 
-const BlogPostHeader = ({title, views, image,description}) => {
+const BlogPostHeader = ({title, views, image, description, publishedAt}) => {
     return (
         <>
             <div className='header relative max-h-[400px] h-[300px] w-full'>
@@ -32,7 +32,7 @@ const BlogPostHeader = ({title, views, image,description}) => {
                 <div className='flex items-start justify-between flex-wrap gap-2'>
                     {/* <Image src={"/web-app-manifest-192x192.png"} width={20} height={20} alt='user picture' className='w-[50px] h-[50px] rounded-full' /> */}
                     <FaCalendar />
-                    <span className='dark:text-gray-400 text-gray-600 lg:text-sm text-xs '><b>Created On </b> <br /> 10/11/2025 </span>
+                    <span className='dark:text-gray-400 text-gray-600 lg:text-sm text-xs '><b>Created On </b> <br /> { new Date(publishedAt).toLocaleDateString()} </span>
                 </div>
             </div>
         </>
