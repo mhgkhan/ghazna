@@ -31,8 +31,10 @@ export async function GET(request, { params }) {
             blog,
             user
         }
-
+        
+        
         return sendNormalResponse(true, 200, "Fetched sucess", resData);
+
 
     } catch (error) {
         console.error("Error fetching blog:", error);
