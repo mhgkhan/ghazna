@@ -1,7 +1,10 @@
+import connectDB from "@/utils/db/connectDB";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import BlogPostModel from "@/utils/models/BlogPostModel";
 import BlogViews from "@/utils/models/BlogViews";
+
+connectDB();
 
 export async function POST(request, { params }) {
     const { slug } = await params;
@@ -30,7 +33,9 @@ export async function POST(request, { params }) {
             const blogViews = await checkIfExists(BlogViews, { blogId: blog.data._id, ipAddress: ipAddress });
 
             if (blogViews.success) {
-                return sendNormalResponse(false, 200, "Blog already opened", "You have already opened this blog.", null);
+                const updatedBlogviws = await BlogViews.find({ blogId: blog.data._id });
+                const viewsCount = updatedBlogviws.length;
+                return sendNormalResponse(true, 200, "Blog already opened", { views: viewsCount });
             }
             else {
                 // if blog is not opened by the user then we will create a new entry in the BlogViews collection
@@ -41,7 +46,13 @@ export async function POST(request, { params }) {
                 });
 
                 await newBlogView.save();
-                return sendNormalResponse(true, 200, "Blog opened successfully", "You have successfully opened the blog.", null);
+
+                // fetch all updated blog views count
+                const updatedBlogviws = await BlogViews.find({ blogId: blog.data._id });
+                const viewsCount = updatedBlogviws.length;
+                // update the blog post with the new views count
+
+                return sendNormalResponse(true, 200, "Sucess", { views: viewsCount });
             }
         }
 

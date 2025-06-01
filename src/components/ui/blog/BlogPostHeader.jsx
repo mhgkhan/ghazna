@@ -1,14 +1,14 @@
 import React from 'react'
 import Image from "next/image"
 
-import { FaBookOpen, FaCalendar } from 'react-icons/fa'
+import BlogPostHeaderData from './BlogPostHeaderData'
 
-const BlogPostHeader = ({title, views, image, description, publishedAt, postedBy, userImg}) => {
+const BlogPostHeader = ({ title, views, image, description, publishedAt, postedBy, userImg, ip, slug }) => {
     return (
         <>
             <div className='header relative max-h-[400px] h-[300px] w-full'>
                 <div className="image-blog w-full h-full">
-                    <Image src={image?image:"/images/website.jpg"} alt='blog-picture' width={600} height={400} className='w-full h-full relative max-w-full max-h-full object-scale-down rounded-md' />
+                    <Image src={image ? image : "/images/website.jpg"} alt='blog-picture' width={600} height={400} className='w-full h-full relative max-w-full max-h-full object-scale-down rounded-md' />
                 </div>
                 <div className="rounded-md dark:bg-[#e7e3e3c2] bg-[#5f5c5cc5] title-area-head-blog absolute bottom-0 w-full h-auto p-5">
                     <h1 className='lg:text-4xl md:text-2xl text-xl dark:text-black text-white font-bold'>
@@ -18,23 +18,9 @@ const BlogPostHeader = ({title, views, image, description, publishedAt, postedBy
             </div>
             <div className='blog-post-description px-2 pl-4 py-2 border-l-4 border-gray-500 rounded-md my-2 dark:text-gray-300 text-gray-600'>
                 <p className='italic md:text-lg text-sm dark:text-gray-400 text-gray-600'>
-                {description}</p>    
+                    {description}</p>
             </div>
-            <div className='w-full flex items-center justify-between gap-3 p-2'>
-                <div className='flex items-start justify-between flex-wrap gap-2'>
-                    <Image src={userImg?userImg:"/images/user.png"} width={20} height={20} alt='user picture' className='w-[30px] h-[30px] rounded-full' />
-                    <span className='dark:text-gray-400 text-gray-600 lg:text-sm text-xs text-wrap'><b>Posted By</b> <br /> {postedBy} </span>
-                </div>
-                <div className='flex items-start justify-between flex-wrap gap-2'>
-                    <FaBookOpen />
-                    <span className='dark:text-gray-400 text-gray-600 lg:text-sm text-xs '>{views}+ <br /> <b>Views </b>  </span>
-                </div>
-                <div className='flex items-start justify-between flex-wrap gap-2'>
-                    {/* <Image src={"/web-app-manifest-192x192.png"} width={20} height={20} alt='user picture' className='w-[50px] h-[50px] rounded-full' /> */}
-                    <FaCalendar />
-                    <span className='dark:text-gray-400 text-gray-600 lg:text-sm text-xs '><b>Created On </b> <br /> { new Date(publishedAt).toLocaleDateString()} </span>
-                </div>
-            </div>
+            <BlogPostHeaderData slug={slug} userImg={userImg} publishedAt={publishedAt} views={views} postedBy={postedBy} ip={ip} />
         </>
     )
 }

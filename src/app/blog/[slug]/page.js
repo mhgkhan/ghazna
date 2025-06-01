@@ -7,6 +7,7 @@ import BlogPostLikebutton from '@/components/ui/blog/BlogPostLikebutton';
 import BlogPostRelatedArticles from '@/components/ui/blog/BlogPostRelatedArticles';
 import Loading from '@/components/Loading';
 import FreezeEnv from '@/config/EnvConfig';
+import { headers } from 'next/headers';
 
 
 const fetchBlog = async function (slug) {
@@ -18,6 +19,11 @@ const fetchBlog = async function (slug) {
 }
 
 const page = async ({ params }) => {
+
+    const userHeaders = await headers();
+
+    const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
+
 
     const { slug } = await params;
     const thisBlog = await fetchBlog(slug);
@@ -37,10 +43,9 @@ const page = async ({ params }) => {
                     <div className='content lg:w-[70%] w-full sm:px-2'>
                         {
                             // blog ? <><BlogPostHeader title={blog.title} views={blog.views} />
-                            blog ? <><BlogPostHeader title={blog?.blog?.title} views={5000} image={blog?.blog?.image} description={blog?.blog?.description} publishedAt={blog?.blog?.createdAt} postedBy={blog?.user?.name} userImg={blog?.user?.profilePicture} />
+                            blog ? <><BlogPostHeader slug={slug} title={blog?.blog?.title} views={5000} image={blog?.blog?.image} description={blog?.blog?.description} publishedAt={blog?.blog?.createdAt} postedBy={blog?.user?.name} userImg={blog?.user?.profilePicture} ip={ip} />
 
                                 <BlogPostContent body={blog?.blog?.content} title={blog?.blog?.title} description={blog?.blog?.description} />
-
                                 <div className="my-5 px-2 bl">
                                     <BlogPostLikebutton />
                                     <div className="my-5">
