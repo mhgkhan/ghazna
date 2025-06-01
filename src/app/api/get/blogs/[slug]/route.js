@@ -1,6 +1,7 @@
 import connectDB from "@/utils/db/connectDB";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import BlogPostModel from "@/utils/models/BlogPostModel";
+import BlogViews from "@/utils/models/BlogViews";
 import User from "@/utils/models/Users";
 
 
@@ -22,17 +23,21 @@ export async function GET(request, { params }) {
         // console.log("blog is ", blog);
         const user = await User.findOne({ _id: blog?.author }).select("name profilePicture");
         // console.log("user is ", user);
+        const blogViews = await BlogViews.findOne({ blogId: blog?._id });
+
 
         if (!blog || !user) {
             return sendNormalResponse(false, 404, "Blogpost not found ERR USER|BLOG", { blog, slug });
         }
 
+
         const resData = {
             blog,
-            user
+            user,
+            views: blogViews ? blogViews.length : 0,
         }
-        
-        
+
+
         return sendNormalResponse(true, 200, "Fetched sucess", resData);
 
 
