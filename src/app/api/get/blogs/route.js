@@ -6,7 +6,7 @@ connectDB();
 export async function GET(request) {
     try {
 
-        const Blogs = await BlogPostModel.find({}).sort({ createdAt: -1 }).select("-content -isPublished -__v -createdAt -updatedAt").lean();
+        const Blogs = await BlogPostModel.find({ isPublished: true }).sort({ createdAt: -1 }).select("-content -isPublished -__v -createdAt -updatedAt").lean();
         if (!Blogs || Blogs.length === 0) {
             return sendNormalResponse(false, 404, "No Blogs Found", "No blogs are available at the moment.");
         }
