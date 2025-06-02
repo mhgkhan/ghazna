@@ -58,7 +58,7 @@ export default function Header({ isLogged }) {
             } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
-            {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }, { title: "Old Website", link: "http://mhgkhanp.netlify.app" }] : [{ title: "Dashboard", link: "/profile/" }, { title: "Blogs", link: "/profile/blogs/" }, { title: "Notifications", link: "/profile/notifications/" }]).map(
+            {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }, { title: "Old Website", link: "http://mhgkhanp.netlify.app" }] : [{ title: "Profile", link: "/profile/" }, { title: "Blog", link: "/blog/" }, { title: "Notifications", link: "/profile/notifications/" }]).map(
               (ele, ind) => {
                 return (
                   <li

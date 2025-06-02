@@ -25,4 +25,4 @@ const BlogPostHeader = ({ title, views, image, description, publishedAt, postedB
     )
 }
 
-export default BlogPostHeader
+export default BlogPostHeader;
