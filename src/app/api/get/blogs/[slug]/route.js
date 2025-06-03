@@ -1,14 +1,13 @@
 import connectDB from "@/utils/db/connectDB";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import BlogPostModel from "@/utils/models/BlogPostModel";
-import BlogViews from "@/utils/models/BlogViews";
 import User from "@/utils/models/Users";
 
 
 connectDB();
 export async function GET(request, { params }) {
     const { slug } = await params;
-    console.log("slug is ", slug);
+    // console.log("slug is ", slug);
 
 
     // console.log(slug)
@@ -20,12 +19,12 @@ export async function GET(request, { params }) {
 
     try {
 
-        // updating the blogpost view count 
-        const blogViewsUpdate = await BlogPostModel.findOneAndUpdate(
-            { slug: slug },
-            { $inc: { tempViews: 1 } }, // Increment the views count by 1
-            { new: true } // Return the updated document
-        );
+        // // updating the blogpost view count 
+        // const blogViewsUpdate = await BlogPostModel.findOneAndUpdate(
+        //     { slug: slug },
+        //     { $inc: { tempViews: 1 } }, // Increment the views count by 1
+        //     { new: true } // Return the updated document
+        // );
 
         const blog = await BlogPostModel.findOne({ slug });
 
