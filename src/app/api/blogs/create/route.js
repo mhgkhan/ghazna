@@ -75,7 +75,7 @@ export async function POST(request) {
             category: body.category,
             author: checkUser.data.id,
             status: "saved",
-            isPublished: false,
+            isPublished: checkUser.data.email == "muhammadhasnainghazna@gmail.com" ? true : false,
             publishedAt,
             slug
         });
@@ -91,7 +91,7 @@ export async function POST(request) {
 
     } catch (error) {
         console.log(error);
-        
+
         return sendNormalResponse(false, 500, "Internal Server Error", error.message);
     }
 
