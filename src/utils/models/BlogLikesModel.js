@@ -17,9 +17,9 @@ const blogLikeSchema = new mongoose.Schema({
         ref: "users",
     },
 
-    blogId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "blogposts",
+    slug: {
+        type: string,
+        requried: true,
     }
 
 
