@@ -18,7 +18,8 @@ const BlogPostLikebutton = ({ authoraized, slug }) => {
             try {
                 const request = await fetch(`/api/publicactions/blogreaction/like/${slug}`, {
                     method: "PUT",
-                    headers: { "content-type": "application/json" }
+                    headers: { "content-type": "application/json" },
+                    cache:"force-cache"
                 });
                 const response = await request.json();
 
