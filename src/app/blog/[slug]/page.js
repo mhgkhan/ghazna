@@ -7,20 +7,26 @@ import BlogPostLikebutton from '@/components/ui/blog/BlogPostLikebutton';
 import BlogPostRelatedArticles from '@/components/ui/blog/BlogPostRelatedArticles';
 import Loading from '@/components/Loading';
 import FreezeEnv from '@/config/EnvConfig';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 
 const fetchBlog = async function (slug) {
-    const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs/${slug}`);
-    const response = await request.json();
-    // console.log(response);
+    try {
+        const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs/${slug}`);
+        const response = await request.json();
+        // console.log(response);
 
-    return response;
+        return response;
+    } catch (error) {
+        return null
+    }
 }
 
 const page = async ({ params }) => {
 
     const userHeaders = await headers();
+    const thisUserCookies = await cookies();
+    const checCookies = thisUserCookies.get("USER_AUTH_TOKEN")?.value;
 
     const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
 
@@ -30,7 +36,9 @@ const page = async ({ params }) => {
 
 
 
-    const blog = thisBlog.data;
+
+
+    const blog = thisBlog?.data;
 
     // console.log(blog);
 
@@ -47,7 +55,7 @@ const page = async ({ params }) => {
 
                                 <BlogPostContent body={blog?.blog?.content} title={blog?.blog?.title} description={blog?.blog?.description} />
                                 <div className="my-5 px-2 bl">
-                                    <BlogPostLikebutton />
+                                    <BlogPostLikebutton slug={slug} authoraized={checCookies ? true : false} />
                                     <div className="my-5">
                                         <BlogPostsCommentForm />
                                         <BlogPostComments />

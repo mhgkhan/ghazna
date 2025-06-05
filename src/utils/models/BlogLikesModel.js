@@ -18,7 +18,7 @@ const blogLikeSchema = new mongoose.Schema({
     },
 
     slug: {
-        type: string,
+        type: String,
         requried: true,
     }
 

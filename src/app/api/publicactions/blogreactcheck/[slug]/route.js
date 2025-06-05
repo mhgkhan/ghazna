@@ -9,7 +9,7 @@ import User from "@/utils/models/Users";
 
 
 connectDB();
-export async function PUT(request, { params }) {
+export async function GET(request, { params }) {
     try {
         const { slug } = await params;
         const thisUserCookies = await cookies();
@@ -37,6 +37,9 @@ export async function PUT(request, { params }) {
         const { email } = verifyToken;
 
         const checkUser = await checkIfExists(User, { email: email });
+        console.log(verifyToken);
+
+
 
         if (!checkUser.success) {
             return sendNormalResponse(false, 404, "User not found", checkUser.message);
@@ -50,21 +53,19 @@ export async function PUT(request, { params }) {
         }
 
 
-        const checkBlogLike = await checkIfExists(BlogReactModel, { slug, userId: verifyToken.id });
+
+
+        const checkBlogLike = await checkIfExists(BlogReactModel, { slug });
+        console.log(checkBlogLike);
+
+
+
         if (!checkBlogLike.success || checkUser.error) {
-            const addLike = await new BlogReactModel({
-                liked: true,
-                disliked: false,
-                userId: verifyToken.id,
-                slug
-            });
-            await addLike.save();
-            return sendNormalResponse(true, 201, "Liked", addLike);
+            return sendNormalResponse(false, 200, "Not liked by this user", null)
         }
 
         if (!checkBlogLike.data.liked) {
-            const updatateLIked = await BlogReactModel.findOneAndUpdate({ slug }, { liked: true })
-            return sendNormalResponse(true, 201, "Liked", addLike);
+            return sendNormalResponse(false, 200, "Not liked by this user", null)
         }
 
         return sendNormalResponse(true, 200, "Already Liked", checkBlogLike);
