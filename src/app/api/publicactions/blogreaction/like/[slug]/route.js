@@ -4,8 +4,10 @@ import JWT, { verify } from "jsonwebtoken";
 import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import BlogReactModel from "@/utils/models/BlogLikesModel";
+import connectDB from "@/utils/db/connectDB";
 
 
+connectDB();
 export async function PUT(request, { params }) {
     try {
         const { slug } = await params;
