@@ -52,56 +52,47 @@ export async function PUT(request, { params }) {
 
 
         const checkBlogLike = await checkIfExists(BlogReactModel, { slug, userId: verifyToken.id });
+
+        if (!checkBlogLike?.data?.liked) {
+            console.log("not liked category called")
+            const updatateLIked = await BlogReactModel.findOneAndUpdate({ slug }, { liked: true });
+        }
+
         if (!checkBlogLike.success || checkUser.error) {
             console.log("created blog category called")
-            const addLike = await new BlogReactModel({
+            const addLike = new BlogReactModel({
                 liked: true,
                 disliked: false,
                 userId: verifyToken.id,
                 slug
             });
             await addLike.save();
-
-            // fetching all blogpost likes 
-            const fetchBlogPostLikes = await BlogReactModel.find({ slug, userId: verifyToken.id });
-            console.log(fetchBlogPostLikes)
-            const count = fetchBlogPostLikes ? fetchBlogPostLikes.length : 0
-            // updating blogpost tempLikes 
-            const updatingBlogPostTempLikes = await BlogPostModel.findOneAndUpdate({ slug: slug }, { $set: { tempLikes: count } }, { new: true })
-
-            console.log(updatingBlogPostTempLikes)
-            return sendNormalResponse(true, 201, "Liked", addLike);
         }
 
-        if (!checkBlogLike.data.liked) {
-            console.log("not liked category called")
-            const updatateLIked = await BlogReactModel.findOneAndUpdate({ slug }, { liked: true });
-            // fetching all blogpost likes 
-            const fetchBlogPostLikes = await BlogReactModel.find({ slug, userId: verifyToken.id });
-            console.log(fetchBlogPostLikes);
 
-            const count = fetchBlogPostLikes ? fetchBlogPostLikes.length : 0
-            // updating blogpost tempLikes 
-            const updatingBlogPostTempLikes = await BlogPostModel.findOneAndUpdate({ slug: slug }, { $set: { tempLikes: count } }, { new: true })
-            console.log(updatingBlogPostTempLikes)
-            return sendNormalResponse(true, 201, "Liked", addLike);
-        }
 
-        console.log("end category called")
         // fetching all blogpost likes 
-        const fetchBlogPostLikes = await BlogReactModel.find({ slug, userId: verifyToken.id });
-        console.log(fetchBlogPostLikes);
-        const count = fetchBlogPostLikes ? fetchBlogPostLikes.length : 0
-        // updating blogpost tempLikes 
-        const updatingBlogPostTempLikes = await BlogPostModel.findOneAndUpdate({ slug: slug }, { $set: { tempLikes: count } }, { new: true })
-        console.log(updatingBlogPostTempLikes)
+        const fetchBlogPostLikes = await BlogReactModel.find({ slug, liked: true });
 
+        const count = fetchBlogPostLikes ? fetchBlogPostLikes.length : 0;
+        console.log("the count is ", count);
 
-        return sendNormalResponse(true, 200, "Already Liked", checkBlogLike);
+        const updatingBlogPostTempLikes = await BlogPostModel.findOneAndUpdate(
+            { slug },
+            { $set: { tempLikes: count } },
+            { new: true }
+        );
+
+        if (!updatingBlogPostTempLikes) {
+            return sendNormalResponse(false, 400, "Liked", updatingBlogPostTempLikes);
+        }
+
+        console.log("the updated is ", updatingBlogPostTempLikes)
+        return sendNormalResponse(true, 201, "Liked", updatingBlogPostTempLikes);
+
 
     } catch (error) {
         console.log(error);
-
         return sendNormalResponse(false, 500, error.message, null);
     }
 }
