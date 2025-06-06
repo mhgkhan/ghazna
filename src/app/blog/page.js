@@ -56,7 +56,7 @@ const page = async () => {
                   <span className="text-2xl"><FaHeart /></span> <span className='text-sm'>{ele.tempLikes ?? 0}+</span>
                 </div>
                 <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
-                  <span className="text-2xl"><FaComments /></span> <span className='text-sm'>20+</span>
+                  <span className="text-2xl"><FaComments /></span> <span className='text-sm'>{ele.tempComments ?? 0}+</span>
                 </div>
                 <div className="flex dark:text-gray-300 text-gray-600 items-center justify-center gap-1">
                   <span className="text-2xl"><FaEye /></span> <span className='text-sm'>{ele.tempViews ?? 0} </span>
