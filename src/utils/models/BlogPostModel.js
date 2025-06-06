@@ -36,6 +36,12 @@ const blogPostSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    
+    tempComments: {
+        type: Number,
+        default: 0
+    },
+
 
     isPublished: {
         type: Boolean,
