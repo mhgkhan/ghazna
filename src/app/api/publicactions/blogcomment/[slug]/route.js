@@ -116,6 +116,11 @@ export async function GET(request, { params }) {
         }
 
 
+        const blogpostAllComments = await BlogCommentModel.find({ slug });
+        const length = blogpostAllComments.length;
+
+        // updating 
+        const updating = await BlogPostModel.findOneAndUpdate({ slug }, { $set: { tempComments: length } }, { new: true })
         const comments = await BlogCommentModel.find({ blogId: checkIfBlogExsists.data.id });
 
 
