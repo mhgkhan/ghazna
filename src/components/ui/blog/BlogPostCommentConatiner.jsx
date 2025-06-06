@@ -14,10 +14,13 @@ const BlogPostCommentConatiner = ({ slug, authoraized }) => {
     const [message, setMessage] = useState("")
 
 
+    const [commentInput, setCommentInput] = useState("")
+    const [sendLoading, setSendLoading] = useState(false)
+
+
     const fetchBlogComments = async () => {
         try {
             setCommentsLoading(true);
-
             const request = await fetch(`/api/publicactions/blogcomment/${slug}`, {
                 method: "GET",
                 headers: {
@@ -46,6 +49,37 @@ const BlogPostCommentConatiner = ({ slug, authoraized }) => {
         }
     }
 
+    const submitCommentform = async (e) => {
+        e.preventDefault();
+        // alert(commentInput)
+        if (!authoraized) {
+            return alert("You need to login first");
+        }
+
+        else {
+            setSendLoading(true)
+
+            try {
+                const request = await fetch(`/api/publicactions/blogcomment/${slug}`, {
+                    method: "POST",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify({ comment: commentInput })
+                });
+
+                const response = await request.json();
+
+                setIserr(!response.success);
+                setMessage(response.message);
+            } catch (error) {
+                alert("some went wrong...")
+            } finally {
+                await fetchBlogComments();
+                setSendLoading(false)
+            }
+        }
+    }
+
+
 
     useEffect(() => {
         fetchBlogComments();
@@ -54,8 +88,8 @@ const BlogPostCommentConatiner = ({ slug, authoraized }) => {
 
     return (
         <div className="my-5">
-            <BlogPostsCommentForm />
-            {commentsLoading ? <div className="my-5"><SmallLoading /></div> : <BlogPostComments comments={comments} loading={commentsLoading} />}
+            <BlogPostsCommentForm authoraized={authoraized} slug={slug} submitFunction={submitCommentform} commentInput={commentInput} changeInput={(e) => setCommentInput(e.target.value)} loading={sendLoading} />
+            {commentsLoading ? <div className="my-5"><SmallLoading /></div> : <BlogPostComments comments={comments} />}
         </div>
     )
 }

@@ -28,7 +28,7 @@ export async function POST(request, { params }) {
             return sendNormalResponse(false, 400, "Unauthoraized user", null);
         }
 
-        const dcryptToken = JWT.verify(FreezeEnv.AUTH_SECRET_KEY, thisUserCookies);
+        const dcryptToken = JWT.verify(thisUserCookies, FreezeEnv.AUTH_SECRET_KEY);
 
         if (!dcryptToken.email || !dcryptToken.id) {
             return sendNormalResponse(false, 400, "Invilid Token", null);
@@ -92,6 +92,7 @@ export async function POST(request, { params }) {
         return sendNormalResponse(true, 201, "Comment saved", savedComment)
 
     } catch (error) {
+        console.log(error)
         return sendNormalResponse(false, 500, error.message, null);
     }
 
@@ -108,7 +109,15 @@ export async function GET(request, { params }) {
             return sendNormalResponse(false, 404, "Blogpost comments not found", null);
         }
 
-        const comments = await BlogCommentModel.find({ slug });
+        const checkIfBlogExsists = await checkIfExists(BlogPostModel, { slug });
+
+        if (!checkIfBlogExsists.success) {
+            return sendNormalResponse(false, 404, "Blogpost comments not found", null);
+        }
+
+
+        const comments = await BlogCommentModel.find({ blogId: checkIfBlogExsists.data.id });
+
 
         return sendNormalResponse(true, 200, "comments fetched", comments);
 
