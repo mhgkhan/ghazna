@@ -2,21 +2,21 @@ import React from 'react'
 import { FaCalendar, FaUserCircle } from 'react-icons/fa'
 
 
-const fetchComments = async function (id) {
-  const request = await fetch('https://dummyjson.com/comments?limit=10');
-  const response = await request.json();
-  return response.comments;
-}
+// const fetchComments = async function (id) {
+//   const request = await fetch('https://dummyjson.com/comments?limit=10');
+//   const response = await request.json();
+//   return response.comments;
+// }
 
-const BlogComment = async () => {
+const BlogComment = async ({ loading, comments }) => {
 
-  const comments = await fetchComments();
+  // const comments = await fetchComments();
 
   return (
     <div className="mt-10 comments">
       <h3 className="md:text-2xl my-5 text-xl">Comments </h3>
       {
-        comments ? comments.map((ele, ind) => {
+        comments && comments ? comments && comments.map((ele, ind) => {
           return <div key={ind} className="my-5 comment w-full px-2 rounded-sm border-b border-1 border-dotted border-gray-500 py-2">
             <div className="comment-header flex items-center justify-between gap-5 my-">
               <div className="flex items-end justify-center gap-2">

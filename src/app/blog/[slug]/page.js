@@ -1,6 +1,4 @@
 import React from 'react'
-import BlogPostComments from '@/components/ui/blog/BlogPostComments';
-import BlogPostsCommentForm from '@/components/ui/blog/BlogPostsCommentForm';
 import BlogPostHeader from '@/components/ui/blog/BlogPostHeader';
 import BlogPostContent from '@/components/ui/blog/BlogPostContent';
 import BlogPostLikebutton from '@/components/ui/blog/BlogPostLikebutton';
@@ -8,6 +6,7 @@ import BlogPostRelatedArticles from '@/components/ui/blog/BlogPostRelatedArticle
 import Loading from '@/components/Loading';
 import FreezeEnv from '@/config/EnvConfig';
 import { cookies, headers } from 'next/headers';
+import BlogPostCommentConatiner from '@/components/ui/blog/BlogPostCommentConatiner';
 
 
 const fetchBlog = async function (slug) {
@@ -56,10 +55,7 @@ const page = async ({ params }) => {
                                 <BlogPostContent body={blog?.blog?.content} title={blog?.blog?.title} description={blog?.blog?.description} />
                                 <div className="my-5 px-2 bl">
                                     <BlogPostLikebutton slug={slug} authoraized={checCookies ? true : false} />
-                                    <div className="my-5">
-                                        <BlogPostsCommentForm />
-                                        <BlogPostComments />
-                                    </div>
+                                    <BlogPostCommentConatiner slug={slug} authoraized={checCookies ? true : false} />
                                 </div></> : <Loading />
                         }
 
