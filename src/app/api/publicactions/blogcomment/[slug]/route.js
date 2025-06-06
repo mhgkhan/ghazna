@@ -15,8 +15,8 @@ export async function POST(request, { params }) {
 
     try {
         const body = await request.json();
-        const {slug} = await params;
-         
+        const { slug } = await params;
+
 
         const savedCookies = await cookies();
 
@@ -70,7 +70,9 @@ export async function POST(request, { params }) {
         const newComment = new BlogCommentModel({
             comment: body.comment,
             userId: id,
-            blogId: findSlug.data.id
+            blogId: findSlug.data.id,
+            name: thisUser.data?.name ?? "Anonymous",
+            email
         });
 
         const savedComment = await newComment.save();
@@ -93,7 +95,25 @@ export async function POST(request, { params }) {
         return sendNormalResponse(false, 500, error.message, null);
     }
 
-
-
-
 }
+
+
+
+export async function GET(request, { params }) {
+    try {
+
+        const { slug } = await params;
+
+        if (!slug) {
+            return sendNormalResponse(false, 404, "Blogpost comments not found", null);
+        }
+
+        const comments = await BlogCommentModel.find({ slug });
+
+        return sendNormalResponse(true, 200, "comments fetched", comments);
+
+    } catch (error) {
+        return sendNormalResponse(false, 500, error.message, null)
+    }
+}
+

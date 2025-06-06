@@ -10,7 +10,9 @@ const blogCommentStr = new mongoose.Schema({
     blogId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "blogposts",
-    }
+    },
+    name: defaultType,
+    email: defaultType
 }, {
     timestamps: true
 });
