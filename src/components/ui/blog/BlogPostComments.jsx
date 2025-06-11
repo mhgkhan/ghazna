@@ -23,7 +23,6 @@ const BlogComment = ({ comments }) => {
             </div>
             <p className='mt-2 px-2'>{ele.comment}</p>
           </div>
-
         }) : "Loading ..."
       }
     </div>
