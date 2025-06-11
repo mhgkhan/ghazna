@@ -16,7 +16,7 @@ export async function POST(request, { params }) {
     try {
         const body = await request.json();
         const { slug } = await params;
-
+        console.log(slug)
 
         const savedCookies = await cookies();
 
@@ -55,6 +55,8 @@ export async function POST(request, { params }) {
 
         const findSlug = await checkIfExists(BlogPostModel, { slug });
 
+        console.log("the slug is ", findSlug)
+
         if (!findSlug.success || findSlug.error) {
             return sendNormalResponse(false, 400, "Blogpost not found", null)
         }
@@ -80,17 +82,21 @@ export async function POST(request, { params }) {
         }
 
         let fetchingAllComments;
-        fetchingAllComments = await BlogCommentModel.find({ slug });
+        fetchingAllComments = await BlogCommentModel.find({ blogId: findSlug?.data?._id });
+        console.log(fetchingAllComments)
 
         const fetchingCommentsLength = fetchingAllComments.length ?? 1
+        console.log(fetchingCommentsLength)
 
         // updating the tempcomments field in Blogpost Model 
 
         const updaingBlogPostCommentTemp = await BlogPostModel.findOneAndUpdate({ slug }, { $set: { tempComments: fetchingCommentsLength } }, { new: true });
 
+
         if (!updaingBlogPostCommentTemp) {
             return sendNormalResponse(false, 201, "Comment saved but temp no updated", savedComment)
         }
+        console.log(updaingBlogPostCommentTemp);
 
         return sendNormalResponse(true, 201, "Comment saved", updaingBlogPostCommentTemp)
 
