@@ -9,6 +9,7 @@ import { useCookiesNext } from 'cookies-next';
 import FormsButton from "./ui/buttonsandlinks/FormsButton";
 
 import { CgLogIn, CgLogOut } from "react-icons/cg"
+import { FaTimes } from 'react-icons/fa';
 
 export default function Header({ isLogged }) {
 
@@ -47,7 +48,7 @@ export default function Header({ isLogged }) {
             className="md:hidden hover:bg-gray-100 active:border active:border-1 active:border-black active:border-dotted transition-all duration-200 cursor-pointer w-auto p-3 flex items-center justify-center rounded-md text-3xl text-black bg-white border-none outline-none shadow-md shadow-gray-20"
             aria-label="Toggle sidebar"
           >
-            <RxHamburgerMenu />
+            {!openedNav?<RxHamburgerMenu />:<FaTimes />}
           </button>
 
         </div>
