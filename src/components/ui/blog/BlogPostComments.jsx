@@ -18,7 +18,7 @@ const BlogComment = ({ comments }) => {
               </div>
               <div className='flex items-end justify-center gap-2'>
                 <FaCalendar className='text-2xl' />
-                <span className="text-sm dark:text-gray-200 text-gray-600">{new Date(ele.createdAt).toISOString()}</span>
+                <span className="text-sm dark:text-gray-200 text-gray-600">{new Date(ele.createdAt).toLocaleDateString()}</span>
               </div>
             </div>
             <p className='mt-2 px-2'>{ele.comment}</p>
