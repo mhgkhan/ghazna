@@ -66,20 +66,23 @@ export async function POST(request, { params }) {
             return sendNormalResponse(false, 401, "You reached your commenting limit", null)
         }
 
-        // adding new comment 
-        const newComment = new BlogCommentModel({
-            comment: body.comment,
-            userId: id,
-            blogId: findSlug.data.id,
-            name: thisUser.data?.name ?? "Anonymous",
-            email
-        });
+        else {
+            // adding new comment 
+            const newComment = new BlogCommentModel({
+                comment: body.comment,
+                userId: id,
+                blogId: findSlug.data.id,
+                name: thisUser.data?.name ?? "Anonymous",
+                email
+            });
 
-        const savedComment = await newComment.save();
+            await newComment.save();
+        }
 
-        const fetchingAllComments = await BlogCommentModel.find({ slug });
+        let fetchingAllComments;
+        fetchingAllComments = await BlogCommentModel.find({ slug });
 
-        const fetchingCommentsLength = fetchingAllComments.length ?? 0
+        const fetchingCommentsLength = fetchingAllComments.length ?? 1
 
         // updating the tempcomments field in Blogpost Model 
 
@@ -89,7 +92,7 @@ export async function POST(request, { params }) {
             return sendNormalResponse(false, 201, "Comment saved but temp no updated", savedComment)
         }
 
-        return sendNormalResponse(true, 201, "Comment saved", savedComment)
+        return sendNormalResponse(true, 201, "Comment saved", updaingBlogPostCommentTemp)
 
     } catch (error) {
         console.log(error)
@@ -116,6 +119,11 @@ export async function GET(request, { params }) {
         }
 
 
+        // const blogpostAllComments = await BlogCommentModel.find({ slug });
+        // const length = blogpostAllComments.length;
+
+        // updating 
+        // const updating = await BlogPostModel.findOneAndUpdate({ slug }, { $set: { tempComments: length } }, { new: true })
         const comments = await BlogCommentModel.find({ blogId: checkIfBlogExsists.data.id });
 
 
