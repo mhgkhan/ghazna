@@ -3,6 +3,9 @@ import { defaultType } from './schemaTypes';
 
 const userSchema = new mongoose.Schema({
     name: defaultType,
+    username: {
+        type: String
+    },
     email: {
         ...defaultType,
         unique: true,
@@ -70,7 +73,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: null,
     },
-},{
+    tempProfileViews: {
+        type: Number,
+        default: 0,
+    }
+}, {
     timestamps: true,
 })
 
