@@ -4,7 +4,8 @@ import { defaultType } from './schemaTypes';
 const userSchema = new mongoose.Schema({
     name: defaultType,
     username: {
-        type: String
+        type: String,
+        unique: true
     },
     email: {
         ...defaultType,
