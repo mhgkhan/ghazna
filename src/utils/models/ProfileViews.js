@@ -1,18 +1,14 @@
 import mongoose from "mongoose"
+import { defaultType } from "./schemaTypes";
 
 const profileViewsStr = new mongoose.Schema({
-    profileId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Blog",
-        required: true
-    },
+    profileId: defaultType,
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
     ipAddress: {
         type: String,
-        required: true
     },
 });
 

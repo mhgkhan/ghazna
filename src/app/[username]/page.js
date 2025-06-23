@@ -1,13 +1,22 @@
 import React from 'react'
 import { redirect } from "next/navigation"
 import FreezeEnv from '@/config/EnvConfig'
+import { cookies } from 'next/headers'
 
 
 
 const fetchUserData = async function (username) {
     let obj = {}
     try {
-        const request = await fetch(`${FreezeEnv.DOMAIN}api/users/profile/${username}`);
+        const token = (await cookies()).get("USER_AUTH_TOKEN")?.value || null;
+
+        const request = await fetch(`${FreezeEnv.DOMAIN}api/users/profile/${username}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "token": token || "",
+            }
+        });
         const response = await request.json();
         obj.success = response.success;
         obj.message = response.message;
@@ -28,8 +37,8 @@ const page = async ({ params }) => {
 
     const { username } = await params;
 
-        console.log(username);
-        
+    console.log(username);
+
 
     if (username.includes("%") || username.includes(" ") || username.length > 20) {
         return redirect("/not-found/404")
