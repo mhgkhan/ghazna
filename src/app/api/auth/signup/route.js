@@ -2,7 +2,6 @@ const { default: connectDB } = require("@/utils/db/connectDB");
 import bcrypt from "bcryptjs"
 
 
-connectDB();
 
 import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
@@ -14,6 +13,10 @@ import JWT from "jsonwebtoken";
 
 import { sendMail } from "@/config/EmailSeindingProcesses";
 
+
+
+
+connectDB();
 
 export async function POST(request) {
     try {
@@ -33,6 +36,8 @@ export async function POST(request) {
             return sendNormalResponse(false, 400, "User already exists", null)
         }
 
+        const fetchallUsera = await User.find({});
+
         // creating token for verification 
 
         const token = JWT.sign({ email: body.email, isVerfiied: false }, FreezeEnv.VERIFICATION_SECRET_KEY);
@@ -40,9 +45,13 @@ export async function POST(request) {
 
 
         const { name, email, password } = body;
+
+
+        const username = name.includes(" ") ? `${name.split(" ")[0]} ${fetchallUsera.lenth}` : name;
         const addUserInfo = new User({
             name,
             email,
+            username,
             password: hashingPassword,
             role: "user",
             isVerified: false,
@@ -88,7 +97,7 @@ export async function POST(request) {
         return sendNormalResponse(true, 200, "Account created! Verification Link Sended to your account.", { user: savedUserInfo, token })
 
     } catch (error) {
-        console.log(error);
+        console.log("the error is ", error);
 
         return sendNormalResponse(false, 500, "Internal server error", null)
     }
