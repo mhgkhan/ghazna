@@ -1,3 +1,4 @@
+import ProfileHero from '@/components/profile/ProfileHero'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -11,24 +12,7 @@ const page = () => {
       {/* <h1 className='text-4xl text-black'>Hello MHGKHn</h1> */}
       <div className='profile-hero rounded-md my-5'>
         <div className='container mx-auto'>
-          <div className='profile-img relative w-full md:h-[250px] h-[150px]  md:dark:bg-gray-800 md:bg-gray-300 sm:bg-none border  border-1 border-gray-300 rounded-md shadow-md dark:shadow-gray-400 shadow-gray-200 '>
-            <div className='coverImage md:z-auto w-full h-full relative'>
-              <Image src={"/images/website.jpg"} alt='profile picture' width={700} height={300} className='w-full h-full object-fit object-cover rounded-md' />
-            </div>
-            <div className='profile-data w-full md:absolute static md:top-[150px]  flex md:items-start md:justify-start items-center justify-center gap-5 md:h-[150px] md:flex-row flex-col md:mt-auto mt-[-70px]'>
-              <div className='profileImg md:z-auto z-10 md:w-[200px] md:h-[200px] w-[130px] h-[130px] rounded-full shadow-md shadow-gray-300 mx-5 border-8 border-pink-500'>
-                <Image src={"/images/hero.jpg"} alt='profile picture' width={200} height={200} className='rounded-full w-full h-full object-fit object-cover' />
-              </div>
-              <div className='profileInfo flex md:h-[200px] ha-auto md:items-end items-center flex-col md:justify-end justify-center md:mt-14 md:w-auto w-full'>
-                <h3 className='md:text-2xl text-xl font-bold md:w-full inline-block'>Muhammad Hasnain  </h3>
-                <h4 className='user-email italic md:text-xl text-sm dark:text-gray-400 text-gray-500'>muhammadhasnainghazna@gmail.com</h4>
-                <div className='buttons flex items-center md:justify-start  justify-center w-full gap-3 my-5 '>
-                  <Link href={"/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEdit /></span> Edit Profile </Link>
-                  <Link href={"/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEye /></span> View Profile </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProfileHero />
         </div>
       </div>
 
@@ -39,64 +23,64 @@ const page = () => {
       <br />
       <br />
 
-      
+
       <div className='w-full mt-10'>
         <div className='container mx-auto my-5'>
           {/* <HeadingSection start={"Quick"} end={"Links"} key={"key"} /> */}
           <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-600 underline px-2 text-center mx-auto'>Profile Status  </h2>
           <div className="flex items-center justify-center flex-wrap gap-5 my-5">
 
-           {
-            Array.from([
-              {title:"Followers", count:300},
-              {title:"Profile Views", count:55},
-              {title:"Blogs", count:30},
-              {title:"Blog Views", count:80},
-            ]).map((ele,ind)=>{
-              return  <div key={ind} className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-500'>
-              <h4 className='md:text-lg text-sm text-center  dark:text-pink-400 text-pink-600 font-bold my-2 px-1'>{ele.title}</h4>
-              <hr />
-              <h2 className='text-5xl text-center text-green-800 dark:text-green-300 font-bold  py-2'>{ele.count}</h2>
-            </div>
+            {
+              Array.from([
+                { title: "Followers", count: 300 },
+                { title: "Profile Views", count: 55 },
+                { title: "Blogs", count: 30 },
+                { title: "Blog Views", count: 80 },
+              ]).map((ele, ind) => {
+                return <div key={ind} className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-500'>
+                  <h4 className='md:text-lg text-sm text-center  dark:text-pink-400 text-pink-600 font-bold my-2 px-1'>{ele.title}</h4>
+                  <hr />
+                  <h2 className='text-5xl text-center text-green-800 dark:text-green-300 font-bold  py-2'>{ele.count}</h2>
+                </div>
 
 
-            })
-           }
+              })
+            }
 
 
           </div>
         </div>
       </div>
 
-     
 
-<div className='w-full mt-10'>
-  <div className='container mx-auto my-5'>
-    <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-400 underline px-2 text-center mx-auto'>Quick Links</h2>
-    
-    <div className="flex items-center justify-center flex-wrap gap-5 my-5">
-      {[
-        // { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
-        { title: 'Create Blog', icon: <FaBloggerB size={30} className="text-yellow-300" />, href: '/profile/blogs/create' },
-        { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/profile/settings' },
-        // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
-        // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
-        { title: 'History', icon: <FaHistory size={30} className="text-green-400" />, href: '/profile/history' },
-        // { title: 'Logout', icon: <FaSignOutAlt size={30} className="text-red-400" />, href: '/logout' },
-      ].map((link, ind) => (
-        <a
-          key={ind}
-          href={link.href}
-          className='p-4 border border-gray-600 rounded-xl w-[200px] text-center cursor-pointer 
+
+      <div className='w-full mt-10'>
+        <div className='container mx-auto my-5'>
+          <h2 className='md:text-3xl text-2xl font-bold my-8 text-pink-400 underline px-2 text-center mx-auto'>Quick Links</h2>
+
+          <div className="flex items-center justify-center flex-wrap gap-5 my-5">
+            {[
+              // { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
+              { title: 'Create Blog', icon: <FaBloggerB size={30} className="text-yellow-300" />, href: '/profile/blogs/create' },
+              { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/profile/settings' },
+              // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
+              // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
+              { title: 'History', icon: <FaHistory size={30} className="text-green-400" />, href: '/profile/history' },
+              // { title: 'Logout', icon: <FaSignOutAlt size={30} className="text-red-400" />, href: '/logout' },
+            ].map((link, ind) => (
+              <a
+                key={ind}
+                href={link.href}
+                className='p-4 border border-gray-600 rounded-xl w-[200px] text-center cursor-pointer 
                      hover:bg-gray-800 transition-all duration-300 bg-gray-900'
-        >
-          <div className="flex justify-center mb-2">{link.icon}</div>
-          <h4 className='md:text-lg text-sm text-gray-100 font-semibold'>{link.title}</h4>
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
+              >
+                <div className="flex justify-center mb-2">{link.icon}</div>
+                <h4 className='md:text-lg text-sm text-gray-100 font-semibold'>{link.title}</h4>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
 
 
     </section>
