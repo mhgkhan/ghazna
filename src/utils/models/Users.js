@@ -54,6 +54,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: null,
     },
+    coverPicture: {
+        type: String,
+        default: null,
+    },
     isDeleted: {
         type: Boolean,
         default: false,
@@ -77,7 +81,11 @@ const userSchema = new mongoose.Schema({
     tempProfileViews: {
         type: Number,
         default: 0,
-    }
+    },
+    tempUserBlogs: {
+        type: Number,
+        default: 0,
+    },
 }, {
     timestamps: true,
 })
