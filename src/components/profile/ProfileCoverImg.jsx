@@ -46,11 +46,19 @@ const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey }) => {
                     setCoverImage(fileUPloadRes.data.image.url);
 
 
-                    // senting link to the server to save image url 
-                    
+                    // sending link to the server to save image url 
+                    const request = await fetch(`/api/users/uploads/coverimage`, {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            coverPicture: fileUPloadRes.data.image.url
+                        })
+                    })
 
-
-
+                    const response = await request.json();
+                    console.log(response);
                 }
                 else {
 

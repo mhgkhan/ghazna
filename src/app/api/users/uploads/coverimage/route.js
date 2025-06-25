@@ -7,6 +7,17 @@ import User from "@/utils/models/Users";
 
 export async function POST(request) {
 
+    const body = await request.json();
+
+    console.log("the body is ", body);
+
+
+
+    const { coverPicture } = body;
+    console.log(coverPicture)
+
+
+
 
     try {
         // checking if user is authorized or not 
@@ -33,11 +44,10 @@ export async function POST(request) {
         }
 
 
-        const { coverPicture } = await request.body;
 
         // updating the coverimage link 
 
-        const updateCoverImgField = await User.findOneAndUpdate({ email }, { coverPicture }, { new: true });
+        const updateCoverImgField = await User.findOneAndUpdate({ email }, { coverPicture: coverPicture }, { new: true });
 
         if (!updateCoverImgField) {
             return sendNormalResponse(false, 400, "Field to update your image link", null)
@@ -50,9 +60,8 @@ export async function POST(request) {
 
 
     } catch (error) {
-
+        return sendNormalResponse(false, 500, error.message, null)
     }
 
-    const body = await request.json();
 
 }
