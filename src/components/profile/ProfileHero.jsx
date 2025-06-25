@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { FaEdit, FaEye } from 'react-icons/fa'
 
-const ProfileHero = () => {
+const ProfileHero = ({ username, name, profileImg, coverImg }) => {
     return (
         <div className='profile-img relative w-full md:h-[250px] h-[150px]  md:dark:bg-gray-800 md:bg-gray-300 sm:bg-none border  border-1 border-gray-300 rounded-md shadow-md dark:shadow-gray-400 shadow-gray-200 '>
 
