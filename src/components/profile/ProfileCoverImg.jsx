@@ -47,7 +47,7 @@ const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey }) => {
 
 
                     // senting link to the server to save image url 
-
+                    
 
 
 
