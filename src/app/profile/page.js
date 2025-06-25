@@ -1,8 +1,38 @@
 import ProfileHero from '@/components/profile/ProfileHero'
+import FreezeEnv from '@/config/EnvConfig'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaBlog, FaBloggerB, FaCog, FaEdit, FaEye, FaHistory, FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
+
+
+
+
+const getUserData = async function () {
+  let obj = {};
+
+  try {
+    const request = await fetch(`${FreezeEnv.DOMAIN}api/users/getuser`);
+    const response = await request.json();
+
+    if (!response.success) {
+      obj.error = true;
+      obj.message = response.message;
+    }
+    else {
+      obj.error = false;
+      obj.message = response.message;
+      obj.data = response.data;
+    }
+
+  } catch (error) {
+    obj.error = true;
+    obj.message = error.message;
+  }
+  finally {
+    return obj;
+  }
+}
 
 const page = () => {
 
