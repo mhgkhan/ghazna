@@ -1,5 +1,6 @@
 import ProfileHero from '@/components/profile/ProfileHero'
 import FreezeEnv from '@/config/EnvConfig'
+import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -8,12 +9,21 @@ import { FaBlog, FaBloggerB, FaCog, FaEdit, FaEye, FaHistory, FaSignOutAlt, FaUs
 
 
 
-const getUserData = async function () {
+const getUserData = async function (token) {
   let obj = {};
 
   try {
-    const request = await fetch(`${FreezeEnv.DOMAIN}api/users/getuser`);
+    console.log("calling the api");
+    const request = await fetch(`${FreezeEnv.DOMAIN}api/users/getuser`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        token
+      }
+    });
     const response = await request.json();
+
+    console.log("the response is ", response);
 
     if (!response.success) {
       obj.error = true;
@@ -26,6 +36,7 @@ const getUserData = async function () {
     }
 
   } catch (error) {
+    console.log(error)
     obj.error = true;
     obj.message = error.message;
   }
@@ -34,7 +45,25 @@ const getUserData = async function () {
   }
 }
 
-const page = () => {
+const page = async () => {
+
+  const cookiesAll = await cookies();
+
+  const tok = cookiesAll.get("USER_AUTH_TOKEN")?.value;
+  if (!tok) {
+    return (
+      <div className='w-full h-screen flex items-center justify-center'>
+        <h1 className='text-3xl text-red-500 font-bold'>You are not authorized to view this page</h1>
+        <Link href={"/login"} className='text-blue-500 underline ml-2'>Login</Link>
+      </div>
+    )
+  }
+
+
+
+  const userData = await getUserData(tok);
+
+  console.log("the user data is ", userData);
 
 
   return (
@@ -42,7 +71,7 @@ const page = () => {
       {/* <h1 className='text-4xl text-black'>Hello MHGKHn</h1> */}
       <div className='profile-hero rounded-md my-5'>
         <div className='container mx-auto'>
-          <ProfileHero />
+          <ProfileHero name={userData?.data.name} username={userData?.data.email} coverImg={userData?.data.coverPicture}  />
         </div>
       </div>
 

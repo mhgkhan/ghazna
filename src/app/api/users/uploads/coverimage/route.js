@@ -4,7 +4,9 @@ import JWT from "jsonwebtoken";
 import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import User from "@/utils/models/Users";
+import connectDB from "@/utils/db/connectDB";
 
+connectDB();
 export async function POST(request) {
 
     const body = await request.json();
@@ -15,7 +17,7 @@ export async function POST(request) {
 
     const { coverPicture } = body;
     console.log(coverPicture)
-
+    
 
 
 
