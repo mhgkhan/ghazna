@@ -8,6 +8,8 @@ const obj = {
   FORGET_PASSWORD_URL: process.env.FORGET_PASSWORD_URL,
   DOMAIN: process.env.DOMAIN,
   GoogleSiteVerificationContent: process.env.GOOGLE_SITE_VERIFICATION_CONTENT,
+  IMAGE_SERVER_KEY :process.env.IMAGE_SERVER_KEY,
+  IMAGE_SERVER_URL: process.env.IMAGE_SERVER_URL,
 };
 
 const FreezeEnv = Object.freeze(obj);

@@ -2,14 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaEdit, FaEye } from 'react-icons/fa'
+import ProfileCoverImg from './ProfileCoverImg'
+import FreezeEnv from '@/config/EnvConfig'
 
 const ProfileHero = ({ username, name, profileImg, coverImg }) => {
     return (
         <div className='profile-img relative w-full md:h-[250px] h-[150px]  md:dark:bg-gray-800 md:bg-gray-300 sm:bg-none border  border-1 border-gray-300 rounded-md shadow-md dark:shadow-gray-400 shadow-gray-200 '>
 
-            <div className='coverImage md:z-auto w-full h-full relative'>
-                <Image src={"/images/website.jpg"} alt='profile picture' width={700} height={300} className='w-full h-full object-fit object-cover rounded-md' />
-            </div>
+
+            <ProfileCoverImg imgServerUrl={FreezeEnv.IMAGE_SERVER_URL} imgServerKey={FreezeEnv.IMAGE_SERVER_KEY} />
 
             <div className='profile-data w-full md:absolute static md:top-[150px]  flex md:items-start md:justify-start items-center justify-center gap-5 md:h-[150px] md:flex-row flex-col md:mt-auto mt-[-70px]'>
                 <div className='profileImg md:z-auto z-10 md:w-[200px] md:h-[200px] w-[130px] h-[130px] rounded-full shadow-md shadow-gray-300 mx-5 border-8 border-pink-500'>
@@ -25,10 +26,7 @@ const ProfileHero = ({ username, name, profileImg, coverImg }) => {
                 </div>
             </div>
 
-            <div className="changeCoverImg top-1 absolute right-1 rounded-md px-2 py-1 bg-blue-500 text-white font-bold">
-                <input type="file" name="coverImage" id="coverImage" className='hidden' />
-                <label htmlFor="coverImage" className='cursor-pointer hover:underline '>Change Cover Image</label>
-            </div>
+
 
         </div>
     )
