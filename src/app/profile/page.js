@@ -71,7 +71,7 @@ const page = async () => {
       {/* <h1 className='text-4xl text-black'>Hello MHGKHn</h1> */}
       <div className='profile-hero rounded-md my-5'>
         <div className='container mx-auto'>
-          <ProfileHero name={userData?.data.name} username={userData?.data.username} coverImg={userData?.data.coverPicture}  />
+          <ProfileHero name={userData?.data.name} email={userData?.data?.email} username={userData?.data.username} coverImg={userData?.data.coverPicture}  />
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import { FaEdit, FaEye } from 'react-icons/fa'
 import ProfileCoverImg from './ProfileCoverImg'
 import FreezeEnv from '@/config/EnvConfig'
 
-const ProfileHero = ({ username, name, profileImg, coverImg }) => {
+const ProfileHero = ({ username, name, profileImg, email, coverImg }) => {
     return (
         <div className='profile-img relative w-full md:h-[250px] h-[150px]  md:dark:bg-gray-800 md:bg-gray-300 sm:bg-none border  border-1 border-gray-300 rounded-md shadow-md dark:shadow-gray-400 shadow-gray-200 '>
 
@@ -18,7 +18,7 @@ const ProfileHero = ({ username, name, profileImg, coverImg }) => {
                 </div>
                 <div className='profileInfo flex md:h-[200px] ha-auto md:items-end items-center flex-col md:justify-end justify-center md:mt-14 md:w-auto w-full'>
                     <h3 className='md:text-2xl text-xl font-bold md:w-full inline-block'>{name}  </h3>
-                    <h4 className='user-email md:text-left italic md:text-xl text-sm dark:text-gray-400 text-gray-500'>{username}</h4>
+                    <h4 className='user-email md:text-left italic md:text-xl text-sm dark:text-gray-400 text-gray-500'>{email}</h4>
                     <div className='buttons flex items-center md:justify-start  justify-center w-full gap-3 my-5 '>
                         <Link href={"/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEdit /></span> Edit Profile </Link>
                         <Link href={"/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEye /></span> View Profile </Link>
