@@ -19,6 +19,9 @@ const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey, username }) => {
     const changeImage = async (e) => {
         const file = e.target.files[0];
 
+        console.log(file);
+
+
         // Check file type
         if (!file || !["image/jpeg", "image/png", "image/jpg"].includes(file.type)) {
             setIsErr(true);
@@ -35,7 +38,7 @@ const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey, username }) => {
 
         // Create fresh FormData
         const formData = new FormData();
-        formData.append(`image-${username}`, file); // Use "image" or whatever the API expects
+        formData.append(`image`, file); // Use "image" or whatever the API expects
 
         try {
             setLoading(true);
