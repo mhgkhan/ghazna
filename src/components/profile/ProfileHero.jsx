@@ -10,7 +10,7 @@ const ProfileHero = ({ username, name, profileImg, coverImg }) => {
         <div className='profile-img relative w-full md:h-[250px] h-[150px]  md:dark:bg-gray-800 md:bg-gray-300 sm:bg-none border  border-1 border-gray-300 rounded-md shadow-md dark:shadow-gray-400 shadow-gray-200 '>
 
 
-            <ProfileCoverImg imgServerUrl={FreezeEnv.IMAGE_SERVER_URL} imgServerKey={FreezeEnv.IMAGE_SERVER_KEY} image={coverImg} />
+            <ProfileCoverImg username={username} imgServerUrl={FreezeEnv.IMAGE_SERVER_URL} imgServerKey={FreezeEnv.IMAGE_SERVER_KEY} image={coverImg} />
 
             <div className='profile-data w-full md:absolute static md:top-[150px]  flex md:items-start md:justify-start items-center justify-center gap-5 md:h-[150px] md:flex-row flex-col md:mt-auto mt-[-70px]'>
                 <div className='profileImg md:z-auto z-10 md:w-[200px] md:h-[200px] w-[130px] h-[130px] rounded-full shadow-md shadow-gray-300 mx-5 border-8 border-pink-500'>

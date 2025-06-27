@@ -4,7 +4,7 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
-const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey }) => {
+const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey, username }) => {
 
 
     const [coverImage, setCoverImage] = useState(image || "/images/website.jpg");
@@ -17,77 +17,75 @@ const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey }) => {
     const formData = new FormData();
 
     const changeImage = async (e) => {
-
-        // set the image size that are must less then 2 mb
         const file = e.target.files[0];
 
-        if (file.type !== "image/png" && file.type !== "image/jpg") {
-            return alert("File must be JPG or PNG")
+        // Check file type
+        if (!file || !["image/jpeg", "image/png", "image/jpg"].includes(file.type)) {
+            setIsErr(true);
+            setErr("Please upload a valid image file (jpg, jpeg, png)");
+            alert("Please upload a valid image file (jpg, jpeg, png)");
+            return;
         }
 
-        // ok 
-
-
-
-        if (file && file.size < 2000000) {
-            formData.append('image', file);
-
-            try {
-                setLoading(true);
-                const fileUpload = await fetch(`${imgServerUrl}&key=${imgServerKey}`, {
-                    method: "POST",
-                    body: formData
-                });
-                const fileUPloadRes = await fileUpload.json();
-
-                if (fileUPloadRes.success) {
-                    setIsErr(false);
-                    setErr("")
-                    setCoverImage(fileUPloadRes.data.image.url);
-
-
-                    // sending link to the server to save image url 
-                    const request = await fetch(`/api/users/uploads/coverimage`, {
-                        method: "POST",
-                        headers: {
-                            "content-type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            coverPicture: fileUPloadRes.data.image.url
-                        })
-                    })
-
-                    const response = await request.json();
-                    console.log(response);
-                }
-                else {
-
-                    setIsErr(true)
-                    setErr("File to upload image");
-                }
-
-            } catch (error) {
-                setErr(true)
-                setIsErr(error.message);
-            }
-            finally {
-                setLoading(true);
-            }
-
-        }
-        else {
+        // Check file size
+        if (file.size > 2000000) {
             alert("Image size must be less than 2 MB");
-
+            return;
         }
-        // alert(loading);
-        // alert(isErr);
-        // alert(coverImage)
-    }
+
+        // Create fresh FormData
+        const formData = new FormData();
+        formData.append(`image-${username}`, file); // Use "image" or whatever the API expects
+
+        try {
+            setLoading(true);
+
+            // Upload to image server
+            const fileUpload = await fetch(`${imgServerUrl}&key=${imgServerKey}`, {
+                method: "POST",
+                body: formData
+            });
+
+            const fileUPloadRes = await fileUpload.json();
+
+            if (fileUPloadRes.success) {
+                const imageUrl = fileUPloadRes.data.image.url;
+                setIsErr(false);
+                setErr("");
+                setCoverImage(imageUrl);
+
+                // Send to your backend
+                const request = await fetch(`/api/users/uploads/coverimage`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        coverPicture: imageUrl
+                    })
+                });
+
+                const response = await request.json();
+                console.log(response);
+
+            } else {
+                setIsErr(true);
+                setErr("Failed to upload image");
+            }
+
+        } catch (error) {
+            setIsErr(true);
+            setErr(error.message);
+        } finally {
+            setLoading(false);  // <-- IMPORTANT: Set to false when done
+        }
+    };
 
 
-    // useEffect(() => {
 
-    // }, [coverImage])
+    useEffect(() => {
+
+    }, [coverImage])
 
 
     return (
@@ -106,7 +104,7 @@ const ProfileCoverImg = ({ image, imgServerUrl, imgServerKey }) => {
 
             {
                 image ? "" : <div className="changeCoverImg top-1 absolute right-1 rounded-md px-2 py-1 bg-blue-500 text-white font-bold">
-                    <input type="file" name="coverImage" id="coverImage" className='hidden' onChange={changeImage} />
+                    <input type="file" name="coverImage" id="coverImage" accept="image/*" className='hidden' onChange={changeImage} />
                     <label htmlFor="coverImage" className='cursor-pointer hover:underline '>Change Cover Image</label>
                 </div>
 
