@@ -14,7 +14,7 @@ const ProfileHero = ({ username, name, profileImg, email, coverImg }) => {
 
             <div className='profile-data w-full md:absolute static md:top-[150px]  flex md:items-start md:justify-start items-center justify-center gap-5 md:h-[150px] md:flex-row flex-col md:mt-auto mt-[-70px]'>
                 <div className='profileImg md:z-auto z-10 md:w-[200px] md:h-[200px] w-[130px] h-[130px] rounded-full shadow-md shadow-gray-300 mx-5 border-8 border-pink-500'>
-                    <Image src={"/images/hero.jpg"} alt='profile picture' width={200} height={200} className='rounded-full w-full h-full object-fit object-cover' />
+                    <Image src={profileImg?profileImg:"/images/user.png"} alt='profile picture' width={200} height={200} className='rounded-full w-full h-full object-fit object-cover' />
                 </div>
                 <div className='profileInfo flex md:h-[200px] ha-auto md:items-end items-center flex-col md:justify-end justify-center md:mt-14 md:w-auto w-full'>
                     <h3 className='md:text-2xl text-xl font-bold md:w-full inline-block'>{name}  </h3>
