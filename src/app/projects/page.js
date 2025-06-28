@@ -18,8 +18,8 @@ const page = () => {
                     { title: "GH Urlshortner", subtitle: "A fullstack URL Shortner Project", year: "2023", image: "/images/projects/usgh.png", link: "https://usgh.netlify.app/" },
                 ]).map((ele, ind) => {
                     return <Link href={ele.link} key={ind} className="project-block border border-1 border-gray-500 border-dotted border-t-0 px-4 py-3 md:w-[400px] md:h-[300px] h-auto w-full">
-                        <div className="w-full h-[195px]">
-                            <Image src={ele.image} alt="alternate" width={300} height={250} className='rounded-md w-full h-full object-fill object-center' />
+                        <div className="w-full h-[180px]">
+                            <Image src={ele.image} alt="alternate" width={300} height={195} className='rounded-md w-full h-full object-fill object-center' />
                         </div>
                         <div className="proejct-content border-1 border-b border-b-1 border-gray-600 p-1">
                             <h3 className="text-lg font-bold">{ele.title}</h3>
