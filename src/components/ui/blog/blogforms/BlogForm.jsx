@@ -220,11 +220,19 @@ const BlogForm = () => {
                         <select name="category" onChange={e => setCategory(e.target.value)} value={category} className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400">
                             <option defaultChecked value={"general"} disabled selected>Select your category</option>
                             {
-                                Array.from(["Technology", "Health", "Lifestyle", "Travel", "Food", "Education", "Business", "Entertainment", "Sports", "Fashion", "Finance", "Science", "Art", "Music", "Photography"]).map((category, index) => {
-                                    return (
-                                        <option className='p-1' key={index} value={category.toLowerCase()}>{category}</option>
-                                    )
-                                })
+                                Array.from(["Technology", "Health", "Lifestyle", "Travel", "Food", "Education", "Business", "Entertainment",
+                                    "Sports", "Fashion", "Finance", "Science", "Art", "Music", "Photography", "Government", "Jobs",
+                                    "Gaming", "Environment", "Politics", "Parenting", "History", "DIY", "Automotive", "Spirituality",
+                                    "Real Estate", "Marketing", "Personal Development", "Startups", "Books", "Culture", "Economy",
+                                    "Medicine", "Fitness", "Mental Health", "Nature", "News", "Crypto", "Investing", "Relationships",
+                                    "Animals", "Crafts", "Design", "Architecture", "Interior Design", "Space", "Programming", "Movies",
+                                    "TV Shows", "Mobile", "Gadgets", "E-commerce", "Social Media", "Legal", "Career Advice", "Productivity",
+                                    "Sustainability", "Weddings", "Pet Care", "Language Learning", "Comics", "Luxury", "Adventure",
+                                    "Mythology", "Podcasts", "UX/UI", "Blockchain", "Volunteering", "Leadership"]).map((category, index) => {
+                                        return (
+                                            <option className='p-1' key={index} value={category.toLowerCase()}>{category}</option>
+                                        )
+                                    })
                             }
                         </select>
                     </div>
