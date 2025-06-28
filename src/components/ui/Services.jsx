@@ -1,6 +1,5 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link';
 import HeadingSection from './HeadingSection';
 // import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -18,23 +17,14 @@ const Services = () => {
         { title: "Printing Studio" , link:"/plans/printing"},
     ]);
 
-    // const [services, setServices] = useState([
-    //     { title: "Web Development", link: "/", side: "right" },
-    //     { title: "Graphic Designing", link: "/", side: "left" },
-    //     { title: "Data Entry", link: "/", side: "right" },
-    //     { title: "Printing Studio", link: "/", side: "left" },
-    // ])
-
     const [height, setHeight] = useState(100 * (leftServices.length + rightServices.length));
     // const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => { window.innerWidth == 766 ? setIsMobile(true) : false;
-
-
         Aos.init({duration:1000})
-
-
     }, [])
+
+
     // alert(height)
     return (
         <section className="my-10 w-full overflow-x-hidden" id="servicessection">

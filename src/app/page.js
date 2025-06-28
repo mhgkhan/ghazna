@@ -27,6 +27,11 @@ export default async function Home(req) {
       <HeroSection />
       {/* services section  */}
       <Services />
+
+      {/* recent blogposts  */}
+      
+
+
       {/* contact section  */}
       <section className="contact my-10 w-full">
         <div className="container mx-auto">
