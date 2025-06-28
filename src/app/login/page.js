@@ -12,7 +12,7 @@ const page = () => {
 
           <LoginFormComponent />
 
-          <div className='flex items-center justify-between gap-5 text-sm mt-5'>
+          <div className='flex items-center md:flex-row flex-col justify-between gap-5 text-sm mt-5'>
             <p className='dark:text-gray-200 text-gray-700'>Not have an account <Link href="/signup" className='text-blue-500 hover:underline'>Register</Link></p>
             <Link href="/forget_password" className='text-blue-500 hover:underline'>Forget password</Link>
           </div>
