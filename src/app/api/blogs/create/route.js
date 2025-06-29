@@ -84,10 +84,21 @@ export async function POST(request) {
 
         const savedBlog = await addingBlog.save();
 
+        const fetchAllBlogs = await BlogPostModel.find({ author: checkUser.data.id });
+
+        // updating the user 
+        const blogsLength = fetchAllBlogs.length;
+        const updateUser = await User.findOneAndUpdate(
+            { _id: checkUser.data.id },
+            {
+                $set: {
+                    tempUserBlogs: blogsLength,
+                }
+            },
+            { new: true });
+
+
         return sendNormalResponse(true, 201, "Blog Created Sucessfully", savedBlog);
-
-
-
 
     } catch (error) {
         console.log(error);
