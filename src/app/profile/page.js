@@ -91,7 +91,7 @@ const page = async () => {
 
             {
               Array.from([
-                { title: "Followers", count: 300 },
+                { title: "Account", count: userData.data.isVerified?`Verified`:"Not Verified" },
                 { title: "Profile Views", count: userData.data.tempProfileViews },
                 { title: "Blogs", count: userData.data.tempUserBlogs },
                 { title: "Blog Views", count: 80 },
