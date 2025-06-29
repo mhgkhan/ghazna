@@ -45,17 +45,17 @@ export default function Header({ isLogged }) {
           </div>
           <button
             onClick={() => setOpenedNav(!openedNav)}
-            className="md:hidden hover:bg-gray-100 active:border active:border-1 active:border-black active:border-dotted transition-all duration-200 cursor-pointer w-auto p-3 flex items-center justify-center rounded-md text-3xl text-black bg-white border-none outline-none shadow-md shadow-gray-20"
+            className="md:hidden hover:bg-gray-100 border border-2 border-dotted border-transparent active:border-black  transition-all duration-200 cursor-pointer w-auto p-3 flex items-center justify-center rounded-md text-3xl text-black bg-white outline-none shadow-md shadow-gray-20"
             aria-label="Toggle sidebar"
           >
-            {!openedNav?<RxHamburgerMenu />:<FaTimes />}
+            {!openedNav ? <RxHamburgerMenu /> : <FaTimes />}
           </button>
 
         </div>
 
         {/* navigation area  */}
         <nav
-          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${openedNav ? "h-[280px]" : "h - 0"
+          className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${openedNav ? "h-[300px]" : "h - 0"
             } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
@@ -76,17 +76,17 @@ export default function Header({ isLogged }) {
                 );
               }
             )}
+          </ul>
           {
             isLogged ? <FormsButton text={"Logout"} icon={<CgLogOut />} loading={false} type={"button"} clickFun={async () => {
               await fetch(`/api/logout`);
               deleteCookie("USER_AUTH_TOKEN");
               router.refresh();
-            }} /> 
-            
-            : <FormsButton text={"Login"} icon={<CgLogIn />} loading={false} type={"button"} clickFun={() => {
-              router.push("/login")
-            }} />}
-            </ul>
+            }} />
+
+              : <FormsButton text={"Login"} icon={<CgLogIn />} loading={false} type={"button"} clickFun={() => {
+                router.push("/login")
+              }} />}
         </nav>
       </div>
     </header>
