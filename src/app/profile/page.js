@@ -92,8 +92,8 @@ const page = async () => {
             {
               Array.from([
                 { title: "Followers", count: 300 },
-                { title: "Profile Views", count: 55 },
-                { title: "Blogs", count: 30 },
+                { title: "Profile Views", count: userData.data.tempProfileViews },
+                { title: "Blogs", count: userData.data.tempUserBlogs },
                 { title: "Blog Views", count: 80 },
               ]).map((ele, ind) => {
                 return <div key={ind} className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-500'>
@@ -101,8 +101,6 @@ const page = async () => {
                   <hr />
                   <h2 className='text-5xl text-center text-green-800 dark:text-green-300 font-bold  py-2'>{ele.count}</h2>
                 </div>
-
-
               })
             }
 

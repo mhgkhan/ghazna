@@ -90,8 +90,6 @@ export default async function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        
-
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
