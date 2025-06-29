@@ -4,8 +4,8 @@ import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaBlog, FaBloggerB, FaCog, FaEdit, FaEye, FaHistory, FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
-
+import { FaBlog, FaBloggerB, FaCog, FaCross, FaEdit, FaEye, FaHistory, FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
+import { AiOutlineCheck } from "react-icons/ai";
 
 
 
@@ -91,7 +91,7 @@ const page = async () => {
 
             {
               Array.from([
-                { title: "Account", count: userData.data.isVerified?`Verified`:"Not Verified" },
+                { title: "Account", count: userData.data.isVerified?<AiOutlineCheck  className='text-green-500' />:<FaCross className='text-red-500' },
                 { title: "Profile Views", count: userData.data.tempProfileViews },
                 { title: "Blogs", count: userData.data.tempUserBlogs },
                 { title: "Blog Views", count: 80 },
