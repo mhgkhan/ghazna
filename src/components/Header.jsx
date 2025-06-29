@@ -58,7 +58,7 @@ export default function Header({ isLogged }) {
           className={` flex items-center justify-between gap-5 md:flex-row flex-col navigation-area md:w-auto w-full md:h-auto h-0 ${openedNav ? "h-[300px]" : "h - 0"
             } overflow-hidden transition-all duration-200 `}
         >
-          <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-auto mt-5">
+          <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-0 mt-5">
             {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }, { title: "Old Website", link: "http://mhgkhanp.netlify.app" }] : [{ title: "Profile", link: "/profile/" }, { title: "Blog", link: "/blog/" }, { title: "Notifications", link: "/profile/notifications/" }]).map(
               (ele, ind) => {
                 return (
