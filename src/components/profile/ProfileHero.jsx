@@ -20,8 +20,8 @@ const ProfileHero = ({ username, name, profileImg, email, coverImg }) => {
                     <h3 className='md:text-2xl text-xl font-bold md:w-full inline-block'>{name}  </h3>
                     <h4 className='user-email md:text-left italic md:text-xl text-sm dark:text-gray-400 text-gray-500'>{email}</h4>
                     <div className='buttons flex items-center md:justify-start  justify-center w-full gap-3 my-5 '>
-                        <Link href={"/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEdit /></span> Edit Profile </Link>
-                        <Link href={"/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEye /></span> View Profile </Link>
+                        <Link href={"/profile/edit/"} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEdit /></span> Edit Profile </Link>
+                        <Link href={`/${username}`} className='p-3 text-sm flex items-cente justify-center gap-2 bg-pink-600 text-white font-bold rounded-md'><span className='text-xl'><FaEye /></span> View Profile </Link>
                     </div>
                 </div>
             </div>
