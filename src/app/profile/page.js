@@ -91,7 +91,7 @@ const page = async () => {
 
             {
               Array.from([
-                { title: "Account", count: userData.data.isVerified?<AiOutlineCheck  className='text-green-500' />:<FaCross className='text-red-500' },
+                { title: "Account", count: userData.data.isVerified?<AiOutlineCheck  className='text-green-500' />:<FaCross className='text-red-500'/>},
                 { title: "Profile Views", count: userData.data.tempProfileViews },
                 { title: "Blogs", count: userData.data.tempUserBlogs },
                 { title: "Blog Views", count: 80 },
