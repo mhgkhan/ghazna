@@ -63,7 +63,7 @@ const BlogPostsContainer = async () => {
 
                 {
                     loading ? <Loading /> : userBlogs.length > 0 ? userBlogs.map((blog, ind) => {
-                        return <ProfileBlogPostCard key={ind} />
+                        return <ProfileBlogPostCard key={ind} img={blog.image} title={blog.title} description={blog.description} />
                     }) : <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
                 }
 
