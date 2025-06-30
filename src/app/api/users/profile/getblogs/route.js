@@ -16,7 +16,6 @@ export async function GET(request) {
     try {
 
         const cookiesAll = await cookies();
-        // console.log("Cookies received:", cookiesAll.getAll());
 
 
 
@@ -41,11 +40,9 @@ export async function GET(request) {
 
         // console.log(findUserName)
         if (!findUserName.success) {
-            // updating the profile views views 
             return sendNormalResponse(false, 404, findUserName.message, null)
         }
 
-        // fetching all user blogposts 
         const userBlogs = await BlogPostModel.find({author: findUserName.data._id});
         if (!userBlogs || userBlogs.length === 0) {
             return sendNormalResponse(false, 404, "No blogs found for this user", null);
