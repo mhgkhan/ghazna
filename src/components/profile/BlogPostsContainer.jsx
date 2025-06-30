@@ -16,7 +16,7 @@ const BlogPostsContainer = async () => {
 
 
     const [userBlogs, setUserBlogs] = useState([]); // to store user blogs
-    const [loading, setLoading] = useState(false); // to show loading state
+    const [loading, setLoading] = useState(true); // to show loading state
     const [error, setError] = useState(null); // to store error if any
 
 
