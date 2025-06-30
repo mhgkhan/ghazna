@@ -6,12 +6,40 @@ import { useRouter } from 'next/navigation'
 import { BsGrid3X3Gap } from "react-icons/bs";
 import ProfileBlogPostCard from './ProfileBlogPostCard'
 import { FaList, FaPlus, FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
+import Loading from '../Loading';
 
-const BlogPostsContainer = () => {
+const BlogPostsContainer = async () => {
     const router = useRouter();
 
     const [sorted, setSorted] = useState(false);
     const [isGrid, setIsGrid] = useState(true); // grid or list
+
+
+    const [userBlogs, setUserBlogs] = useState([]); // to store user blogs
+    const [loading, setLoading] = useState(false); // to show loading state
+    const [error, setError] = useState(null); // to store error if any
+
+
+    const request = async function getUserBlogs() {
+        try {
+            const request = await fetch("/api/users/profile/getblogs");
+            const response = await request.json();
+            if (!response.success) {
+                setError(response.message);
+                return;
+            }
+            setUserBlogs(response.data);
+            setError(null);
+
+        } catch (error) {
+            setError(error.message);
+            console.log("Error fetching user blogs: ", error);
+        }
+        finally {
+            setLoading(false);
+        }
+    }
+
 
 
     return (
@@ -27,12 +55,13 @@ const BlogPostsContainer = () => {
 
             <div className="blogs-container flex items-center justify-center gap-5 flex-wrap my-5">
 
-              <ProfileBlogPostCard />
-              <ProfileBlogPostCard />
-              <ProfileBlogPostCard />
-              <ProfileBlogPostCard />
-              <ProfileBlogPostCard />
-              <ProfileBlogPostCard />
+
+
+                {
+                    loading ? <Loading /> : userBlogs.length > 0 ? userBlogs.map((blog, ind) => {
+                        return <ProfileBlogPostCard key={ind} />
+                    }) : <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
+                }
 
 
 
