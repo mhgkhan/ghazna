@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormsButton from '../ui/buttonsandlinks/FormsButton'
 import { useRouter } from 'next/navigation'
 import { BsGrid3X3Gap } from "react-icons/bs";
@@ -20,7 +20,7 @@ const BlogPostsContainer = async () => {
     const [error, setError] = useState(null); // to store error if any
 
 
-    const request = async function getUserBlogs() {
+    const fetchUserBlogs = async function getUserBlogs() {
         try {
             const request = await fetch("/api/users/profile/getblogs");
             const response = await request.json();
@@ -39,6 +39,10 @@ const BlogPostsContainer = async () => {
             setLoading(false);
         }
     }
+    
+    useEffect(()=>{
+        fetchUserBlogs();
+    }, [])
 
 
 
