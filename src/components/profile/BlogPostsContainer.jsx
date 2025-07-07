@@ -26,7 +26,6 @@ const BlogPostsContainer = async () => {
             const response = await request.json();
             if (!response.success) {
                 setError(response.message);
-                return;
             }
             setUserBlogs(response.data);
             setError(null);
