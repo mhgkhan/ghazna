@@ -1,10 +1,14 @@
+"use client"
+
 import Image from 'next/image'
 import React from 'react'
 import FormsButton from '../ui/buttonsandlinks/FormsButton'
 import { FaBook, FaBookOpen, FaEdit, FaEyeSlash, FaList, FaPlus, FaSortAmountDown, FaSortAmountUp, FaTrash } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
 
 
-const ProfileBlogPostCard = ({img,title,description}) => {
+const ProfileBlogPostCard = ({img,title,description, slug}) => {
+    const router = useRouter();
     return (
 
         <div className="blog-card md:w-[400px] h-auto w-[350px] shadow-md shadow-gray-400 rounded-lg p-1">
@@ -14,7 +18,7 @@ const ProfileBlogPostCard = ({img,title,description}) => {
                 <p className=' dark:text-gray-200 text-gray-700 my-2'>{description.length>60?description.substring(0,60):description}</p>
             </div>
             <div className="action-buttons flex px-3 items-center justify-between gap-3 mb-0 border-t border-gray-300">
-                <FormsButton icon={<FaBookOpen />} />
+                <FormsButton icon={<FaBookOpen />} clickFun={()=>router.push(`/blog/${slug}`)} />
                 <FormsButton icon={<FaEdit />} />
                 <FormsButton icon={<FaTrash />} />
                 <FormsButton icon={<FaEyeSlash />} />
