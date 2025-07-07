@@ -337,7 +337,7 @@ const BlogForm = () => {
                     }
                     {
                         activeRawHtml ? <div className="raw-html-input my-5">
-                            <textarea disabled={loading} onChange={e => setRawHtml(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Add your recommended attributes for the selected tag, line by line, eg:  align='center'
+                            <textarea disabled={loading} onChange={e => setRawHtml(e.target.value)} rows={8} name="attributes" autoComplete='off' placeholder=" Please paste or type your html with inline css here, you can use <h1>, <p>, <img> etc tags, but make sure to add the css inline, like <h1 style='color: red;'>Hello World</h1>
                     
                     " className="my-3 font-bold dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
                         </div> : ""
