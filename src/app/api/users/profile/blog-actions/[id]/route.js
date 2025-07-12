@@ -4,6 +4,12 @@ import BlogPostModel from "@/utils/models/BlogPostModel";
 import User from "@/utils/models/Users";
 import { cookies } from "next/headers";
 
+
+
+
+
+
+
 export async function DELETE(request, { params }) {
     try {
 
@@ -57,4 +63,9 @@ export async function DELETE(request, { params }) {
     } catch (error) {
         return sendNormalResponse(false, 500, error.message, null)
     }
+}
+
+
+export async function PUT(request, { params }) {
+
 }
