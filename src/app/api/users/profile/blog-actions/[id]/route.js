@@ -1,5 +1,6 @@
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
+import { checkUserAuthorization } from "@/utils/functions/utilityFunctions";
 import BlogPostModel from "@/utils/models/BlogPostModel";
 import User from "@/utils/models/Users";
 import { cookies } from "next/headers";
@@ -66,6 +67,27 @@ export async function DELETE(request, { params }) {
 }
 
 
-export async function PUT(request, { params }) {
+export async function GET(request, { params }) {
+
+    try {
+
+        const user = await checkUserAuthorization();
+
+        if (!user.success) {
+            return sendNormalResponse(false, user.status, user.message, null);
+        }
+
+
+        return sendNormalResponse(true, 200, "Blog post updated successfully", null);
+
+        
+
+
+
+
+    } catch (error) {
+
+    }
+
 
 }

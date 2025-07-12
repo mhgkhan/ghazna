@@ -28,13 +28,14 @@ export const validateRequestBody = (body, requiredFields) => {
 
 export const checkUserAuthorization = async () => {
 
-    let obj = {};
-
-
     const userCookies = await cookies();
     const userAuthToken = userCookies.get("USER_AUTH_TOKEN")?.value;
     if (!userAuthToken) {
-        return sendNormalResponse(false, 401, "Authorization token not found", null);
+        return {
+            success: false,
+            message: "Authorization token not found",
+            status: 401
+        }
     }
 
 
@@ -43,7 +44,11 @@ export const checkUserAuthorization = async () => {
     try {
         const decodedToken = JWT.verify(userAuthToken, FreezeEnv.AUTH_SECRET_KEY);
         if (!decodedToken) {
-            return sendNormalResponse(false, 401, "Invalid authorization token", null);
+            return {
+                success: false,
+                message: "Invalid authorization token",
+                status: 401
+            }
         }
 
 
@@ -52,7 +57,11 @@ export const checkUserAuthorization = async () => {
 
         const checkUser = await User.findOne({ _id: id, email });
         if (!checkUser) {
-            return sendNormalResponse(false, 401, "User not found", null);
+            return {
+                success: false,
+                message: "User not found",
+                status: 404
+            }
         }
 
         return {
@@ -62,7 +71,11 @@ export const checkUserAuthorization = async () => {
 
 
     } catch (error) {
-        return sendNormalResponse(false, 401, "Invalid authorization token", null);
+        return {
+            success: false,
+            message: error.message,
+            status: 500
+        }
     }
 
 
