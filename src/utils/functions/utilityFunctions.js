@@ -1,5 +1,5 @@
-import { cookies, cookies } from 'next/headers';
-import { sendNormalResponse } from './sendResponses';
+import { cookies } from 'next/headers';
+// import { sendNormalResponse } from './sendResponses';
 import JWT from "jsonwebtoken";
 import FreezeEnv from '@/config/EnvConfig';
 import User from '../models/Users';
