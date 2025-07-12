@@ -2,8 +2,6 @@ import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import { checkUserAuthorization } from "@/utils/functions/utilityFunctions";
 import BlogPostModel from "@/utils/models/BlogPostModel";
-import User from "@/utils/models/Users";
-import { cookies } from "next/headers";
 
 
 
@@ -26,26 +24,15 @@ export async function DELETE(request, { params }) {
             return sendNormalResponse(false, 400, findBlog.message, null);
         }
 
+        // // checking if user is authoraized or not 
+        const checkUser = await checkUserAuthorization();
 
-        // checking if user is authoraized or not 
-        const allCookies = await cookies();
-
-        const thisUserCookies = allCookies.get("USER_AUTH_TOKEN")?.value;
-
-        if (!thisUserCookies) {
-            return sendNormalResponse(false, 401, "authorization token not found", null)
+        if (!checkUser) {
+            return sendNormalResponse(false, checkUser.status, checkUser.message, null);
         }
 
-        const { id, email } = thisUserCookies;
 
-        // checking if user is exists or not 
-        const getUser = await checkIfExists(User, { email });
-
-        if (!getUser.success) {
-            return sendNormalResponse(false, 400, getUser.message, null)
-        }
-
-        if (getUser.data.id !== findBlog.data.author) {
+        if (checkUser.user.id !== findBlog.data.author) {
             return sendNormalResponse(false, 401, "not authoraized", null)
         }
 
@@ -80,7 +67,7 @@ export async function GET(request, { params }) {
 
         return sendNormalResponse(true, 200, "Blog post updated successfully", null);
 
-        
+
 
 
 
