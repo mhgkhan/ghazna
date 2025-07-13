@@ -37,7 +37,7 @@ export async function DELETE(request, { params }) {
         }
 
         // delete the blog 
-        const deleteBlog = await BlogPostModel.findOneAndDelete({ id: blogId, author: id });
+        const deleteBlog = await BlogPostModel.findOneAndDelete({ id: blogId, author: checkUser.user.id });
         if (!deleteBlog) {
             return sendNormalResponse(false, 500, "blogpost not deleted", null)
         }
