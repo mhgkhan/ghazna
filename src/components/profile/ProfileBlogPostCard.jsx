@@ -7,7 +7,7 @@ import { FaTrash, FaBookOpen, FaEdit, FaEyeSlash } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 
 
-const ProfileBlogPostCard = ({img,title,description, slug}) => {
+const ProfileBlogPostCard = ({img,title,description, slug, deleteBlog, id, index}) => {
     const router = useRouter();
     return (
 
@@ -20,7 +20,7 @@ const ProfileBlogPostCard = ({img,title,description, slug}) => {
             <div className="action-buttons flex px-3 items-center justify-between gap-3 mb-0 border-t border-gray-300">
                 <FormsButton icon={<FaBookOpen />} clickFun={()=>router.push(`/blog/${slug}`)} />
                 <FormsButton icon={<FaEdit />} />
-                <FormsButton icon={<FaTrash />} />
+                <FormsButton icon={<FaTrash />} clickFun={()=>deleteBlog(id,index)} />
                 <FormsButton icon={<FaEyeSlash />} />
             </div>
         </div>

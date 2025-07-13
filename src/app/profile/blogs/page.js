@@ -1,7 +1,7 @@
 import BlogPostsContainer from '@/components/profile/BlogPostsContainer'
 import React from 'react'
 
-const page = () => {
+const page = async () => {
   return (
     <article>
       <div className="container mx-auto ">

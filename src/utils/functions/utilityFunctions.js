@@ -30,6 +30,9 @@ export const checkUserAuthorization = async () => {
 
     const userCookies = await cookies();
     const userAuthToken = userCookies.get("USER_AUTH_TOKEN")?.value;
+
+
+
     if (!userAuthToken) {
         return {
             success: false,
