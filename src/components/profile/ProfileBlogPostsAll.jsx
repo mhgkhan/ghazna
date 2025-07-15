@@ -47,6 +47,7 @@ const ProfileBlogPostsAll = () => {
     const deleteBlog = async (id, index) => {
         console.log("Deleting blog with id: ", id);
         try {
+            setLoading(true)
             const request = await fetch(`/api/users/profile/blog-actions/${id}`, {
                 method: "DELETE",
             });
@@ -59,6 +60,9 @@ const ProfileBlogPostsAll = () => {
             fetchUserBlogs(); // refetch blogs after deletion
         } catch (error) {
             setError(error.message);
+        }
+        finally{
+            setLoading(false);
         }
     }
 
