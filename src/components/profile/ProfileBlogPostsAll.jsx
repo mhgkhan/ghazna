@@ -78,7 +78,7 @@ const ProfileBlogPostsAll = () => {
 
 
                 {
-                    loading ? <Loading /> : userBlogs? userBlogs.length > 0 ? userBlogs && blogs.map((blog, ind) => {
+                    loading ? <Loading /> : userBlogs? userBlogs.length > 0 ? userBlogs && userBlogs.map((blog, ind) => {
                         return <ProfileBlogPostCard id={blog._id} index={ind} slug={blog.slug} key={ind} img={blog.image} title={blog.title} description={blog.description} deleteBlog={deleteBlog} />
                     }) :<h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>: <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
                 }
