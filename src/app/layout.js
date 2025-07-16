@@ -87,8 +87,13 @@ export default async function RootLayout({ children }) {
         <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" ></link>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" ></link>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" ></link>
+
+
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
