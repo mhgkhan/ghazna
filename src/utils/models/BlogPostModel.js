@@ -42,6 +42,10 @@ const blogPostSchema = new mongoose.Schema({
         default: 0
     },
 
+    isHidden:{
+        type: Boolean,
+        default: false,
+    },
 
     isPublished: {
         type: Boolean,

@@ -84,7 +84,6 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
         <meta name="apple-mobile-web-app-title" content="Ghazna Dev" />
-        <meta name="robots" content="noindex" />
         <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
