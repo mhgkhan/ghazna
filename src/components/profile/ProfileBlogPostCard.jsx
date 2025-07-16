@@ -17,7 +17,6 @@ const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, id, in
         // console.log(e.target.parentElement.parentElement)
         ref.current.classList.add("blur-sm");
         deleteBlog(id, index);
-        // ref.current.classList.remove("blur-sm");
     }
 
     return (
