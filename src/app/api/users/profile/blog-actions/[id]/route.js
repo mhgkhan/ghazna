@@ -59,26 +59,55 @@ export async function DELETE(request, { params }) {
 }
 
 
-export async function GET(request, { params }) {
+export async function PUT(request, { params }) {
 
     try {
 
-        const user = await checkUserAuthorization();
+        const { id: blogId } = await params;
 
-        if (!user.success) {
+        if (!id) {
+            return sendNormalResponse(false, 400, "Blog post ID is required", null);
+        }
+
+        const { title, description, content, tags } = await request.json();
+
+        if (!title || !description || !content || !tags) {
+            return sendNormalResponse(false, 400, "All fields are required", null);
+        }
+
+        // checking if the blog is exists or not
+        const findBlog = await checkIfExists(BlogPostModel, { _id: blogId });
+
+        if (!findBlog.success) {
+            return sendNormalResponse(false, 400, findBlog.message, null);
+        }
+
+        const user = await checkUserAuthorization();
+        if (!user) {
             return sendNormalResponse(false, user.status, user.message, null);
         }
 
+        // checking if user is authorized or not
+        if (user.user._id.toString() !== findBlog.data.author.toString()) {
+            return sendNormalResponse(false, 401, "Not authorized to update this blog post", null);
+        }
+
+        // Update the blog post
+        const updatedBlog = await BlogPostModel.findByIdAndUpdate(
+            blogId,
+            { title, description, content, tags },
+            { new: true }
+        );
+        if (!updatedBlog) {
+            return sendNormalResponse(false, 500, "Failed to update blog post", null);
+        }
+        // Return success response
 
         return sendNormalResponse(true, 200, "Blog post updated successfully", null);
 
-
-
-
-
-
     } catch (error) {
-
+        console.log("Error in updating blog post: ", error);
+        return sendNormalResponse(false, 500, error.message, null);
     }
 
 
