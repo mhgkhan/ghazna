@@ -1,4 +1,4 @@
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 // import { sendNormalResponse } from './sendResponses';
 import JWT from "jsonwebtoken";
 import FreezeEnv from '@/config/EnvConfig';
@@ -29,7 +29,12 @@ export const validateRequestBody = (body, requiredFields) => {
 export const checkUserAuthorization = async () => {
 
     const userCookies = await cookies();
-    const userAuthToken = userCookies.get("USER_AUTH_TOKEN")?.value;
+    const userHeaders = await headers();
+
+    const token = userHeaders.get("token");
+    
+    const userAuthToken = userCookies.get("USER_AUTH_TOKEN")?.value || token;
+    // console.log("the token is ", userAuthToken)
 
 
 

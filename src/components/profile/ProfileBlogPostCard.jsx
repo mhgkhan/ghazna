@@ -29,7 +29,7 @@ const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, id, in
             </div>
             <div className="action-buttons flex px-3 items-center justify-between gap-3 mb-0 border-t border-gray-300">
                 <FormsButton icon={<FaBookOpen />} clickFun={() => router.push(`/blog/${slug}`)} />
-                <FormsButton icon={<FaEdit />} />
+                <FormsButton icon={<FaEdit />} clickFun={()=> router.push(`/profile/blogs/edit/${slug}`)}  />
                 <FormsButton icon={<FaTrash />} clickFun={() => delteBlogFunction(id, index)} />
                 <FormsButton icon={<FaEyeSlash />} />
             </div>
