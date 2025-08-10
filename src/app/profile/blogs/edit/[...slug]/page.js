@@ -57,6 +57,7 @@ const page = async ({ params }) => {
 
 
     const fetchBlog = await fetchBlogPost(slug);
+    console.log("the blog is ", fetchBlog);
 
     if (fetchBlog.success) {
         return (
