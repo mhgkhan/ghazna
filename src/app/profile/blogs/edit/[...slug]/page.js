@@ -19,23 +19,22 @@ const fetchBlogPost = async (slug) => {
             }
         })
 
-        if (!request.success) {
+        const response = await request.json();
+
+        if (!response.success) {
             obj.success = false;
-            obj.isErr = true;
+            obj.message = request.message;
         }
         else {
             obj.success = true;
-            obj.isErr = false;
-            obj.data = request.data
+            obj.data = response.data;
         }
-        obj.error = request.message
-        obj.message = request.message
+        
+
 
     } catch (error) {
         obj.success = false;
-        obj.isErr = true;
-        obj.error = error;
-        obj.message = error.message;
+        obj.message = error.message || "Something went wrong while fetching the blog post";
     }
     finally { return obj; }
 }
@@ -62,7 +61,7 @@ const page = async ({ params }) => {
     if (fetchBlog.success) {
         return (
             <div>
-                <h1>Edit Blog {fetchBlog.data.title} </h1>
+                <h1 className='text-2xl text-center font-bold my-5'> {fetchBlog.data.title} </h1>
             </div>
 
         )

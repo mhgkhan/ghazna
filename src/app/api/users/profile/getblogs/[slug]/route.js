@@ -31,9 +31,9 @@ export async function GET(request, { params }) {
         }
 
         // checking if this action is allowed for the user
-        console.log("the blog slug is ", slug);
+        // console.log("the blog slug is ", slug);
         const blog = await BlogPostModel.findOne({ slug: slug, author: checkUserAuth.user._id });
-        console.log("the blog slug is ", blog);
+        // console.log("the blog slug is ", blog); 
 
         if (!blog) {
             return sendNormalResponse(false, 404, "Blog not found or you are not authorized to edit this blog", null);
