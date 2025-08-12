@@ -66,7 +66,7 @@ const page = async ({ params }) => {
                 <h1 className='text-2xl text-center font-bold my-5'> {fetchBlog.data.title} </h1>
 
                 <div className="container mx-auto">
-                   <UpdateBlogPostForm title={fetchBlog.data?.title} image={fetchBlog.data?.image} desc={fetchBlog.data?.description} content={fetchBlog.data?.content} />
+                   <UpdateBlogPostForm id={fetchBlog.data?._id} slug={fetchBlog.data?.slug} title={fetchBlog.data?.title} image={fetchBlog.data?.image} desc={fetchBlog.data?.description} content={fetchBlog.data?.content} />
                 </div>
             </div>
 

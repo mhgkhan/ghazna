@@ -64,14 +64,14 @@ export async function PUT(request, { params }) {
     try {
 
         const { id: blogId } = await params;
-
-        if (!id) {
+        
+        if (!blogId) {
             return sendNormalResponse(false, 400, "Blog post ID is required", null);
         }
 
-        const { title, description, content, tags } = await request.json();
+        const { title, description, content, image } = await request.json();
 
-        if (!title || !description || !content || !tags) {
+        if (!title || !description || !content || !image) {
             return sendNormalResponse(false, 400, "All fields are required", null);
         }
 
@@ -95,7 +95,7 @@ export async function PUT(request, { params }) {
         // Update the blog post
         const updatedBlog = await BlogPostModel.findByIdAndUpdate(
             blogId,
-            { title, description, content, tags },
+            { title, description, content, image },
             { new: true }
         );
         if (!updatedBlog) {
