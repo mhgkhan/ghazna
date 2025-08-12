@@ -1,7 +1,9 @@
+import FormsButton from '@/components/ui/buttonsandlinks/FormsButton';
 import FreezeEnv from '@/config/EnvConfig';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import React from 'react'
+import { FaBookOpen, FaRepublican } from 'react-icons/fa';
 
 
 
@@ -29,7 +31,7 @@ const fetchBlogPost = async (slug) => {
             obj.success = true;
             obj.data = response.data;
         }
-        
+
 
 
     } catch (error) {
@@ -62,6 +64,48 @@ const page = async ({ params }) => {
         return (
             <div>
                 <h1 className='text-2xl text-center font-bold my-5'> {fetchBlog.data.title} </h1>
+
+                <div className="container mx-auto">
+                    <div className='md:px-0 px-2'>
+
+
+                        {/* blog image  */}
+                        <div className="blog-image-inp w-full">
+                            <label htmlFor="blog-image-url" >Blog Image Url</label>
+                            <input value={fetchBlog.data.image} id='blog-image-url' type="text" name="url" autoComplete='off' placeholder="Enter Blog Image URL" className="my-3 italic dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+                        </div>
+
+
+
+
+                        {/* blog title  */}
+                        <div className="blog-image-inp w-full">
+                            <label htmlFor="blog-title" >Blog Title </label>
+                            <input value={fetchBlog.data.title} id='blog-title' type="text" name="title" autoComplete='off' placeholder="Enter Blog Image URL" className="my-3 italic dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+                        </div>
+
+
+                        {/* blog description  */}
+                        <div className="blog-image-inp w-full">
+                            <label htmlFor="blog-desc" >Blog Description </label>
+                            <textarea value={fetchBlog.data.description} rows={5} id='blog-desc' type="text" name="title" autoComplete='off' placeholder="Enter Blog Image URL" className="my-3 italic dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+                        </div>
+
+                        {/* blog content  */}
+                        <div className="blog-image-inp w-full">
+                            <label htmlFor="blog-content" >Blogpost Content  </label>
+                            <textarea value={fetchBlog.data.content} rows={10} id='blog-content' type="text" name="title" autoComplete='off' placeholder="Enter Blog Image URL" className="my-3 italic dark:text-white text-black dark:focus:bg-gray-700 focus:bg-gray-100 rounded-md py-3 px-2 w-full outline-none border border-2   border-gray-400 focus:border-dotted dark:focus:border-white focus:border-gray-800  bg-inherit disabled:bg-gray-300 disabled:text-gray-400" />
+                        </div>
+
+
+                        <FormsButton type={"button"} loading={false} text={"Preview Blogpost "} icon={<FaBookOpen />} />
+                        <br />
+                        <FormsButton type={"button"} loading={false} text={"Update Blogpost "} icon={<FaRepublican />} />
+
+
+
+                    </div>
+                </div>
             </div>
 
         )
