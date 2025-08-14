@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
 import GoogleSiteVerification from "@/components/GoogleSiteVerification";
 import FreezeEnv from "@/config/EnvConfig";
+import GoogleAdsenceComponent from "@/components/ui/blog/blogforms/GoogleAdsenceComponent";
 
 const rubikFont = Rubik({
   variable: "--font-body",
@@ -93,7 +94,7 @@ export default async function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" ></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" ></link>
 
-
+        <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}

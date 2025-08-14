@@ -10,6 +10,7 @@ const obj = {
   GoogleSiteVerificationContent: process.env.GOOGLE_SITE_VERIFICATION_CONTENT,
   IMAGE_SERVER_KEY :process.env.IMAGE_SERVER_KEY,
   IMAGE_SERVER_URL: process.env.IMAGE_SERVER_URL,
+  ADPUBID : process.env.GOOGLE_ADSENSE_PUBID
 };
 
 const FreezeEnv = Object.freeze(obj);
