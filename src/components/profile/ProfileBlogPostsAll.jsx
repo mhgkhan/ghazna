@@ -64,6 +64,7 @@ const ProfileBlogPostsAll = () => {
     }
 
     const hideUnhideBlog = async (id, index, action) => {
+        console.log("Hiding/Unhiding blog with id: ", id, "Action: ", action);
           try {
             // setLoading(true)
             const request = await fetch(`/api/users/profile/blog-actions/${id}`, {
@@ -79,7 +80,7 @@ const ProfileBlogPostsAll = () => {
                 setError(response.message);
                 return;
             }
-            fetchUserBlogs(); // refetch blogs after deletion
+            await fetchUserBlogs(); // refetch blogs after deletion
         } catch (error) {
             setError(error.message);
         }

@@ -121,7 +121,7 @@ export async function PATCH(request, { params }) {
             return sendNormalResponse(false, 400, "Blog post ID is required", null);
         }
 
-        const { action } = await request.body;
+        const { action } = await request.json();
 
         const user = await checkUserAuthorization();
         if (!user) {
@@ -136,6 +136,7 @@ export async function PATCH(request, { params }) {
         }
 
         // Update the blog post
+        console.log("Action: ", action);
         const updatedBlog = await BlogPostModel.findByIdAndUpdate(
             blogId,
             { isHidden: action == "hide" ? true : false, isPublished: action == "hide" ? false : true },

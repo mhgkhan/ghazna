@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import React, { useRef } from 'react'
 import FormsButton from '../ui/buttonsandlinks/FormsButton'
-import { FaTrash, FaBookOpen, FaEdit, FaEyeSlash, FaRegEyeSlash } from 'react-icons/fa'
+import { FaTrash, FaBookOpen, FaEdit, FaEyeSlash, FaRegEyeSlash, FaEye } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 
 
@@ -36,7 +36,7 @@ const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, hideUn
                 <FormsButton icon={<FaBookOpen />} clickFun={() => router.push(`/blog/${slug}`)} />
                 <FormsButton icon={<FaEdit />} clickFun={()=> router.push(`/profile/blogs/edit/${slug}`)}  />
                 <FormsButton icon={<FaTrash />} clickFun={() => delteBlogFunction(id, index)} />
-                <FormsButton clickFun={()=> toggleHideBlog (id,index)} icon={isHidden?<FaRegEyeSlash />:<FaEyeSlash />} />
+                <FormsButton clickFun={()=> toggleHideBlog (id,index)} icon={isHidden?<FaEye />:<FaEyeSlash />} />
             </div>
         </div>
     )
