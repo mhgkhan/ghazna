@@ -64,7 +64,7 @@ export async function PUT(request, { params }) {
     try {
 
         const { id: blogId } = await params;
-        
+
         if (!blogId) {
             return sendNormalResponse(false, 400, "Blog post ID is required", null);
         }
@@ -111,4 +111,45 @@ export async function PUT(request, { params }) {
     }
 
 
+}
+
+export async function PATCH(request, { params }) {
+    try {
+        const { id: blogId } = await params;
+
+        if (!blogId) {
+            return sendNormalResponse(false, 400, "Blog post ID is required", null);
+        }
+
+        const { action } = await request.body;
+
+        const user = await checkUserAuthorization();
+        if (!user) {
+            return sendNormalResponse(false, user.status, user.message, null);
+        }
+
+        // checking if the blog is exists or not
+        const findBlog = await checkIfExists(BlogPostModel, { _id: blogId, author: user.user._id });
+
+        if (!findBlog.success) {
+            return sendNormalResponse(false, 400, findBlog.message, null);
+        }
+
+        // Update the blog post
+        const updatedBlog = await BlogPostModel.findByIdAndUpdate(
+            blogId,
+            { isHidden: action == "hide" ? true : false, isPublished: action == "hide" ? false : true },
+            { new: true }
+        );
+
+        if (!updatedBlog) {
+            return sendNormalResponse(false, 500, "Failed to update blog post", null);
+        }
+
+        // Return success response
+        return sendNormalResponse(true, 200, "Blog post updated successfully", updatedBlog);
+
+    } catch (error) {
+        return sendNormalResponse(false, 500, error.message, null);
+    }
 }
