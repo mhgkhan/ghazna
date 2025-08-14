@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import React, { useRef } from 'react'
 import FormsButton from '../ui/buttonsandlinks/FormsButton'
-import { FaTrash, FaBookOpen, FaEdit, FaEyeSlash } from 'react-icons/fa'
+import { FaTrash, FaBookOpen, FaEdit, FaEyeSlash, FaRegEyeSlash } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 
 
-const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, id, index }) => {
+const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, hideUnhideBlog, id, index, isHidden,isPublished }) => {
     const router = useRouter();
     const ref = useRef();
 
@@ -17,6 +17,11 @@ const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, id, in
         // console.log(e.target.parentElement.parentElement)
         ref.current.classList.add("blur-sm");
         deleteBlog(id, index);
+    }
+    const toggleHideBlog = (id,index) =>{
+        ref.current.classList.add("blur-sm");
+        hideUnhideBlog(id, index, isHidden? "unhide" : "hide");
+        ref.current.classList.remove("blur-sm");
     }
 
     return (
@@ -31,7 +36,7 @@ const ProfileBlogPostCard = ({ img, title, description, slug, deleteBlog, id, in
                 <FormsButton icon={<FaBookOpen />} clickFun={() => router.push(`/blog/${slug}`)} />
                 <FormsButton icon={<FaEdit />} clickFun={()=> router.push(`/profile/blogs/edit/${slug}`)}  />
                 <FormsButton icon={<FaTrash />} clickFun={() => delteBlogFunction(id, index)} />
-                <FormsButton icon={<FaEyeSlash />} />
+                <FormsButton clickFun={()=> toggleHideBlog (id,index)} icon={isHidden?<FaRegEyeSlash />:<FaEyeSlash />} />
             </div>
         </div>
     )

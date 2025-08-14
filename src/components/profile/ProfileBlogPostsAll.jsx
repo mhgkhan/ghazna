@@ -63,6 +63,28 @@ const ProfileBlogPostsAll = () => {
         }
     }
 
+    const hideUnhideBlog = async (id, index, action) => {
+          try {
+            // setLoading(true)
+            const request = await fetch(`/api/users/profile/blog-actions/${id}`, {
+                method: "PATCH",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ action: action }),
+            });
+            const response = await request.json();
+            console.log(response);
+            if (!response.success) {
+                setError(response.message);
+                return;
+            }
+            fetchUserBlogs(); // refetch blogs after deletion
+        } catch (error) {
+            setError(error.message);
+        }
+    }
+
     return (
         <div className="blogposts-section my-5 md:px-auto px-2">
 
@@ -76,11 +98,9 @@ const ProfileBlogPostsAll = () => {
 
             <div className="blogs-container flex items-center justify-center gap-5 flex-wrap my-5">
 
-
-
                 {
                     loading ? <Loading /> : userBlogs? userBlogs.length > 0 ? userBlogs && userBlogs.map((blog, ind) => {
-                        return <ProfileBlogPostCard id={blog._id} index={ind} slug={blog.slug} key={ind} img={blog.image} title={blog.title} description={blog.description} deleteBlog={deleteBlog} />
+                        return <ProfileBlogPostCard hideUnhideBlog={hideUnhideBlog} isHidden={blog.isHidden} isPublished={blog.isPublished} id={blog._id} index={ind} slug={blog.slug} key={ind} img={blog.image} title={blog.title} description={blog.description} deleteBlog={deleteBlog} />
                     }) :<h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>: <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
                 }
 
