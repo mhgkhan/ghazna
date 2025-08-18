@@ -1,3 +1,5 @@
+import MicrosoftSiteVerification from "@/components/MicrosoftSiteVerification";
+
 const obj = {
   DBURI: process.env.MONGO_DB_URI,
   AUTH_SECRET_KEY: process.env.AUTH_SECRET_KEY,
@@ -8,6 +10,7 @@ const obj = {
   FORGET_PASSWORD_URL: process.env.FORGET_PASSWORD_URL,
   DOMAIN: process.env.DOMAIN,
   GoogleSiteVerificationContent: process.env.GOOGLE_SITE_VERIFICATION_CONTENT,
+  MicrosoftSiteVerification: process.env.MICROSOFT_SITE_VERIFICATION,
   IMAGE_SERVER_KEY :process.env.IMAGE_SERVER_KEY,
   IMAGE_SERVER_URL: process.env.IMAGE_SERVER_URL,
   ADPUBID : process.env.GOOGLE_ADSENSE_PUBID
