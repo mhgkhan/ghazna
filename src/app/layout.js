@@ -7,6 +7,7 @@ import cGoogleSiteVerification from "@/components/GoogleSiteVerification";
 import FreezeEnv from "@/config/EnvConfig";
 import GoogleAdsenceComponent from "@/components/ui/blog/blogforms/GoogleAdsenceComponent";
 import MicrosoftSiteVerification from "@/components/MicrosoftSiteVerification";
+import GoogleSiteVerification from "@/components/GoogleSiteVerification";
 
 const rubikFont = Rubik({
   variable: "--font-body",
@@ -86,10 +87,8 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
         <meta name="apple-mobile-web-app-title" content="Ghazna Dev" />
-        
-        <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
-        <MicrosoftSiteVerification contentval={FreezeEnv.MicrosoftSiteVerification} />
-       
+
+
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
@@ -98,6 +97,10 @@ export default async function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" ></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" ></link>
 
+        <meta name="msvalidate.01" content="73AD4F6854D89DF13F9CCC49174C42AB" />
+
+        <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
+        {/* <MicrosoftSiteVerification contentval={FreezeEnv.MicrosoftSiteVerification} /> */}
         <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
       </head>
       <body
