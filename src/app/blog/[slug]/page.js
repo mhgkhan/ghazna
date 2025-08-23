@@ -21,6 +21,19 @@ const fetchBlog = async function (slug) {
     }
 }
 
+
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    const slug = (await params).slug
+
+    const thisBlog = await fetchBlog(slug);
+
+    return {
+        title: thisBlog.data.title,
+        description: thisBlog.data.description,
+    }
+}
+
 const page = async ({ params }) => {
 
     const userHeaders = await headers();

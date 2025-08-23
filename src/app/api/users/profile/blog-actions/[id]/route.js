@@ -12,7 +12,7 @@ import BlogPostModel from "@/utils/models/BlogPostModel";
 export async function DELETE(request, { params }) {
     try {
 
-
+        
 
         const { id: blogId } = await params;
 
