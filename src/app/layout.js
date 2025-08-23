@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
-import cGoogleSiteVerification from "@/components/GoogleSiteVerification";
+import GoogleSiteVerification from "@/components/GoogleSiteVerification";
 import FreezeEnv from "@/config/EnvConfig";
 import GoogleAdsenceComponent from "@/components/ui/blog/blogforms/GoogleAdsenceComponent";
 import MicrosoftSiteVerification from "@/components/MicrosoftSiteVerification";
