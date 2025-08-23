@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
-import GoogleSiteVerification from "@/components/GoogleSiteVerification";
+// import GoogleSiteVerification from "@/components/GoogleSiteVerification";
 import FreezeEnv from "@/config/EnvConfig";
 import GoogleAdsenceComponent from "@/components/ui/blog/blogforms/GoogleAdsenceComponent";
 import MicrosoftSiteVerification from "@/components/MicrosoftSiteVerification";
@@ -100,7 +100,9 @@ export default async function RootLayout({ children }) {
         <meta name="msvalidate.01" content="73AD4F6854D89DF13F9CCC49174C42AB" />
 
         <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
+
         {/* <MicrosoftSiteVerification contentval={FreezeEnv.MicrosoftSiteVerification} /> */}
+        
         <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
       </head>
       <body
