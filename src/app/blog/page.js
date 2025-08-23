@@ -12,6 +12,8 @@ const fetchBlogs = async function () {
   return response.data;
 }
 
+
+
 const page = async () => {
 
   const blogs = await fetchBlogs();

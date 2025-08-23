@@ -5,7 +5,10 @@ export const metadata = {
     description: "Discover insightful blogs and articles about the modern world. Stay updated with the latest trends, ideas, and innovations.",
     keywords: "blogs, articles, modern world, trends, innovations, ideas, latest blogs",
     author: "Your Name or Blog Name",
-    robots: "index, follow",
+    robots: {
+        index: true,
+        follow: true,
+    },
     openGraph: {
         title: "Blog || Explore the Latest Blogs and Articles on the Modern World",
         description: "Discover insightful blogs and articles about the modern world. Stay updated with the latest trends, ideas, and innovations.",
