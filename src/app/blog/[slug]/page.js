@@ -29,7 +29,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     const thisBlog = await fetchBlog(slug);
 
     return {
-        title: thisBlog.data.blog.title,
+        title: thisBlog.data.blog.title + " | Ghazna Dev",
         description: thisBlog.data.blog.description,
     }
 }
