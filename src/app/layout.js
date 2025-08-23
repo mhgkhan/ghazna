@@ -3,10 +3,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
-// import GoogleSiteVerification from "@/components/GoogleSiteVerification";
 import FreezeEnv from "@/config/EnvConfig";
 import GoogleAdsenceComponent from "@/components/ui/blog/blogforms/GoogleAdsenceComponent";
-import MicrosoftSiteVerification from "@/components/MicrosoftSiteVerification";
 import GoogleSiteVerification from "@/components/GoogleSiteVerification";
 
 const rubikFont = Rubik({
@@ -22,7 +20,7 @@ const headingsFont = Poppins({
 });
 
 export const metadata = {
-  title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+  title: "Muhammad Hasnain Ghazna | Ghazna | Fullstack Web Developer",
   description: "Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technology Javascript and their frameworks like NextJs, ReactJs, TailwindCSS, Nodejs, ExpressJs etc.",
   image: "/images/hero.jpg",
   url: "https://ghazna.dev",
@@ -35,7 +33,6 @@ export const metadata = {
   ],
   author: "Muhammad Hasnain Ghazna",
   publisher: "Ghazna Dev",
-  robots: "index, follow",
   og: {
     title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
     description: "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
@@ -51,7 +48,8 @@ export const metadata = {
     site: "@ghaznadev",
   },
   viewport: "width=device-width, initial-scale=1.0",
-  // themeColor: "#ffffff",
+
+
   graphc: {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -87,22 +85,18 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
         <meta name="apple-mobile-web-app-title" content="Ghazna Dev" />
-
-
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
+        {/* robot follow  */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="robots" content="index, follow" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" ></link>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" ></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" ></link>
-
         <meta name="msvalidate.01" content="73AD4F6854D89DF13F9CCC49174C42AB" />
-
         <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
-
-        {/* <MicrosoftSiteVerification contentval={FreezeEnv.MicrosoftSiteVerification} /> */}
-        
         <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
       </head>
       <body
