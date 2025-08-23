@@ -29,8 +29,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
     const thisBlog = await fetchBlog(slug);
 
     return {
-        title: thisBlog.data.title,
-        description: thisBlog.data.description,
+        title: thisBlog.data.blog.title,
+        description: thisBlog.data.blog.description,
     }
 }
 
