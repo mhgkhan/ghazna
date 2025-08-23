@@ -31,6 +31,30 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return {
         title: thisBlog.data.blog.title + " | Ghazna Dev",
         description: thisBlog.data.blog.description,
+        keywords: thisBlog.data.blog.title.split(" "),
+        openGraph: {
+            title: thisBlog.data.blog.title + " | Ghazna Dev",
+            description: thisBlog.data.blog.description,
+            url: `${FreezeEnv.DOMAIN}blog/${slug}`,
+            siteName: "Ghazna Dev",
+            images: [
+                {
+                    url: thisBlog.data.blog.image,
+                    width: 800,
+                    height: 600,
+                },
+            ],
+            locale: 'en-US',
+            type: 'article',
+        },
+        twitter: {
+            title: thisBlog.data.blog.title + " | Ghazna Dev",
+            description: thisBlog.data.blog.description,
+            images: [thisBlog.data.blog.image],
+            card: 'summary_large_image',
+            site: '@ghaznadev',
+            creator: '@ghaznadev'
+        }
     }
 }
 
