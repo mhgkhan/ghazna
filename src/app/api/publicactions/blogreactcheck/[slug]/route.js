@@ -55,7 +55,7 @@ export async function GET(request, { params }) {
 
 
 
-        const checkBlogLike = await checkIfExists(BlogReactModel, { slug });
+        const checkBlogLike = await checkIfExists(BlogReactModel, { slug, userId: checkUser.data._id });
         console.log(checkBlogLike);
 
 
