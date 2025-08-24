@@ -3,6 +3,7 @@ import checkIfExists from "@/utils/functions/DBOperatiosn";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import BlogPostModel from "@/utils/models/BlogPostModel";
 import BlogViews from "@/utils/models/BlogViews";
+import User from "@/utils/models/Users";
 
 connectDB();
 
@@ -57,6 +58,21 @@ export async function POST(request, { params }) {
                     { tempViews: viewsCount }, // Increment the views count by 1
                     { new: true } // Return the updated document
                 );
+
+
+                // updating main user model 
+                const allBlogsViews = await BlogPostModel.find({ authorId: blog.data.authorId });
+                let counter = 0;
+                if (!allBlogsViews.length < 0) {
+                    allBlogsViews.forEach((ele, ind) => {
+                        counter = counter + ele.tempViews;
+                    })
+                }
+
+                // updating the main user model
+                await User.findOneAndUpdate({ _id: blog.data.authorId }, { allBlogViews: counter }, { new: true });
+
+
 
                 return sendNormalResponse(true, 200, "Sucess", { views: viewsCount });
             }
