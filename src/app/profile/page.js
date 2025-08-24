@@ -28,7 +28,7 @@ const getUserData = async function (token) {
       obj.error = true;
       obj.message = response.message;
     }
-    else { 
+    else {
       obj.error = false;
       obj.message = response.message;
       obj.data = response.data;
@@ -92,7 +92,7 @@ const page = async () => {
               Array.from([
                 { title: "Profile Views", count: userData.data.tempProfileViews },
                 { title: "Blogs", count: userData.data.tempUserBlogs },
-                { title: "Blog Views", count: 80 },
+                { title: "Blog Views", count: userData.data.allBlogViews || "wait" },
               ]).map((ele, ind) => {
                 return <div key={ind} className='status-block p-2 border border-1 border-pink-600 rounded-md w-[200px] cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-500'>
                   <h4 className='md:text-lg text-sm text-center  dark:text-pink-400 text-pink-600 font-bold my-2 px-1'>{ele.title}</h4>
