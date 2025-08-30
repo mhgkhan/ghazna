@@ -39,7 +39,7 @@ export async function GET(request, { params }) {
         }
         
 
-        // const tags = blog.tags.split(",");
+        const tags = blog.tags.split(",");
         // fetching related blogposts 
         
         const regexPattern = tags.map(tag => `(${tag})`).join('|');
