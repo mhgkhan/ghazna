@@ -33,14 +33,18 @@ export async function GET(request, { params }) {
         // console.log("user is ", user);
         // const blogViews = await BlogViews.findOne({ blogId: blog?._id });
 
-        const tags = blog.tags.split(",");
-        // fetching related blogposts 
-        const relatedBlogs = await BlogPostModel.find({ isPublished: true, isHidden: false, tags: { $regex: tags[0], $options: 'i' } }).limit(5).select("title slug image").sort({ createdAt: -1 });
-
+        
         if (!blog || !user) {
             return sendNormalResponse(false, 404, "Blogpost not found ERR USER|BLOG", { blog, slug });
         }
+        
 
+        // const tags = blog.tags.split(",");
+        // fetching related blogposts 
+        
+        const regexPattern = tags.map(tag => `(${tag})`).join('|');
+        const relatedBlogs = await BlogPostModel.find({ isPublished: true, isHidden: false, tags: { $regex: regexPattern, $options: 'i' } }).limit(5).select("title slug image").sort({ createdAt: -1 });
+        
 
         const resData = {
             blog,
