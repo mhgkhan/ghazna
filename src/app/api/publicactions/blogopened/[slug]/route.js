@@ -63,8 +63,11 @@ export async function POST(request, { params }) {
                 // updating main user model 
                 const allBlogsViews = await BlogPostModel.find({ authorId: blog.data.authorId });
                 let counter = 0;
+
+
                 if (!allBlogsViews.length < 0) {
                     allBlogsViews.forEach((ele, ind) => {
+                        console.log(ele)
                         counter = counter + ele.tempViews;
                     })
                 }

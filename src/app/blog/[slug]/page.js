@@ -75,7 +75,7 @@ const page = async ({ params }) => {
 
 
     const blog = thisBlog?.data;
-
+    const relatedArticles = thisBlog?.data?.relatedBlogs;
     // console.log(blog);
 
 
@@ -99,7 +99,7 @@ const page = async ({ params }) => {
                     </div>
                     <aside className='lg:w-[28%] w-full lg:border lg:border-1 lg:border-gray-300 rounded-md py-5 '>
                         <h2 className='lg:mx-auto lg:text-center mx-2 text-left font-bold text-2xl'> Related Articles </h2>
-                        <BlogPostRelatedArticles />
+                        <BlogPostRelatedArticles articlesArray={relatedArticles} />
                     </aside>
                 </div>
             </section>
