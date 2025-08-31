@@ -33,23 +33,19 @@ export async function GET(request, { params }) {
         // console.log("user is ", user);
         // const blogViews = await BlogViews.findOne({ blogId: blog?._id });
 
-        
+
         if (!blog || !user) {
             return sendNormalResponse(false, 404, "Blogpost not found ERR USER|BLOG", { blog, slug });
         }
-        
 
-        const tags = blog.tags.split(",");
-        // fetching related blogposts 
-        
-        const regexPattern = tags.map(tag => `(${tag})`).join('|');
-        const relatedBlogs = await BlogPostModel.find({ isPublished: true, isHidden: false, tags: { $regex: regexPattern, $options: 'i' } }).limit(5).select("title slug image").sort({ createdAt: -1 });
-        
+
+        const relatedBlogs = await BlogPostModel.find({ isPublished: true, isHidden: false, category: blog.category }).limit(5).select("title slug image").sort({ createdAt: -1 });
+
 
         const resData = {
             blog,
             user,
-            relatedBlogs : relatedBlogs || []
+            relatedBlogs: relatedBlogs ? relatedBlogs.length < 2 ? [] : relatedBlogs.splice(0, 1) : [] || []
         }
 
 
