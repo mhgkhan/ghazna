@@ -132,8 +132,17 @@ export default async function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" ></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" ></link>
         <meta name="msvalidate.01" content="73AD4F6854D89DF13F9CCC49174C42AB" />
-        <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
-        <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
+        {/* <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} />
+        <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} /> */}
+
+        {/* google site verificatin for netlify app  */}
+        <meta name="google-site-verification" content="x9YuyIlhUHD9CsateViRxBhr5jAlA7i_TmndcM15By8" />
+
+        {/* google adsenece tag  */}
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375177597277112"
+          crossOrigin="anonymous"></script>
+
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
