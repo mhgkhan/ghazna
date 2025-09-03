@@ -19,13 +19,6 @@ export async function GET(request, { params }) {
 
     try {
 
-        // // updating the blogpost view count 
-        // const blogViewsUpdate = await BlogPostModel.findOneAndUpdate(
-        //     { slug: slug },
-        //     { $inc: { tempViews: 1 } }, // Increment the views count by 1
-        //     { new: true } // Return the updated document
-        // );
-
         const blog = await BlogPostModel.findOne({ slug });
 
         // console.log("blog is ", blog);
@@ -37,7 +30,6 @@ export async function GET(request, { params }) {
         if (!blog || !user) {
             return sendNormalResponse(false, 404, "Blogpost not found ERR USER|BLOG", { blog, slug });
         }
-
 
         const relatedBlogs = await BlogPostModel.find({ isPublished: true, isHidden: false, category: blog.category }).limit(5).select("title slug image").sort({ createdAt: -1 });
 

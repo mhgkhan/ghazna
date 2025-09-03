@@ -59,6 +59,8 @@ export async function POST(request, { params }) {
                     { new: true } // Return the updated document
                 );
 
+                    
+
 
                 // updating main user model 
                 const allBlogsViews = await BlogPostModel.find({ authorId: blog.data.authorId });
