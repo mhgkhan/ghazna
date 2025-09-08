@@ -10,15 +10,15 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } 
 export default async function Home(req) {
 
 
-  // // console.log((await headers()).get("x-forwarded-for"))
-  // const userHeaders = await headers();
+  // console.log((await headers()).get("x-forwarded-for"))
+  const userHeaders = await headers();
 
-  // const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
+  const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
 
-  // // calling to api 
-  // const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache:"force-cache" })
-  // const res = await request.json();
-  // // console.log(res);
+  // calling to api 
+  const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache:"force-cache" })
+  const res = await request.json();
+  // console.log(res);
 
 
   return (
