@@ -1,5 +1,23 @@
 import React from 'react'
 
+
+
+export const metadata = {
+    title:"Privacy-Policy || Ghazna.dev",
+    description: "Read the privacy policy of Ghazna.dev to understand how we handle your data and ensure your privacy.",
+    keywords: ["Privacy Policy", "Ghazna.dev", "Data Privacy", "User Data", "Privacy Practices"],
+    author: "Ghazna.dev",
+   robots: {
+    index: true,
+    follow: true,
+  },
+    viewport: "width=device-width, initial-scale=1.0",
+    charset: "UTF-8",
+     alternates: {
+    canonical: "https://ghazna.vercel.app/privacy-policy",
+  },
+}
+
 const page = () => {
   return (
     <article className='page w-full h-full py-10 md:px-4 px-2 bg-gray-50 dark:bg-gray-800'>
