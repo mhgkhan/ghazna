@@ -14,14 +14,7 @@ export async function POST(request) {
         const data = await request.json();
         const { ip } = data;
 
-        // const agent = userAgent(request);
-
-        // const { browser, os, device } = agent;
-
-        // console.log(agent);
-
-
-        // console.log(typeof browser, typeof os, typeof device);
+        // console.log(data);
 
         // checking if ip is exists or not 
         const findIp = await checkIfExists(VisitorModel, { ip });
@@ -29,11 +22,8 @@ export async function POST(request) {
         // console.log("visitors is ", findIp);
 
         if (findIp.success) {
-            // return sendNormalResponse(false, 200, "user already exists", null);
+
             const visitors = await VisitorModel.find({})
-            // console.log("the visitors is ", visitors);
-
-
 
             if (!visitors) {
                 return sendNormalResponse(true, 200, "Zero length users", { visitors: 0 })
@@ -41,6 +31,7 @@ export async function POST(request) {
             else {
                 return sendNormalResponse(true, 200, "Data is here", { visitors: visitors.length })
             }
+            // return sendNormalResponse(false, 200, "user already exists", null);
         }
 
         else {
@@ -53,9 +44,6 @@ export async function POST(request) {
             await adding.save();
 
             const visitors = await VisitorModel.find({})
-            // console.log("the visitors is ", visitors);
-
-
 
             if (!visitors) {
                 return sendNormalResponse(true, 200, "Zero length users", { visitors: 0 })
@@ -63,6 +51,8 @@ export async function POST(request) {
             else {
                 return sendNormalResponse(true, 200, "Data is here", { visitors: visitors.length })
             }
+
+            // return sendNormalResponse(true, 201, "Visitor added", { ip })
         }
 
 
@@ -79,9 +69,6 @@ export async function GET(request) {
     try {
 
         const visitors = await VisitorModel.find({})
-        // console.log("the visitors is ", visitors);
-
-
 
         if (!visitors) {
             return sendNormalResponse(true, 200, "Zero length users", { visitors: 0 })
@@ -91,8 +78,6 @@ export async function GET(request) {
         }
 
     } catch (error) {
-        // console.log("the error is ", error);
-
         return sendNormalResponse(false, 500, "Server error", null)
     }
 }
