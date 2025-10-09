@@ -7,6 +7,51 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
+
+
+const fetchVisitors = async (ip) => {
+  let obj = {};
+  try {
+    const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, {
+      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache: "force-cache"
+    });
+
+
+    if (request.ok) {
+      const res = await request.json();
+      console.log(res);
+      
+      if (res.success) {
+        obj.success = true;
+        obj.error = false;
+        obj.message = res.message;
+        obj.data = res.data;
+      }
+      else {
+        obj.success = false;
+        obj.error = true;
+        obj.message = res.message;
+      }
+    }
+    else {
+      obj.success = false;
+      obj.error = true;
+      obj.message = request.statusText;
+    }
+
+  } catch (error) {
+    console.log(error);
+    
+    obj.success = false;
+    obj.error = true;
+    obj.message = error.message;
+  }
+  finally {
+    return obj;
+  }
+}
+
+
 export default async function Home(req) {
 
 
@@ -15,22 +60,23 @@ export default async function Home(req) {
 
   const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
 
-  // calling to api 
-  
-  const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache:"force-cache" })
-  const res = await request.json();
-  // console.log(res);
+  // // calling to api 
 
+  // const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ip }), cache: "force-cache" })
+  // const res = await request.json();
+  // // console.log(res);
+  const runVisitorFunction = await fetchVisitors(ip);
+  console.log("the visitors function is ", runVisitorFunction);
 
   return (
     <article className="page">
       {/* Hero Section  */}
-      <HeroSection />
+      <HeroSection visitorss={runVisitorFunction.error ? -11 : runVisitorFunction.data.visitors} />
       {/* services section  */}
       <Services />
 
       {/* recent blogposts  */}
-      
+
 
 
       {/* contact section  */}

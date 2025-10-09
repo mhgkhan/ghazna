@@ -7,45 +7,11 @@ import CheckVisitors from "@/components/ui/CheckVisitors"
 import LinkButton from './buttonsandlinks/LinkButton';
 import FreezeEnv from '@/config/EnvConfig';
 
-const fetchVisitors = async () => {
-    let obj = {};
-    try {
-        const request = await fetch(`${FreezeEnv.DOMAIN}api/users/visitor`, { cache: "force-cache" });
 
-        if (request.ok) {
-            const res = await request.json();
-            if (res.success) {
-                obj.success = true;
-                obj.error = false;
-                obj.message = res.message;
-                obj.data = res.data;
-            }
-            else {
-                obj.success = false;
-                obj.error = true;
-                obj.message = res.message;
-            }
-        }
-        else {
-            obj.success = false;
-            obj.error = true;
-            obj.message = request.statusText;
-        }
+const HeroSection = async ({visitorss}) => {
 
-    } catch (error) {
-        obj.success = false;
-        obj.error = true;
-        obj.message = error.message;
-    }
-    finally {
-        return obj;
-    }
-}
-
-const HeroSection = async () => {
-
-    const visitors = await fetchVisitors();
-    console.log(visitors);
+    // const visitors = await fetchVisitors();
+    // console.log(visitors);
 
     return (
         <section className="hero w-full my-5" id="hero">
@@ -72,7 +38,8 @@ const HeroSection = async () => {
                             </div>
                             {/* <CheckVisitors /> */}
                             <div className="block">
-                                <h2 className="md:text-3xl text-xl font-bold">{visitors.error?"Wait...":visitors.data.visitors}</h2>
+                                {/* <h2 className="md:text-3xl text-xl font-bold">{visitors.error?"Wait...":visitors.data.visitors}</h2> */}
+                                <h2 className="md:text-3xl text-xl font-bold">{visitorss}</h2>
                                 <p className="dark:text-gray-300 text-gray-600 my-2">Visitors </p>
                             </div>
                         </div>
