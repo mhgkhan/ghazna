@@ -25,8 +25,8 @@ export default function Header({ isLogged }) {
   }, [pathname])
 
   return (
-    <header className="md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0 dark:bg-gray-800 bg-gray-800 rounded-md dark:text-white z-50 border border-1 dark:border-gray-400 ">
-      <div className="container mx-auto flex items-center justify-between md:flex-row flex-col gap-2 pr-2 py-1 ">
+    <header className={`md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0 dark:bg-gray-800 bg-gray-800 ${openedNav?"rounded-lg":"rounded-full"} dark:text-white z-50 border border-1 dark:border-gray-400 `}>
+      <div className={`container mx-auto flex items-center justify-between md:flex-row flex-col gap-2 pr-2 py-1 pr-5 pl-5 `}>
 
         {/* logo area  */}
         <div className="logo-area flex items-center justify-between gap-2 md:w-auto w-full">
@@ -34,7 +34,7 @@ export default function Header({ isLogged }) {
             router.push("/");
           }}>
             <div className="logo-1 flex items-center justify-center text-5xl">
-              <span className="[text-shadow:1px_1px_0px_rgba(120,80,80,.5)]">
+              <span>
                 G
               </span>
               <span>H</span>
@@ -59,7 +59,7 @@ export default function Header({ isLogged }) {
             } overflow-hidden transition-all duration-200 `}
         >
           <ul className="flex md:flex-row flex-col md:w-auto w-full items-center justify-center md:gap-4 gap-1 list-none md:mt-0 mt-5">
-            {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }, { title: "Old Website", link: "http://mhgkhanp.netlify.app" }] : [{ title: "Profile", link: "/profile/" }, { title: "Blog", link: "/blog/" }, { title: "Notifications", link: "/profile/notifications/" }]).map(
+            {Array.from(!isLogged ? [{ title: "home", link: "/" }, { title: "services", link: "/#servicessection" }, { title: "blog", link: "/blog" }] : [{ title: "Profile", link: "/profile/" }, { title: "Blog", link: "/blog/" }, { title: "Notifications", link: "/profile/notifications/" }]).map(
               (ele, ind) => {
                 return (
                   <li
