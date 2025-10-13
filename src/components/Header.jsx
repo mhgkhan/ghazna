@@ -25,8 +25,8 @@ export default function Header({ isLogged }) {
   }, [pathname])
 
   return (
-    <header className={`md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0 dark:bg-gray-800 bg-gray-800 ${openedNav?"rounded-lg":"rounded-full"} dark:text-white z-50 border border-1 dark:border-gray-400 `}>
-      <div className={`container mx-auto flex items-center justify-between md:flex-row flex-col gap-2 pr-2 py-1 pr-5 pl-5 `}>
+    <header className="md:w-[75%] w-[95%] mx-auto py-1 md:px-0 px-4 sticky top-0 dark:bg-gray-800 bg-gray-800 rounded-md dark:text-white z-50 border border-1 dark:border-gray-400 ">
+      <div className="container mx-auto flex items-center justify-between md:flex-row flex-col gap-2 pr-2 py-1 ">
 
         {/* logo area  */}
         <div className="logo-area flex items-center justify-between gap-2 md:w-auto w-full">
