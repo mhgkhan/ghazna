@@ -1,3 +1,4 @@
+import SortBlogs from '@/components/ui/blog/SortBlogs'
 import FreezeEnv from '@/config/EnvConfig'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +9,6 @@ const fetchBlogs = async function () {
   const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs`);
   const response = await request.json();
   // console.log(response);
-
   return response.data;
 }
 
@@ -93,8 +93,10 @@ const page = async () => {
         </div>
       </section>
 
-      <section className="blogs-container container mx-auto my-5 px-3 flex items-center justify-center md:gap-5 gap-2 flex-wrap">
+      {/* <SortBlogs /> */}
 
+      <section className="blogs-container container mx-auto my-5 px-3 flex items-center justify-center md:gap-5 gap-2 flex-wrap">
+    
         {
           blogs ? blogs.map((ele, ind) => {
 

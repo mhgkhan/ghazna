@@ -52,7 +52,8 @@ const HeroSection = async ({ visitorss }) => {
                             <span className="text-sm">Graphic Design</span>
                         </div>
                         <div className="p-2 md:px-3 px-1 absolute bottom-[50px] left-[-30px] md:bottom-20 md:left-[-30px] text-lg flex items-center justify-center gap-3 bg-white dark:bg-black rounded-md shadow-md dark:shadow-gray-20">
-                            <span className="text-lg"><DiResponsive /></span> <span className="text-sm">Web Development</span>
+                            <span className="text-lg"><DiResponsive /></span>
+                             {/* <span className="text-sm">Web Development</span> */}
                             <span className="text-sm">Web Development</span>
                         </div>
                     </div>
