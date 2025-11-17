@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from "next/link";
 import { DiResponsive } from "react-icons/di";
-import { SiCodesignal } from "react-icons/si";
+// import { SiCodesignal } from "react-icons/si";
 import Image from 'next/image';
 import CheckVisitors from "@/components/ui/CheckVisitors"
 import LinkButton from './buttonsandlinks/LinkButton';
-import FreezeEnv from '@/config/EnvConfig';
+// import FreezeEnv from '@/config/EnvConfig';
 
 
 const HeroSection = async ({ visitorss }) => {
