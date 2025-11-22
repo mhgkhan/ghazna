@@ -1,6 +1,7 @@
 import FreezeEnv from "@/config/EnvConfig";
 import connectDB from "@/utils/db/connectDB";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import User from "@/utils/models/Users";
 import JWT from "jsonwebtoken";
@@ -21,7 +22,7 @@ export async function PUT(request, { params }) {
         }
 
 
-        const decoded = JWT.verify(token, FreezeEnv.VERIFICATION_SECRET_KEY );
+        const decoded = JWT.verify(token, FreezeEnv.VERIFICATION_SECRET_KEY);
 
 
 
@@ -51,6 +52,7 @@ export async function PUT(request, { params }) {
                 else {
                     // updating the user info 
                     const updateUser = await User.findOneAndUpdate({ email: decoded.email }, { isVerified: true, verificationToken: null }, { new: true });
+                    addHistoryEntry(checkUser.data._id, "User Verified their account");
                     if (!updateUser) {
                         return sendNormalResponse(false, 400, "User not found", null)
                     }

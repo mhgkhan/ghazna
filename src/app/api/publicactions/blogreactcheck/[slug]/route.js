@@ -67,12 +67,11 @@ export async function GET(request, { params }) {
         if (!checkBlogLike.data.liked) {
             return sendNormalResponse(false, 200, "Not liked by this user", null)
         }
-
         return sendNormalResponse(true, 200, "Already Liked", checkBlogLike);
 
     } catch (error) {
         console.log(error);
-
+        
         return sendNormalResponse(false, 500, error.message, null);
     }
 }

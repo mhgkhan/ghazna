@@ -8,6 +8,7 @@ import User from "@/utils/models/Users";
 import BlogPostModel from "@/utils/models/BlogPostModel";
 import BlogCommentModel from "@/utils/models/BlogComment";
 import connectDB from "@/utils/db/connectDB";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 
 connectDB();
 
@@ -96,8 +97,8 @@ export async function POST(request, { params }) {
         if (!updaingBlogPostCommentTemp) {
             return sendNormalResponse(false, 201, "Comment saved but temp no updated", savedComment)
         }
-        console.log(updaingBlogPostCommentTemp);
-
+        // console.log(updaingBlogPostCommentTemp);
+        addHistoryEntry(thisUser.data._id, `Added a comment on BLOGPOST "${findSlug.data.title}" COMMENT: "${body.comment}"`);
         return sendNormalResponse(true, 201, "Comment saved", updaingBlogPostCommentTemp)
 
     } catch (error) {

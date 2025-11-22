@@ -7,6 +7,7 @@ import BlogReactModel from "@/utils/models/BlogLikesModel";
 import connectDB from "@/utils/db/connectDB";
 import User from "@/utils/models/Users";
 import BlogPostModel from "@/utils/models/BlogPostModel";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 
 
 connectDB();
@@ -56,6 +57,7 @@ export async function PUT(request, { params }) {
         if (!checkBlogLike?.data?.liked) {
             console.log("not liked category called")
             const updatateLIked = await BlogReactModel.findOneAndUpdate({ slug }, { liked: true });
+            addHistoryEntry(checkUser.data._id, `Liked the blog post with slug "${slug}"`);
         }
 
         if (!checkBlogLike.success || checkUser.error) {
@@ -67,6 +69,7 @@ export async function PUT(request, { params }) {
                 slug
             });
             await addLike.save();
+            addHistoryEntry(checkUser.data._id, `Liked the blog post with slug "${slug}"`);
         }
 
 

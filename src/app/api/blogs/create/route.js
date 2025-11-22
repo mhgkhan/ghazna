@@ -7,6 +7,7 @@ import FreezeEnv from "@/config/EnvConfig";
 import checkIfExists from "@/utils/functions/DBOperatiosn";
 import BlogPostModel from "@/utils/models/BlogPostModel";
 import User from "@/utils/models/Users";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 
 connectDB();
 
@@ -97,7 +98,7 @@ export async function POST(request) {
             },
             { new: true });
 
-
+        addHistoryEntry(checkUser.data._id, `Created a new blog post titled "${body.title}"`);
         return sendNormalResponse(true, 201, "Blog Created Sucessfully", savedBlog);
 
     } catch (error) {

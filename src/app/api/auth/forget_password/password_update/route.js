@@ -5,6 +5,7 @@ import User from "@/utils/models/Users";
 import bcrypt from "bcryptjs";
 import { sendNormalResponse } from "@/utils/functions/sendResponses";
 import connectDB from "@/utils/db/connectDB";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 
 connectDB();
 
@@ -55,6 +56,7 @@ export async function PUT(request) {
                     return sendNormalResponse(false, 400, "Error in updating password", null)
                 }
                 else {
+                    addHistoryEntry(checkUser.data._id, "User Updated their password");
                     return sendNormalResponse(true, 200, "Password updated successfully", updateUser)
                 }
                 // return sendNormalResponse(true, 200, "Token verified successfully", updateUser)

@@ -12,6 +12,7 @@ import User from "@/utils/models/Users";
 import JWT from "jsonwebtoken";
 
 import { sendMail } from "@/config/EmailSeindingProcesses";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 
 
 
@@ -47,7 +48,7 @@ export async function POST(request) {
         const { name, email, password } = body;
 
 
-        const username = name.includes(" ") ? `${name.split(" ")[0]}-${fetchallUsera?fetchallUsera.lenth:Math.floor(Math.random()*1000e3)}` : name;
+        const username = name.includes(" ") ? `${name.split(" ")[0]}-${fetchallUsera ? fetchallUsera.lenth : Math.floor(Math.random() * 1000e3)}` : name;
         const addUserInfo = new User({
             name,
             email,
@@ -59,7 +60,7 @@ export async function POST(request) {
         })
 
         const savedUserInfo = await addUserInfo.save();
-
+        addHistoryEntry(savedUserInfo._id, "Created Account!");
         const options = {
             from: FreezeEnv.EMAIL_SMTP,
             to: email,
@@ -91,7 +92,7 @@ export async function POST(request) {
             text: `Click on the link to verify your email: ${FreezeEnv.VERIFICATION_URL}/${token}`
         }
 
-        if (process.env.NODE_ENV != "development"){
+        if (process.env.NODE_ENV != "development") {
             const sendEmailing = await sendMail(options);
         }
 

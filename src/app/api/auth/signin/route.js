@@ -9,6 +9,7 @@ import connectDB from "@/utils/db/connectDB";
 import { sendMail } from "@/config/EmailSeindingProcesses";
 import { setCookie } from "cookies-next/server";
 import { cookies } from "next/headers";
+import { addHistoryEntry } from "@/utils/functions/histoyrOperations";
 
 
 connectDB();
@@ -24,7 +25,7 @@ export async function POST(reqiest) {
 
         // checking if user is exists or not 
         const checkUser = await checkIfExists(User, { email: email });
-        console.log(checkUser);
+        // console.log(checkUser);
 
         if (!checkUser.success) {
             return sendNormalResponse(false, 400, "User not found", null)
@@ -93,6 +94,7 @@ export async function POST(reqiest) {
                 const response = new NextResponse();
 
 
+                addHistoryEntry(checkUser.data._id, "User Logged In");
 
                 // response.cookies.set("USER_AUTH_TOKEN", token, { httpOnly: true, secure: true, sameSite: "strict" });
                 await setCookie('USER_AUTH_TOKEN', token, { cookies, httpOnly: true, sameSite: "strict", maxAge: 60 * 60 * 24 * 7, secure: true });
