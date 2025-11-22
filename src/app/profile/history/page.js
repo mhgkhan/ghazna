@@ -1,3 +1,4 @@
+import ClearHistoryButton from '@/components/profile/ClearHistoryButton';
 import FreezeEnv from '@/config/EnvConfig';
 import { cookies } from 'next/headers';
 import React from 'react'
@@ -55,7 +56,7 @@ const page = async () => {
         </p>
         <div className="history-heading flex items-center justify-between p-5 my-5 rounded-md border-b border-1 border-pink-500 ">
           <h3 className='md:text-2xl text-lg font-bold text-pink-600'>Recent Activities</h3>
-          <button className='px-4 py-2 bg-pink-600 text-white rounded-md hover:bg-pink-700 transition-all duration-300'>Clear all</button>
+          <ClearHistoryButton />
         </div>
 
 
