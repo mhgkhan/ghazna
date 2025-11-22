@@ -1,8 +1,9 @@
 import FreezeEnv from '@/config/EnvConfig';
+import { cookies } from 'next/headers';
 import React from 'react'
 
 
-const fetchHistory = async () => {
+const fetchHistory = async (token) => {
   const obj = {};
   try {
 
@@ -10,6 +11,7 @@ const fetchHistory = async () => {
       method: "GET",
       headers: {
         "content-type": "application/json",
+        token
       }
     });
 
@@ -38,7 +40,10 @@ const fetchHistory = async () => {
 const page = async () => {
 
 
-  const getHistory = await fetchHistory();
+  const token = (await cookies()).get("USER_AUTH_TOKEN")?.value;
+
+  const getHistory = await fetchHistory(token);
+  // console.log(getHistory)
 
 
   return (
@@ -55,14 +60,18 @@ const page = async () => {
 
 
         {
-          getHistory.success && getHistory.data.length > 0 ? <div className='my-2 history-all border border-1 border-dotted border-pink-500 rounded-md p-2 flex items-center justify-between gap-5'>
-            <div className="history-info flex items-center justify-start gap-2">
-              <span className='px-3 py-2 bg-pink-500 rounded-lg text-white font-bold'>1</span>
-              <p>this is your history text all the text</p>
-            </div>
-            <span className="italic">01/01/2025</span>
-          </div>
-            : <h3 className='text-2xl text-center text-pink-500 font-bold italic'>Nothing in your  History </h3>
+          getHistory.error ? <h3 className='text-2xl text-center text-pink-500 font-bold italic'>{getHistory.message} </h3> :
+            getHistory.success && getHistory.data.length > 0 ?
+              getHistory.data.map((his,ind) => {
+                return <div key={ind} className='my-2 history-all border border-1 border-dotted border-pink-500 rounded-md p-2 flex items-center justify-between gap-5'>
+                  <div className="history-info flex items-center justify-start gap-2">
+                    <span className='px-3 py-2 bg-pink-500 rounded-lg text-white font-bold'>{ind+1}</span>
+                    <p>{his.action}</p>
+                  </div>
+                  <span className="italic">{his.timestamp}</span>
+                </div>
+              })
+              : <h3 className='text-2xl text-center text-pink-500 font-bold italic'>Nothing in your  History </h3>
         }
 
 

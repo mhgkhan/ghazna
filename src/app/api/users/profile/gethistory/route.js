@@ -11,7 +11,8 @@ export async function GET(request) {
     try {
         // checking user authorization
         const checkUserAuth = await checkUserAuthorization();
-        if (!checkUserAuth) {
+        console.log(checkUserAuth)
+        if (!checkUserAuth.success) {
             return sendNormalResponse(false, checkUserAuth.status, checkUserAuth.message, null);
         }
 
