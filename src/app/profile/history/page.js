@@ -59,22 +59,23 @@ const page = async () => {
         </div>
 
 
-        {
-          getHistory.error ? <h3 className='text-2xl text-center text-pink-500 font-bold italic'>{getHistory.message} </h3> :
-            getHistory.success && getHistory.data.length > 0 ?
-              getHistory.data.map((his,ind) => {
-                return <div key={ind} className='my-2 history-all border border-1 border-dotted border-pink-500 rounded-md p-2 flex items-center justify-between gap-5'>
-                  <div className="history-info flex items-center justify-start gap-2">
-                    <span className='px-3 py-2 bg-pink-500 rounded-lg text-white font-bold'>{ind+1}</span>
-                    <p>{his.action}</p>
+        <div className="md:px-auto px-2">
+          {
+            getHistory.error ? <h3 className='text-2xl text-center text-pink-500 font-bold italic'>{getHistory.message} </h3> :
+              getHistory.success && getHistory.data.length > 0 ?
+                getHistory.data.map((his, ind) => {
+                  return <div key={ind} className='my-2 history-all border border-1 border-dotted border-pink-500 rounded-md p-2 flex items-start justify-between gap-5'>
+                    <div className="history-info flex items-start justify-start gap-2">
+                      <span className='px-3 py-2 bg-pink-500 rounded-lg text-white font-bold'>{ind + 1}</span>
+                      <p>{his.action}</p>
+                    </div>
+                    <span className="italic">{new Date(his.timestamp).toLocaleDateString()}</span>
                   </div>
-                  <span className="italic">{his.timestamp}</span>
-                </div>
-              })
-              : <h3 className='text-2xl text-center text-pink-500 font-bold italic'>Nothing in your  History </h3>
-        }
+                })
+                : <h3 className='text-2xl text-center text-pink-500 font-bold italic'>Nothing in your  History </h3>
+          }
 
-
+        </div>
       </div>
     </article>
   )
