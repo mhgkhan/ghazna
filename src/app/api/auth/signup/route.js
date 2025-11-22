@@ -47,14 +47,14 @@ export async function POST(request) {
         const { name, email, password } = body;
 
 
-        const username = name.includes(" ") ? `${name.split(" ")[0]} ${fetchallUsera.lenth}` : name;
+        const username = name.includes(" ") ? `${name.split(" ")[0]}-${fetchallUsera?fetchallUsera.lenth:Math.floor(Math.random()*1000e3)}` : name;
         const addUserInfo = new User({
             name,
             email,
             username,
             password: hashingPassword,
             role: "user",
-            isVerified: false,
+            isVerified: process.env.NODE_ENV == "development" ? true : false,
             verificationToken: token,
         })
 
@@ -91,7 +91,9 @@ export async function POST(request) {
             text: `Click on the link to verify your email: ${FreezeEnv.VERIFICATION_URL}/${token}`
         }
 
-        const sendEmailing = await sendMail(options);
+        if (process.env.NODE_ENV != "development"){
+            const sendEmailing = await sendMail(options);
+        }
 
         // sending the response
         return sendNormalResponse(true, 200, "Account created! Verification Link Sended to your account.", { user: savedUserInfo, token })

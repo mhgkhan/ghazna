@@ -117,7 +117,7 @@ const page = async () => {
             {[
               // { title: 'My Blogs', icon: <FaBlog size={30} className="text-blue-400" />, href: '/my-blogs' },
               { title: 'Your Blogs', icon: <FaBloggerB size={30} className="text-yellow-300" />, href: '/profile/blogs/' },
-              { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/profile/settings' },
+              // { title: 'Settings', icon: <FaCog size={30} className="text-yellow-300" />, href: '/profile/settings' },
               // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
               // { title: 'Edit Profile', icon: <FaUserEdit size={30} className="text-green-400" />, href: '/edit-profile' },
               { title: 'History', icon: <FaHistory size={30} className="text-green-400" />, href: '/profile/history' },
