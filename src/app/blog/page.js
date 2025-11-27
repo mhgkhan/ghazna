@@ -95,7 +95,57 @@ const page = async () => {
 
       {/* <SortBlogs /> */}
 
-      <section className="blogs-container container mx-auto my-5 px-3 flex items-center justify-center md:gap-5 gap-2 flex-wrap">
+      <div className=" blogs-all-container mx-auto my-10 flex items-start justify-between gap-10 md:flex-row flex-col container">
+       
+
+        {/* sidebar for blogposts filter  */}
+        <div className='sidebar py-2 px-1 md:w-[200px] w-full md:flex imd:items-center justify-center md:flex-col border border-1 dark:border-gray-400 border-gray-500 rounded-md shadow-md dark:shadow-gray-500 shadow-gray-200'>
+      
+        <div className="blog-head my-5">
+           <h4>Filter Your Blogs</h4>
+        <div className='p-1 bg-gray-400 rounded-lg w-full'></div>
+        </div>
+
+        <div className="selection-blog border-1 border dark:border-gray-500 border-gray-400 rounded-md px-1">
+            <label htmlFor='selectCategory'>Categories</label>
+          <select id='selectCategory'>
+            <option defaultChecked disabled >Select By Category</option>
+            <option value={"Jobs"}>Jobs</option>
+            <option value={"Education"}>Education</option>
+            <option value={"Media"}>Media</option>
+            <option value={"Politician"}>Politicians</option>
+            <option value={"Technology"}>Technology</option>
+          </select>
+        </div>
+
+
+        <div className="my-5 py-3 px-1 border-1 border border-gray-400 rounded-md ">
+           
+           {
+            Array.from(["Latest","Popular","Today"]).map((ele,ind)=> <div key={ind} className="filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
+           }
+        </div>
+
+
+        
+        <div className="my-2 py-2 px-1 rounded-md flex items-center justify-between flex-wrap ">
+           
+           {
+            Array.from(["Bla","Etc","Jobs","Bla","Tech","Jobs","Html","Etc","Js","Python","Jquery","Node"]).map((ele,ind)=> <div key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
+           }
+        </div>
+
+
+        
+
+
+        </div>
+
+
+
+
+          {/* blogs that are display here  */}
+         <section className="blogs-container container mx-auto my-5 px-3 flex items-center justify-center md:gap-5 gap-2 flex-wrap">
     
         {
           blogs ? blogs.map((ele, ind) => {
@@ -131,6 +181,8 @@ const page = async () => {
 
 
       </section>
+      </div>
+     
     </article>
   )
 }
