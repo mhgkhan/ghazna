@@ -77,8 +77,8 @@ const page = async () => {
   const blogs = await fetchBlogs();
 
   // console.log(blogs)
-  const categories = new Set(blogs.categories);
-
+  const categories = [...new Set(blogs?.categories.map(ele => ele.category))]
+  console.log("the categories are ", categories);
 
   // console.log("the blogs are ", blogs);
 
@@ -112,7 +112,7 @@ const page = async () => {
           <div className="py-3 px-1 border-1 border border-gray-400 rounded-md ">
 
             {
-              Array.from(...new Set([blogs.categories])).map((ele, ind) => <Link href={`/blog?startfrom=${ele.category.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white inline-block">{ele.category}</Link>)
+              categories.map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white inline-block">{ele}</Link>)
             }
           </div>
 
@@ -127,7 +127,7 @@ const page = async () => {
           <div className="my-2 py-2 px-1 rounded-md flex items-center justify-between flex-wrap ">
 
             {
-              // Array.from(["Bla", "Etc", "Jobs", "Bla", "Tech", "Jobs", "Html", "Etc", "Js", "Python", "Jquery", "Node"]).map((ele, ind) => <div key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
+              Array.from(["Bla", "Etc", "Jobs", "Bla", "Tech", "Jobs", "Html", "Etc", "Js", "Python", "Jquery", "Node"]).map((ele, ind) => <div key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
             }
           </div>
 
