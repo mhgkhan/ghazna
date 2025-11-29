@@ -112,7 +112,7 @@ const page = async () => {
           <div className="py-3 px-1 border-1 border border-gray-400 rounded-md flex md:flex-col md:items-center justify-between md:gap-0 gap-3 flex-wrap">
 
             {
-              categories.map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white md:inline-block">{ele}</Link>)
+              categories.map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" md:blck filter-radio md:w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white md:inline-block">{ele}</Link>)
             }
           </div>
 
