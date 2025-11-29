@@ -12,7 +12,14 @@ export async function GET(request) {
             // return sendNormalResponse(false, 404, "No Blogs Found", null);
         }
 
-        return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", Blogs);
+        // fetching the categories 
+        const allCategories = await BlogPostModel.find({},{category:1});
+        // Blogs.categories = allCategories;
+        const data = {
+            categories: allCategories,
+            blogs:Blogs
+        }
+        return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", data);
 
     } catch (error) {
         return sendNormalResponse(false, 500, "Internal Server Error", error.message);

@@ -76,6 +76,9 @@ const page = async () => {
 
   const blogs = await fetchBlogs();
 
+  // console.log(blogs)
+  const categories = new Set(blogs.categories);
+
 
   // console.log("the blogs are ", blogs);
 
@@ -109,7 +112,7 @@ const page = async () => {
           <div className="py-3 px-1 border-1 border border-gray-400 rounded-md ">
 
             {
-              Array.from(["Latest", "Popular", "Today"]).map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white inline-block">{ele}</Link>)
+              Array.from(...new Set([blogs.categories])).map((ele, ind) => <Link href={`/blog?startfrom=${ele.category.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white inline-block">{ele.category}</Link>)
             }
           </div>
 
@@ -124,7 +127,7 @@ const page = async () => {
           <div className="my-2 py-2 px-1 rounded-md flex items-center justify-between flex-wrap ">
 
             {
-              Array.from(["Bla", "Etc", "Jobs", "Bla", "Tech", "Jobs", "Html", "Etc", "Js", "Python", "Jquery", "Node"]).map((ele, ind) => <div key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
+              // Array.from(["Bla", "Etc", "Jobs", "Bla", "Tech", "Jobs", "Html", "Etc", "Js", "Python", "Jquery", "Node"]).map((ele, ind) => <div key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
             }
           </div>
 
@@ -150,7 +153,7 @@ const page = async () => {
 
           <div className="blogs-container container mx-auto px-3 flex items-center justify-start md:gap-5 gap-2 flex-wrap">
             {
-              blogs ? blogs.map((ele, ind) => {
+              blogs ? blogs.blogs?.map((ele, ind) => {
 
                 return <div key={ind} className="blog-card md:w-[300px] w-[95%]  md:my-2 my-1 rounded-md shadow-md dark:shadow-gray-900 shadow-gray-300 p-1 h-auto border border-1 border-gray-400 ">
                   {/* <Link href={`/blog/${ind+1}`}> */}
