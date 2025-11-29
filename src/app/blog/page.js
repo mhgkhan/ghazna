@@ -98,7 +98,7 @@ const page = async () => {
 
       {/* <SortBlogs /> */}
 
-      <div className=" blogs-all-container mx-auto my-10 flex items-start justify-between gap-10 md:flex-row flex-col container">
+      <div className=" blogs-all-container mx-auto my-10 flex items-start justify-between gap-5 md:flex-row flex-col-reverse container">
 
 
         {/* sidebar for blogposts filter  */}
@@ -109,10 +109,10 @@ const page = async () => {
             <div className='py-[1px] bg-gray-400 rounded-lg w-full'></div>
           </div>
 
-          <div className="py-3 px-1 border-1 border border-gray-400 rounded-md ">
+          <div className="py-3 px-1 border-1 border border-gray-400 rounded-md flex md:flex-col md:items-center justify-between md:gap-0 gap-3 ">
 
             {
-              categories.map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white inline-block">{ele}</Link>)
+              categories.map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white md:inline-block">{ele}</Link>)
             }
           </div>
 
@@ -144,14 +144,14 @@ const page = async () => {
 
         <section className="flex flex-col gap-4">
           {/* start from filter  */}
-          <div className="py-3 px-1 border-1 border border-gray-400 rounded-md flex items-center justify-start gap-5">
+          <div className="py-1 px-1 border-1 border border-gray-400 rounded-md flex items-center justify-start gap-3">
 
             {
-              Array.from(["Latest", "Popular", "Today"]).map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg p-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
+              Array.from(["Latest", "Popular", "Today"]).map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg p-2 dark:bg-gray-400 dark:text-white text-center bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
             }
           </div>
 
-          <div className="blogs-container container mx-auto px-3 flex items-center justify-start md:gap-5 gap-2 flex-wrap">
+          <div className="blogs-container container mx-auto px-1 flex items-center md:justify-start justify-center md:gap-5 gap-2 flex-wrap">
             {
               blogs ? blogs.blogs?.map((ele, ind) => {
 
