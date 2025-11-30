@@ -1,16 +1,24 @@
-import SortBlogs from '@/components/ui/blog/SortBlogs'
 import FreezeEnv from '@/config/EnvConfig'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaComments, FaEye, FaHeart } from 'react-icons/fa'
 
-const fetchBlogs = async function () {
-  const request = await fetch(`${FreezeEnv.DOMAIN}api/get/blogs`);
+const fetchBlogs = async function (params) {
+  let url = `${FreezeEnv.DOMAIN}api/get/blogs`;
+
+  if (params.category && params.startfrom) {
+    url += `?category=${params.category}&startfrom=${params.startfrom}`;
+  } else if (params.category) {
+    url += `?category=${params.category}`;
+  } else if (params.startfrom) {
+    url += `?startfrom=${params.startfrom}`;
+  }
+
+  const request = await fetch(url);
   const response = await request.json();
-  // console.log(response);
   return response.data;
-}
+};
 
 
 export const metadata = {
@@ -68,22 +76,12 @@ export const metadata = {
 
 
 
-const page = async () => {
+const page = async ({ searchParams }) => {
 
-
-
-
-
-  const blogs = await fetchBlogs();
-
-  // console.log(blogs)
-  const categories = [...new Set(blogs?.categories.map(ele => ele.category))]
-  console.log("the categories are ", categories);
-
-  // console.log("the blogs are ", blogs);
-
-
-  // console.log("the blog is ",blogs);
+  const params = await searchParams;
+  // console.log(params);
+  const blogs = await fetchBlogs({ category: params.category ?? null, startfrom: params.startfrom ?? null });
+  const categories = !blogs.categories ? [] : [...new Set(blogs?.categories.map(ele => ele.category))]
 
 
 
@@ -112,7 +110,7 @@ const page = async () => {
           <div className="py-3 px-1 border-1 border border-gray-400 rounded-md flex md:flex-col md:items-center justify-between md:gap-0 gap-3 flex-wrap">
 
             {
-              categories.map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" md:blck filter-radio md:w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white md:inline-block">{ele}</Link>)
+              categories && categories.length > 0 ? categories.map((ele, ind) => <Link href={`/blog?category=${ele.toLowerCase()}`} key={ind} className=" md:blck filter-radio md:w-full my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white md:inline-block">{ele}</Link>) : "No Categories Found"
             }
           </div>
 
