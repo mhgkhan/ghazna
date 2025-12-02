@@ -1,5 +1,4 @@
 import mongoose, { mongo } from 'mongoose';
-import { defaultType } from './schemaTypes';
 
 const infoSchema = new mongoose.Schema({
 
