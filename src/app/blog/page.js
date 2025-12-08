@@ -125,7 +125,7 @@ const page = async ({ searchParams }) => {
           <div className="my-2 py-2 px-1 rounded-md flex items-center justify-between flex-wrap ">
 
             {
-              Array.from(["Bla", "Etc", "Jobs", "Bla", "Tech", "Jobs", "Html", "Etc", "Js", "Python", "Jquery", "Node"]).map((ele, ind) => <div key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</div>)
+              Array.from(["Bla", "Etc", "Jobs", "Bla", "Tech", "Jobs", "Html", "Etc", "Js", "Python", "Jquery", "Node"]).map((ele, ind) => <Link href={`/tags/${ele}`} key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
             }
           </div>
 
