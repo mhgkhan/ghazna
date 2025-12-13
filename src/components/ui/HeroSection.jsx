@@ -25,7 +25,7 @@ const HeroSection = async ({ visitorss }) => {
                         <p className="my-3 dark:text-gray-300 text-gray-600 text-lg">I am a full-stack developer with a passion for building beautiful and functional websites.</p>
                         <div className="cta flex items-center gap-5 my-3">
                             <LinkButton text={"View Projects"} link={"/projects"} />
-                            <Link href="/blog" className="btn md:px-4 px-3 py-3 rounded-md mx-1 text-center hover:underline dark:bg-black dark:text-white bg-white text-black border border-2 border-transparent dark:active:border-white active:border-dotted active:border-black" aria-label="Read Latest Blogs">Latest Blogs</Link>
+                            <Link href="http://www.fiverr.com/s/m5ago6b" className="btn md:px-4 px-3 py-3 rounded-md mx-1 text-center hover:underline dark:bg-black dark:text-white bg-white text-black border border-2 border-transparent dark:active:border-white active:border-dotted active:border-black" aria-label="Read Latest Blogs">My Fiver Gig</Link>
                         </div>
                         <div className="md:my-10 my-7 flex items-center justify-start md:gap-10 gap-5">
                             <div className="block">
