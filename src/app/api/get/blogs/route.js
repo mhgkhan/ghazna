@@ -72,7 +72,7 @@ export async function GET(request) {
         }
 
         // fetching the categories 
-        const allCategories = await BlogPostModel.find({}, { category: 1 });
+        const allCategories = await BlogPostModel.find({isHidden:false}, { category: 1 });
         const data = {
             categories: allCategories,
             blogs: Blogs
