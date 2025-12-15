@@ -11,6 +11,7 @@ export default function Footer() {
             <div className="pages flex gap-4">
               <Link href={'/privacy-policy'} className="text-sm text-white hover:underline">Privacy policy</Link>
               <Link href={'/termsandconditions'} className="text-sm text-white hover:underline">Terms & Conditions  </Link>
+              <Link href={'/sitemap.xml'} className="text-sm text-white hover:underline">Sitemap  </Link>
             </div>
           </div>
           <div className="socialmedias flex gap-2">

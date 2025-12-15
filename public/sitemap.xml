@@ -1,63 +1,192 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>https://ghazna.vercel.app/</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>1.00</priority>
+  <loc>https://ghazna.vercel.app/</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/blog</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/blog</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/privacy-policy</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/privacy-policy</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/termsandconditions</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/termsandconditions</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/projects</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/projects</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/plans/webdevelopment</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/plans/webdevelopment</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/plans/dataentry</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/plans/dataentry</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/plans/graphicdesigning</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/plans/graphicdesigning</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/plans/printing</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ghazna.vercel.app/plans/printing</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/blog/500-essential-mcqs-for-medical-sciences-students-%E2%80%93-from-basics-to-advanced-1751181117682</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://ghazna.vercel.app/blog?category=education</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/blog/exploring-tirah-valley:-hidden-beauty-of-khyber-pakhtunkhwa-1749013682778</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://ghazna.vercel.app/blog?category=travel</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>https://ghazna.vercel.app/blog/top-100-multiple-choice-questions-on-computer,-mathematics,-and-general-knowledge-1748773981717</loc>
-<lastmod>2025-08-23T06:35:05+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://ghazna.vercel.app/blog?category=business</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
+<url>
+  <loc>https://ghazna.vercel.app/blog?category=technology</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog?category=jobs</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Bla</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Etc</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Jobs</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Tech</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Html</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Js</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Python</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Jquery</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/tags/Node</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog?startfrom=latest</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog?startfrom=popular</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog?startfrom=today</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/kppsc-junior-scale-stenographer-jobs-2025:-eligibility,-application-process,-and-deadlines-1765601149289</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/best-laptops-to-buy-in-2025-%E2%80%94-top-picks-for-apple,-hp,-thinkpad,-dell-&amp;-lenovo-(by-processor-&amp;-use-case)-1764651409477</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/50-mixed-general-knowledge-mcqs-for-pakistani-competitive-exams-(with-answers)-1764585059143</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/download-microsoft-office-(2010%E2%80%932024)-%E2%80%93-free-lifetime-activated-versions-1761041219623</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/best-budget-smartphones-for-gaming-in-2025-%E2%80%93-top-affordable-choices-for-gamers-1756708565733</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/download-embarcadero-dev-c++-(latest-version-6.3)-%E2%80%93-free-c++-compiler-1756540535492</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/12-freelancing-platforms-in-2025:-the-best-sites-to-find-work-fast-1756018315127</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/500-essential-mcqs-for-medical-sciences-students-%E2%80%93-from-basics-to-advanced-1751181117682</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/exploring-tirah-valley:-hidden-beauty-of-khyber-pakhtunkhwa-1749013682778</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ghazna.vercel.app/blog/top-100-multiple-choice-questions-on-computer,-mathematics,-and-general-knowledge-1748773981717</loc>
+  <lastmod>2025-12-15T15:47:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
