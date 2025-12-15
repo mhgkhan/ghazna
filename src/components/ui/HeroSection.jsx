@@ -24,7 +24,7 @@ const HeroSection = async ({ visitorss }) => {
                         </div>
                         <div className="md:my-10 my-7 flex items-center justify-start md:gap-10 gap-5">
                             <div className="block">
-                                <h2 className="md:text-3xl text-xl font-bold">3 Years</h2>
+                                <h2 className="md:text-3xl text-xl font-bold">2 Years</h2>
                                 <p className="dark:text-gray-300 text-gray-600 my-2">Experience</p>
                             </div>
                             <div className="block">
