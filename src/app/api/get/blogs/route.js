@@ -13,7 +13,6 @@ export async function GET(request) {
         let category = searchParams.get('category') || null;
         const startfrom = searchParams.get('startfrom') || null;
 
-        console.log(category, startfrom);
 
         let Blogs;
 
@@ -38,14 +37,14 @@ export async function GET(request) {
 
             if (startfrom === "today") {
                 Blogs = await BlogPostModel.find({
-                    createdAt: new Date().toLocaleDateString(),
+                    publishedAt: new Date().toISOString(),
                     isPublished: true, isHidden: false
                 }).select("-content -isPublished -__v -updatedAt").lean();
             }
             if (startfrom == "popular") {
                 Blogs = await BlogPostModel.find({
                     isPublished: true, isHidden: false
-                }).sort({ tempViews: -1 })
+                }).sort({ tempViews: 1, createdAt: -1 })
             }
             if (startfrom == "latest") {
                 Blogs = await BlogPostModel.find({
@@ -65,14 +64,12 @@ export async function GET(request) {
             Blogs = await BlogPostModel.find({ isPublished: true, isHidden: false }).sort({ createdAt: -1 }).select("-content -isPublished -__v -updatedAt").lean();
         }
 
-        console.log("Blogs fetched with filters - Category:", category, "Start From:", startfrom);
-        console.log("All Blogs are ", Blogs.length)
         if (!Blogs || Blogs.length === 0) {
             return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", []);
         }
 
         // fetching the categories 
-        const allCategories = await BlogPostModel.find({isHidden:false}, { category: 1 });
+        const allCategories = await BlogPostModel.find({ isHidden: false }, { category: 1 });
         const data = {
             categories: allCategories,
             blogs: Blogs
@@ -80,7 +77,6 @@ export async function GET(request) {
         return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", data);
 
     } catch (error) {
-        console.error("Error fetching blogs:", error);
         return sendNormalResponse(false, 500, "Internal Server Error", error.message);
     }
 }
