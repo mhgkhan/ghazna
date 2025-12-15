@@ -15,7 +15,7 @@
     "dompurify": "^3.2.4",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.12.1",
-    "next": "15.1.6",
+    "next": "15.1.11",
     "nodemailer": "^6.10.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
