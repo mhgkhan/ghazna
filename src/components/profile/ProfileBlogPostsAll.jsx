@@ -104,7 +104,7 @@ const ProfileBlogPostsAll = () => {
                 </div>
             </div>
 
-            <div className={`blogs-container ${isGrid?"flex items-center justify-center flex-col":"flex items-center justify-center gap-5 flex-wrap"} my-5`}>
+            <div className={`blogs-container ${!isGrid?"flex items-center justify-center flex-col":"flex items-center justify-center gap-5 flex-wrap"} my-5`}>
 
                 {
                     loading ? <Loading /> : userBlogs ? userBlogs.length > 0 ? userBlogs && userBlogs.map((blog, ind) => {
