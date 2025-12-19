@@ -96,7 +96,7 @@ const page = async ({ searchParams }) => {
 
       {/* <SortBlogs /> */}
 
-      <div className=" blogs-all-container mx-auto my-10 flex items-start justify-between gap-5 md:flex-row flex-col-reverse container">
+      <div className=" blogs-all-container mx-auto my-10 flex items-start justify-start gap-5 md:flex-row flex-col-reverse container">
 
 
         {/* sidebar for blogposts filter  */}
