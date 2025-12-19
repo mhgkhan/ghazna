@@ -26,7 +26,7 @@ const ProfileBlogPostCard = ({isGrid, img, title, description, slug, deleteBlog,
 
     return (
 
-        <div ref={ref} className={`blog-card ${!isGrid?"md:w-[100%] w-[100%] flex items-center justify-start gap-10":"md:w-[400px] w-[350px]"} h-auto  shadow-md shadow-gray-400 rounded-lg p-1`}>
+        <div ref={ref} className={`blog-card ${!isGrid?"md:w-[100%] w-[100%] flex items-center justify-start md:gap-10 gap-3":"md:w-[400px] w-[350px]"} h-auto  shadow-md shadow-gray-400 rounded-lg p-1`}>
             <Image src={(img == "null" || img==null || img==undefined)?"/images/hero.jpg":img} width={300} alt='profile pic' height={370} className={`rounded-lg ${!isGrid?"md:w-[200px] w-[100px]":"w-full h-[200px]"} object-fill`} />
             <div className="w-full px-2">
                 <h3 className='text-2xl font-bold mt-5'>{title.length > 20 ? title.substring(0, 20) : title}</h3>
