@@ -44,7 +44,7 @@ export async function GET(request) {
             if (startfrom == "popular") {
                 Blogs = await BlogPostModel.find({
                     isPublished: true, isHidden: false
-                }).sort({ tempViews: 1 })
+                }).sort({ tempViews: -1 }).limit(5)
             }
             if (startfrom == "latest") {
                 Blogs = await BlogPostModel.find({
