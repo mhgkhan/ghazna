@@ -44,7 +44,7 @@ export async function GET(request) {
             if (startfrom == "popular") {
                 Blogs = await BlogPostModel.find({
                     isPublished: true, isHidden: false
-                }).sort({ tempViews: 1, createdAt: -1 })
+                }).sort({ tempViews: 1})
             }
             if (startfrom == "latest") {
                 Blogs = await BlogPostModel.find({
@@ -64,16 +64,18 @@ export async function GET(request) {
             Blogs = await BlogPostModel.find({ isPublished: true, isHidden: false }).sort({ createdAt: -1 }).select("-content -isPublished -__v -updatedAt").lean();
         }
 
-        if (!Blogs || Blogs.length === 0) {
-            return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", []);
-        }
-
-        // fetching the categories 
+         // fetching the categories 
         const allCategories = await BlogPostModel.find({ isHidden: false }, { category: 1 });
         const data = {
             categories: allCategories,
             blogs: Blogs
         }
+
+        if (!Blogs || Blogs.length === 0) {
+            return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", data);
+        }
+
+       
         return sendNormalResponse(true, 200, "Blogs Retrieved Successfully", data);
 
     } catch (error) {
