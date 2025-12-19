@@ -32,7 +32,7 @@ const ProfileBlogPostCard = ({isGrid, img, title, description, slug, deleteBlog,
                 <h3 className='text-2xl font-bold mt-5'>{title.length > 20 ? title.substring(0, 20) : title}</h3>
                 <p className='dark:text-gray-200 text-gray-700 my-2'>{description.length > 60 ? description.substring(0, 60) : description}</p>
             </div>
-            <div className="action-buttons flex px-3 items-center justify-between gap-3 mb-0 border-t border-gray-300">
+            <div className={`action-buttons flex px-3 items-center justify-between ${!isGrid?"flex-wrap":""} gap-3 mb-0 border-t border-gray-300`}>
                 <FormsButton icon={<FaBookOpen />} clickFun={() => router.push(`/blog/${slug}`)} />
                 <FormsButton icon={<FaEdit />} clickFun={()=> router.push(`/profile/blogs/edit/${slug}`)}  />
                 <FormsButton icon={<FaTrash />} clickFun={() => delteBlogFunction(id, index)} />
