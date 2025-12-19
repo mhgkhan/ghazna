@@ -52,7 +52,7 @@ const ProfileBlogPostsAll = () => {
                 method: "DELETE",
             });
             const response = await request.json();
-            console.log(response);
+            // console.log(response);
             if (!response.success) {
                 setError(response.message);
                 return;
@@ -63,9 +63,12 @@ const ProfileBlogPostsAll = () => {
         }
     }
 
+
+
+
     const hideUnhideBlog = async (id, index, action) => {
         console.log("Hiding/Unhiding blog with id: ", id, "Action: ", action);
-          try {
+        try {
             // setLoading(true)
             const request = await fetch(`/api/users/profile/blog-actions/${id}`, {
                 method: "PATCH",
@@ -100,9 +103,9 @@ const ProfileBlogPostsAll = () => {
             <div className="blogs-container flex items-center justify-center gap-5 flex-wrap my-5">
 
                 {
-                    loading ? <Loading /> : userBlogs? userBlogs.length > 0 ? userBlogs && userBlogs.map((blog, ind) => {
+                    loading ? <Loading /> : userBlogs ? userBlogs.length > 0 ? userBlogs && [sorted ? userBlogs.reverse() : userBlogs].map((blog, ind) => {
                         return <ProfileBlogPostCard hideUnhideBlog={hideUnhideBlog} isHidden={blog.isHidden} isPublished={blog.isPublished} id={blog._id} index={ind} slug={blog.slug} key={ind} img={blog.image} title={blog.title} description={blog.description} deleteBlog={deleteBlog} />
-                    }) :<h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>: <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
+                    }) : <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1> : <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
                 }
 
 
