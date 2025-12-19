@@ -104,11 +104,11 @@ const ProfileBlogPostsAll = () => {
                 </div>
             </div>
 
-            <div className="blogs-container flex items-center justify-center gap-5 flex-wrap my-5">
+            <div className={`blogs-container ${isGrid?"flex items-center justify-center flex-col":"flex items-center justify-center gap-5 flex-wrap"} my-5`}>
 
                 {
                     loading ? <Loading /> : userBlogs ? userBlogs.length > 0 ? userBlogs && userBlogs.map((blog, ind) => {
-                        return <ProfileBlogPostCard hideUnhideBlog={hideUnhideBlog} isHidden={blog.isHidden} isPublished={blog.isPublished} id={blog._id} index={ind} slug={blog.slug} key={ind} img={blog.image} title={blog.title} description={blog.description} deleteBlog={deleteBlog} />
+                        return <ProfileBlogPostCard isGrid={isGrid} hideUnhideBlog={hideUnhideBlog} isHidden={blog.isHidden} isPublished={blog.isPublished} id={blog._id} index={ind} slug={blog.slug} key={ind} img={blog.image} title={blog.title} description={blog.description} deleteBlog={deleteBlog} />
                     }) : <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1> : <h1 className='text-2xl text-red-500 font-bold'>No blogs found</h1>
                 }
 
