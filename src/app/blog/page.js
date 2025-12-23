@@ -146,10 +146,11 @@ const page = async ({ searchParams }) => {
 
         <section className="flex flex-col gap-4">
           {/* start from filter  */}
-          <div className="py-1 px-1 border-1 border border-gray-400 rounded-md flex items-center justify-start gap-3">
+          <div className="py-1 px-1 border-1 border-b border-gray-400 rounded-md flex items-center justify-start gap-3 md:w-fit w-full ">
 
             {
-              Array.from(["Latest", "Popular", "Today"]).map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full my-2 rounded-lg p-2 dark:bg-gray-400 dark:text-white text-center bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
+              // Array.from(["Latest", "Popular","Today"]).map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full md:w-auto my-2 rounded-lg p-2 dark:bg-gray-400 dark:text-white text-center bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
+              Array.from(["Latest", "Popular"]).map((ele, ind) => <Link href={`/blog?startfrom=${ele.toLowerCase()}`} key={ind} className=" blck filter-radio w-full md:w-auto my-2 rounded-lg p-2 dark:bg-gray-400 dark:text-white text-center bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
             }
           </div>
 
