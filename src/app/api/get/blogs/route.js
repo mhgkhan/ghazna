@@ -41,12 +41,13 @@ export async function GET(request) {
                     isPublished: true, isHidden: false
                 }).select("-content -isPublished -__v -updatedAt").lean();
             }
-            if (startfrom === "popular") {
+            else if (startfrom === "popular") {
+                
                 Blogs = await BlogPostModel.find({
                     isPublished: true, isHidden: false
-                }).sort({ tempViews: -1 }).limit(5)
+                }).sort({ tempViews: -1, createdAt:-1 }).limit(5)
             }
-            if (startfrom === "latest") {
+            else if (startfrom === "latest") {
                 Blogs = await BlogPostModel.find({
                     isPublished: true, isHidden: false
                 }).sort({ createdAt: -1 })

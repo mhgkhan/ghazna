@@ -80,7 +80,11 @@ const page = async ({ searchParams }) => {
 
   const params = await searchParams;
   // console.log(params);
+
+
   const blogs = await fetchBlogs({ category: params.category ?? null, startfrom: params.startfrom ?? null });
+  console.log(blogs);
+  
   const categories = !blogs.categories ? [] : [...new Set(blogs?.categories.map(ele => ele.category))]
 
 
