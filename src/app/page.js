@@ -60,11 +60,9 @@ export default async function Home(req) {
 
   const ip = userHeaders.get("x-forwarded-for") || userHeaders.get("remote-addr") || userHeaders.get("cf-connecting-ip") || userHeaders.get("x-real-ip") || userHeaders.get("x-client-ip") || "unknown";
 
-  if(process.env.NODE_ENV == "production"){
     const runVisitorFunction = await fetchVisitors(ip)
-  }
 
-  
+
   return (
     <article className="page">
       {/* Hero Section  */}
