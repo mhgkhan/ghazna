@@ -1,6 +1,7 @@
 import HeadingSection from '@/components/ui/HeadingSection'
 import Image from 'next/image';
 import React from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 
 export const metadata = {
@@ -38,7 +39,7 @@ const page = async ({ params }) => {
         </div>
       </section>
 
-      <br />
+      <br /> 
       <br />
 
       {
@@ -277,22 +278,32 @@ const page = async ({ params }) => {
               {
                 Array.from([
                   {
-                    title: "Basic Prints",
-                    features: ["100 Business Cards or Flyers", "Standard Paper", "Basic Design Included"],
-                    pricing: { exact: 1500, prev: 2000 },
-                    image: "/images/plans/printing.png"
+                    title: "Photocopies BK",
+                    features: ["Clean Copies", "Best Page (Copymate)", "Fast Service"," Black & White", "Any Size", "Single Sided", "Unlimited Pages", "Per Page Pricing"],
+                    pricing: { exact: 10, prev: 20 },
+                    image: "/images/plans/printing/cp.png",
+                    whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Photocopies%20BK%20printing%20plan."
                   },
                   {
-                    title: "Standard Prints",
-                    features: ["100 Color Brochures or Posters", "Premium Quality Print", "Design & Proofing"],
-                    pricing: { exact: 3500, prev: 5000 },
-                    image: "/images/plans/printing.png"
+                    title: "Color Printing",
+                    features: ["Clean Color Prints", "High Quality","A4,Legal,Double A Page", "Fast Service", "Any Size", "Double Sided", "Unlimited Pages", "Per Page Pricing"],
+                    pricing: { exact: 30, prev: 40 },
+                    image: "/images/plans/printing/printer.png",
+                    whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Color%20Printing%20plan."
                   },
                   {
-                    title: "Premium Bulk Printing",
-                    features: ["500+ Items", "Custom Material (Glossy, Matte)", "Design + Fast Delivery"],
-                    pricing: { exact: 7000, prev: 10000 },
-                    image: "/images/plans/printing.png"
+                    title: "Images, Sticker, Certificate Printings",
+                    features: ["Passport size image printing", "Full size image printing", "Certificate printing", "High Quality", "Fast Service"],
+                    pricing: { exact: 120, prev: 150 },
+                    image: "/images/plans/printing/images.png",
+                    whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Images,%20Sticker,%20Certificate%20Printings%20plan."
+                  },
+                  {
+                    title: "PVC Card, Student, Service Cards",
+                    features: ["High-quality PVC card printing", "Student Card","Service Card","Passing Card","Durable and professional finish", "Custom designs available", "Fast Service"],
+                    pricing: { exact: 200, prev: 250 },
+                    image: "/images/plans/printing/cards.png",
+                    whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20PVC%20Card,%20Student,%20Service%20Cards%20printing%20plan."
                   }
                 ]).map((ele, ind) => {
 
@@ -319,8 +330,11 @@ const page = async ({ params }) => {
                       <div className="Pricing my-1">
                         <h4 className='text-lg text-pink-600 font-bold my-2'>Pricing</h4>
                         <div className="flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center justify-between flex-wrap gap-3">
                           <span className="dark:text-white text-black text-sm">PKR {ele.pricing.exact}</span>
-                          <span className="dark:text-gray-400 line-through text-sm">PKR {ele.pricing.prev}</span>
+                          <span className="dark:text-gray-400 text-gray-500 line-through text-sm">PKR {ele.pricing.prev}</span>
+                        </div>
+                        <a href={ele.whatsappLink} className="md:text-5xl text-3xl text-green-500 mx-2"> <FaWhatsapp /> </a>
                         </div>
                       </div>
 
