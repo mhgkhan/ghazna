@@ -50,7 +50,7 @@ h6 {
 
 
 .pricinglist{
-  list-style: "✔ .";
+  list-style: "✔ ";
   list-style-position: inside;
 
   /* line-height-step: 5; */

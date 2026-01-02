@@ -5,13 +5,13 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 
 export const metadata = {
-    title:"Our Plans || Services Pricing",
-    description: "Explore our plans and pricing for services. Find the perfect plan that suits your needs with transparent pricing and detailed features.",
-    keywords: ["plans", "pricing", "services", "subscription plans", "service pricing", "affordable plans"],
-    author: "Your Company Name",
-    viewport: "width=device-width, initial-scale=1.0",
-    canonical: "https://ghazna.ercel.app/plans",
-     robots: {
+  title: "Our Plans || Services Pricing",
+  description: "Explore our plans and pricing for services. Find the perfect plan that suits your needs with transparent pricing and detailed features.",
+  keywords: ["plans", "pricing", "services", "subscription plans", "service pricing", "affordable plans"],
+  author: "Your Company Name",
+  viewport: "width=device-width, initial-scale=1.0",
+  canonical: "https://ghazna.ercel.app/plans",
+  robots: {
     index: true,
     follow: true,
   },
@@ -39,7 +39,7 @@ const page = async ({ params }) => {
         </div>
       </section>
 
-      <br /> 
+      <br />
       <br />
 
       {
@@ -198,37 +198,53 @@ const page = async ({ params }) => {
                 Array.from(
                   [
                     {
-                      title: "Basic Entry",
+                      title: "Online Data Entry",
                       features: [
-                        "Up to 50 Entries",
-                        "Excel or Google Sheets",
-                        "Simple Formatting"
+                        "Google Docs data entry",
+                        "Google Sheets data entry",
+                        "Online form filling",
+                        "Web portal data entry",
+                        "CRM / CMS data entry",
+                        "Copy-paste & manual entry",
+                        "Real-time collaboration"
                       ],
-                      pricing: { exact: 500, prev: 800 },
-                      image: "/images/plans/dataentry.png",
-                      link: "/contact?service=data-basic"
+                      pricing: { exact: 600, prev: 800 },
+                      image: "/images/plans/dataentry/online.jpg",
+                      link: "/contact?service=data-basic",
+                      whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Online%20Data%20Entry%20plan."
                     },
                     {
-                      title: "Standard Entry",
+                      title: "Smart Data Management",
                       features: [
-                        "Up to 200 Entries",
-                        "Formatted Tables",
-                        "Verified Accuracy"
+                        "Data cleaning & formatting",
+                        "Duplicate removal",
+                        "Data sorting & filtering",
+                        "Basic Excel formulas",
+                        "Google Sheets automation",
+                        "File organization",
+                        "Backup & version control",
+                        "Quality assurance & error checking"
                       ],
-                      pricing: { exact: 1500, prev: 2000 },
-                      image: "/images/plans/dataentry.png",
-                      link: "/contact?service=data-standard"
+                      pricing: { exact: 2000, prev: 3000 },
+                      image: "/images/plans/dataentry/management.jpg",
+                      link: "/contact?service=data-standard",
+                      whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Smart%20Data%20Management%20plan."
                     },
                     {
-                      title: "Premium Entry + Analysis",
+                      title: "Offline Data Entry",
                       features: [
-                        "500+ Entries",
-                        "Data Cleaning & Sorting",
-                        "Chart & Report Generation"
+                        "Handwritten & printed documents",
+                        "MS Word document typing",
+                        "MS Excel data entry",
+                        "MS Access entries",
+                        "PDF to Word / Excel conversion",
+                        "Scanned document typing",
+                        "Formatting & alignment included"
                       ],
-                      pricing: { exact: 3000, prev: 4500 },
-                      image: "/images/plans/dataentry.png",
-                      link: "/contact?service=data-premium"
+                      pricing: { exact: 250, prev: 500 },
+                      image: "/images/plans/dataentry/offline.jpg",
+                      link: "/contact?service=data-premium",
+                      whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Offline%20Data%20Entry%20plan."
                     }
                   ]
                 ).map((ele, ind) => {
@@ -254,10 +270,13 @@ const page = async ({ params }) => {
 
                       <hr />
                       <div className="Pricing my-1">
-                        <h4 className='text-lg text-pink-600 font-bold my-2'>Pricing</h4>
+                        <h4 className='text-lg text-pink-600 font-bold my-2'>Pricing By Hour/Page</h4>
+                        <div className="flex items-center justify-between flex-wrap gap-3">
                         <div className="flex items-center justify-between flex-wrap gap-3">
                           <span className="dark:text-white text-black text-sm">PKR {ele.pricing.exact}</span>
                           <span className="dark:text-gray-400 line-through text-sm">PKR {ele.pricing.prev}</span>
+                        </div>
+                          <a href={ele.whatsappLink} className="md:text-5xl text-3xl text-green-500 mx-2"> <FaWhatsapp /> </a>
                         </div>
                       </div>
 
@@ -279,14 +298,14 @@ const page = async ({ params }) => {
                 Array.from([
                   {
                     title: "Photocopies BK",
-                    features: ["Clean Copies", "Best Page (Copymate)", "Fast Service"," Black & White", "Any Size", "Single Sided", "Unlimited Pages", "Per Page Pricing"],
+                    features: ["Clean Copies", "Best Page (Copymate)", "Fast Service", " Black & White", "Any Size", "Single Sided", "Unlimited Pages", "Per Page Pricing"],
                     pricing: { exact: 10, prev: 20 },
                     image: "/images/plans/printing/cp.png",
                     whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Photocopies%20BK%20printing%20plan."
                   },
                   {
                     title: "Color Printing",
-                    features: ["Clean Color Prints", "High Quality","A4,Legal,Double A Page", "Fast Service", "Any Size", "Double Sided", "Unlimited Pages", "Per Page Pricing"],
+                    features: ["Clean Color Prints", "High Quality", "A4,Legal,Double A Page", "Fast Service", "Any Size", "Double Sided", "Unlimited Pages", "Per Page Pricing"],
                     pricing: { exact: 30, prev: 40 },
                     image: "/images/plans/printing/printer.png",
                     whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20Color%20Printing%20plan."
@@ -300,7 +319,7 @@ const page = async ({ params }) => {
                   },
                   {
                     title: "PVC Card, Student, Service Cards",
-                    features: ["High-quality PVC card printing", "Student Card","Service Card","Passing Card","Durable and professional finish", "Custom designs available", "Fast Service"],
+                    features: ["High-quality PVC card printing", "Student Card", "Service Card", "Passing Card", "Durable and professional finish", "Custom designs available", "Fast Service"],
                     pricing: { exact: 200, prev: 250 },
                     image: "/images/plans/printing/cards.png",
                     whatsappLink: "https://wa.me/923275575094?text=I%20am%20interested%20in%20the%20PVC%20Card,%20Student,%20Service%20Cards%20printing%20plan."
@@ -328,13 +347,13 @@ const page = async ({ params }) => {
 
                       <hr />
                       <div className="Pricing my-1">
-                        <h4 className='text-lg text-pink-600 font-bold my-2'>Pricing</h4>
+                        <h4 className='text-lg text-pink-600 font-bold my-2'>Pricing Per Item</h4>
                         <div className="flex items-center justify-between flex-wrap gap-3">
-                        <div className="flex items-center justify-between flex-wrap gap-3">
-                          <span className="dark:text-white text-black text-sm">PKR {ele.pricing.exact}</span>
-                          <span className="dark:text-gray-400 text-gray-500 line-through text-sm">PKR {ele.pricing.prev}</span>
-                        </div>
-                        <a href={ele.whatsappLink} className="md:text-5xl text-3xl text-green-500 mx-2"> <FaWhatsapp /> </a>
+                          <div className="flex items-center justify-between flex-wrap gap-3">
+                            <span className="dark:text-white text-black text-sm">PKR {ele.pricing.exact}</span>
+                            <span className="dark:text-gray-400 text-gray-500 line-through text-sm">PKR {ele.pricing.prev}</span>
+                          </div>
+                          <a href={ele.whatsappLink} className="md:text-5xl text-3xl text-green-500 mx-2"> <FaWhatsapp /> </a>
                         </div>
                       </div>
 
