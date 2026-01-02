@@ -9,12 +9,12 @@ import LinkButton from './buttonsandlinks/LinkButton';
 const Services = () => {
 
     const [leftServices, setLeftServices] = useState([
-        { title: "Web Development", link: "/plans/webdevelopment/" },
         { title: "Data Entry", link: "/plans/dataentry" },
+        { title: "Web Development", link: "/plans/webdevelopment/" },
     ]);
     const [rightServices, setRightServices] = useState([
-        { title: "Graphic Designing", link: "/plans/graphicdesigning" },
         { title: "Printing Studio" , link:"/plans/printing"},
+        { title: "Graphic Designing", link: "/plans/graphicdesigning" },
     ]);
 
     const [height, setHeight] = useState(100 * (leftServices.length + rightServices.length));
