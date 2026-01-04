@@ -21,7 +21,7 @@ const headingsFont = Poppins({
 
 
 export const metadata = {
-  metadataBase: new URL("https://ghazna.vercel.app"),
+  metadataBase: new URL("https://ghazna.online"),
   title: "Muhammad Hasnain Ghazna | Full-Stack Web Developer & Portfolio",
   description:
     "Portfolio of Muhammad Hasnain (Ghazna), a full-stack web developer skilled in MERN, Next.js & Node.js, showcasing projects and blogs.",
@@ -39,11 +39,11 @@ export const metadata = {
     title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
     description:
       "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
-    url: "https://ghazna.vercel.app",
+    url: "https://ghazna.online",
     siteName: "Ghazna Portfolio",
     images: [
       {
-        url: "https://ghazna.vercel.app/images/hero.jpg",
+        url: "https://ghazna.online/images/hero.jpg",
         width: 1200,
         height: 630,
         alt: "Muhammad Hasnain Ghazna Portfolio",
@@ -58,13 +58,13 @@ export const metadata = {
     title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
     description:
       "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
-    images: ["https://ghazna.vercel.app/images/hero.jpg"],
+    images: ["https://ghazna.online/images/hero.jpg"],
     site: "@ghaznadev",
     creator: "@ghaznadev",
   },
 
   alternates: {
-    canonical: "https://ghazna.vercel.app",
+    canonical: "https://ghazna.online",
   },
 
   robots: {
@@ -93,7 +93,6 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
 
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -101,7 +100,7 @@ export default async function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
-              url: "https://ghazna.vercel.app",
+              url: "https://ghazna.online",
               description:
                 "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
               publisher: {
@@ -110,13 +109,13 @@ export default async function RootLayout({ children }) {
               },
               image: {
                 "@type": "ImageObject",
-                url: "https://ghazna.vercel.app/images/hero.jpg",
+                url: "https://ghazna.online/images/hero.jpg",
                 width: 1200,
                 height: 630,
               },
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://ghazna.vercel.app/search?q={search_term_string}",
+                target: "https://ghazna.online/search?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),
