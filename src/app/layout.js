@@ -26,7 +26,7 @@ export const metadata = {
   description:
     "Portfolio of Muhammad Hasnain (Ghazna), a full-stack web developer skilled in MERN, Next.js & Node.js, showcasing projects and blogs.",
   keywords: [
-    "ghazna", "ghazna.vercel.app", "ghazna dev", "muhammad hasnain", "ghazna khan",
+    "ghazna", "https://ghazna.online", "ghazna dev", "muhammad hasnain", "ghazna khan",
     "hasnain", "hasnain ghazna", "hasnain dev", "hasnain ghazna dev",
     "Muhammad Hasnain Ghazna", "Web Developer", "Fullstack Developer",
     "React Developer", "JavaScript Developer", "Portfolio", "Web Development Blog"
