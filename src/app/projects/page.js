@@ -30,7 +30,7 @@ export const metadata = {
         creator: "@ghazna",
     },
     alternates: {
-        canonical: "https://ghazna.online/projects",
+        canonical: "https://ghazna.vercel.app/projects",
     },
 };
 

@@ -14,7 +14,7 @@ export const metadata = {
     viewport: "width=device-width, initial-scale=1.0",
     charset: "UTF-8",
      alternates: {
-    canonical: "https://ghazna.online/privacy-policy",
+    canonical: "https://ghazna.vercel.app/privacy-policy",
   },
 }
 

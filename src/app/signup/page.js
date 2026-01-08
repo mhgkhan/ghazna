@@ -13,7 +13,7 @@ export const metadata = {
     follow: true,
   },
     viewport: "width=device-width, initial-scale=1.0",
-    canonical: "https://ghazna.online/signup"
+    canonical: "https://ghazna.vercel.app/signup"
 }
 
 

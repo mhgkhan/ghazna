@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /profile
 Disallow: /profile/
 Allow: /
-Sitemap: https://ghazna.online/sitemap.xml
+Sitemap: https://ghazna.vercel.app/sitemap.xml
