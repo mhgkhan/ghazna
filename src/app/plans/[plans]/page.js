@@ -5,7 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 
 export const metadata = {
-  title: "Our Plans || Services Pricing",
+  title: "Our Plans Services Pricing | Ghazna Dev",
   description: "Explore our plans and pricing for services. Find the perfect plan that suits your needs with transparent pricing and detailed features.",
   keywords: ["plans", "pricing", "services", "subscription plans", "service pricing", "affordable plans"],
   author: "Your Company Name",

@@ -21,12 +21,12 @@ const headingsFont = Poppins({
 
 
 export const metadata = {
-  metadataBase: new URL("https://https://ghazna.vercel.app/"),
-  title: "Muhammad Hasnain Ghazna | Full-Stack Web Developer & Portfolio",
+  metadataBase: new URL("https://ghazna.vercel.app/"),
+  title: "Muhammad Hasnain Ghazna | Ghazna Dev",
   description:
     "Portfolio of Muhammad Hasnain (Ghazna), a full-stack web developer skilled in MERN, Next.js & Node.js, showcasing projects and blogs.",
   keywords: [
-    "ghazna", "https://https://ghazna.vercel.app/", "ghazna dev", "muhammad hasnain", "ghazna khan",
+    "ghazna", "https://ghazna.vercel.app/", "ghazna dev", "muhammad hasnain", "ghazna khan",
     "hasnain", "hasnain ghazna", "hasnain dev", "hasnain ghazna dev",
     "Muhammad Hasnain Ghazna", "Web Developer", "Fullstack Developer",
     "React Developer", "JavaScript Developer", "Portfolio", "Web Development Blog"
@@ -36,10 +36,10 @@ export const metadata = {
   publisher: "Ghazna Dev",
 
   openGraph: {
-    title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+    title: "Ghazna Dev | Muhammad Hasnain Ghazna | Fullstack Web Developer",
     description:
       "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
-    url: "https://https://ghazna.vercel.app/",
+    url: "https://ghazna.vercel.app/",
     siteName: "Ghazna Portfolio",
     images: [
       {
@@ -55,7 +55,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+    title: "Ghazna Dev | Muhammad Hasnain Ghazna | Fullstack Web Developer",
     description:
       "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
     images: ["https://ghazna.vercel.app/images/hero.jpg"],
@@ -64,7 +64,7 @@ export const metadata = {
   },
 
   alternates: {
-    canonical: "https://https://ghazna.vercel.app/",
+    canonical: "https://ghazna.vercel.app/",
   },
 
   robots: {
@@ -99,8 +99,8 @@ export default async function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Ghazna | Muhammad Hasnain Ghazna | Fullstack Web Developer",
-              url: "https://https://ghazna.vercel.app/",
+              name: "Ghazna Dev | Muhammad Hasnain Ghazna | Fullstack Web Developer",
+              url: "https://ghazna.vercel.app/",
               description:
                 "Explore the portfolio and blog of Muhammad Hasnain Ghazna, a skilled fullstack web developer specializing in modern web technologies.",
               publisher: {

@@ -22,10 +22,17 @@ const fetchBlogs = async function (params) {
 
 
 export const metadata = {
-  title: "Blog | Explore the Latest Blogs and Articles on the Modern World",
+  title: "Blog | Ghazna Dev",
   description:
     "Discover insightful blogs and articles about the modern world. Stay updated with the latest trends, ideas, and innovations.",
   keywords: [
+    "ghazna Blog",
+    "ghazna dev blog",
+    "ghazna dev blogs",
+    "ghazna blogs",
+    "muhamad hasnain blog",
+    "muhamad hasnain ghazna blog",
+    "hasnain ghazna blog",
     "blogs",
     "articles",
     "modern world",
@@ -47,7 +54,7 @@ export const metadata = {
     canonical: "https://ghazna.vercel.app/blog",
   },
   openGraph: {
-    title: "Blog | Explore the Latest Blogs and Articles on the Modern World",
+    title: "Blog | Ghazna Dev",
     description:
       "Discover insightful blogs and articles about the modern world. Stay updated with the latest trends, ideas, and innovations.",
     url: "https://ghazna.vercel.app/blog",
@@ -59,13 +66,13 @@ export const metadata = {
         url: "https://ghazna.vercel.app/images/myProfile.png", // ✅ replace with your blog banner image
         width: 1200,
         height: 630,
-        alt: "Latest Blogs and Articles on the Modern World",
+        alt: "Ghazna Dev Latest Blogs and Articles on the Modern World",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Explore the Latest Blogs and Articles on the Modern World",
+    title: "Blog | Ghazna Dev",
     description:
       "Stay updated with the latest blogs, trends, and innovations from the modern world. Read insightful articles on tech, ideas, and more.",
     images: ["https://ghazna.vercel.app/images/myProfile.jpg"], // ✅ same image
@@ -83,8 +90,8 @@ const page = async ({ searchParams }) => {
 
 
   const blogs = await fetchBlogs({ category: params.category ?? null, startfrom: params.startfrom ?? null });
-  console.log(blogs);
-  
+  // console.log(blogs);
+
   const categories = !blogs.categories ? [] : [...new Set(blogs?.categories.map(ele => ele.category))]
 
 
@@ -129,7 +136,7 @@ const page = async ({ searchParams }) => {
           <div className="my-2 py-2 px-1 rounded-md flex items-center justify-between flex-wrap ">
 
             {
-              Array.from(["Tag1", "Tag2","Tag3","Tag4","Tag5","Tag6"]).map((ele, ind) => <Link href={`/tags/${ele}`} key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
+              Array.from(["Tag1", "Tag2", "Tag3", "Tag4", "Tag5", "Tag6"]).map((ele, ind) => <Link href={`/tags/${ele}`} key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
             }
           </div>
 
