@@ -10,7 +10,7 @@ export const metadata = {
         index: true,
         follow: true,
     },
-     canonical: "https://ghazna.vercel.app/termsandconditions",
+     canonical: "https://ghazna.online/termsandconditions",
 }
 
 

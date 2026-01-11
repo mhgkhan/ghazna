@@ -4,7 +4,7 @@ Welcome to **Ghazna** — a personal portfolio and blog-level website crafted by
 
 ## 🚀 Live Demo
 
-Check out the deployed site: [https://ghazna.vercel.app/](https://ghazna.vercel.app/)
+Check out the deployed site: [https://ghazna.online/](https://ghazna.online/)
 
 ## 📦 Repository
 

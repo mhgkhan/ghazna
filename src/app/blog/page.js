@@ -51,19 +51,19 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://ghazna.vercel.app/blog",
+    canonical: "https://ghazna.online/blog",
   },
   openGraph: {
     title: "Blog | Ghazna Dev",
     description:
       "Discover insightful blogs and articles about the modern world. Stay updated with the latest trends, ideas, and innovations.",
-    url: "https://ghazna.vercel.app/blog",
+    url: "https://ghazna.online/blog",
     siteName: "Ghazna Blog",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://ghazna.vercel.app/images/myProfile.png", // ✅ replace with your blog banner image
+        url: "https://ghazna.online/images/myProfile.png", // ✅ replace with your blog banner image
         width: 1200,
         height: 630,
         alt: "Ghazna Dev Latest Blogs and Articles on the Modern World",
@@ -75,7 +75,7 @@ export const metadata = {
     title: "Blog | Ghazna Dev",
     description:
       "Stay updated with the latest blogs, trends, and innovations from the modern world. Read insightful articles on tech, ideas, and more.",
-    images: ["https://ghazna.vercel.app/images/myProfile.jpg"], // ✅ same image
+    images: ["https://ghazna.online/images/myProfile.jpg"], // ✅ same image
     site: "@ghaznadev", // replace if you have Twitter
     creator: "@ghaznadev",
   },

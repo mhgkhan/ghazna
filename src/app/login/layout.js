@@ -1,6 +1,6 @@
 
 export const metadata = {
-    metadataBase: new URL("https://ghazna.vercel.app/"),
+    metadataBase: new URL("https://ghazna.online/"),
     title: "Login | Ghazna Dev",
     description: "Login to your Ghazna Dev account to access exclusive features and content.",
     keywords: [
@@ -15,11 +15,11 @@ export const metadata = {
     openGraph: {
         title: "Login | Ghazna Dev",
         description: "Login to your Ghazna Dev account to access exclusive features and content.",
-        url: "https://ghazna.vercel.app/login",
+        url: "https://ghazna.online/login",
         siteName: "Ghazna Portfolio",
         images: [
             {
-                url: "https://ghazna.vercel.app/images/hero.jpg",
+                url: "https://ghazna.online/images/hero.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Muhammad Hasnain Ghazna Portfolio",
@@ -32,12 +32,12 @@ export const metadata = {
         card: "summary_large_image",
         title: "Login | Ghazna Dev",
         description: "Login to your Ghazna Dev account to access exclusive features and content.",
-        images: ["https://ghazna.vercel.app/images/hero.jpg"],
+        images: ["https://ghazna.online/images/hero.jpg"],
         site: "@ghaznadev",
         creator: "@ghaznadev",
     },
     alternates: {
-        canonical: "https://ghazna.vercel.app/login",
+        canonical: "https://ghazna.online/login",
     },
     robots: {
         index: true,

@@ -9,7 +9,7 @@ export const metadata = {
   keywords: ["login", "ghazna.dev", "user login", "account access", "authentication"],
   author: "Ghazna Dev Team",
   alternates: {
-    canonical: "https://ghazna.vercel.app/login",
+    canonical: "https://ghazna.online/login",
   },
   robots: {
     index: true,
