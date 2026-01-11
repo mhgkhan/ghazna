@@ -133,7 +133,7 @@ export default async function RootLayout({ children }) {
         {/* <meta name="msvalidate.01" content="73AD4F6854D89DF13F9CCC49174C42AB" /> */}
         {/* <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} /> */}
         <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
-        
+        <meta name="google-site-verification" content="STuMw9jpkITtrH9p7QBrTRSPePP9MS3sLeVKbRIVEkY" />
 
       </head>
       <body
