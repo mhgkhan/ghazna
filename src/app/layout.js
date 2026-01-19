@@ -132,9 +132,10 @@ export default async function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" ></link>
         {/* <meta name="msvalidate.01" content="73AD4F6854D89DF13F9CCC49174C42AB" /> */}
         {/* <GoogleSiteVerification contentVal={FreezeEnv.GoogleSiteVerificationContent} /> */}
-        <GoogleAdsenceComponent pubid={FreezeEnv.ADPUBID} />
         <meta name="google-site-verification" content="STuMw9jpkITtrH9p7QBrTRSPePP9MS3sLeVKbRIVEkY" />
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375177597277112"
+     crossOrigin="anonymous"></script>
+       <meta name="google-adsense-account" content="ca-pub-1375177597277112">
       </head>
       <body
         className={`${headingsFont.variable} ${rubikFont.variable} antialiased`}
