@@ -81,7 +81,7 @@ export const metadata = {
 };
 
 
-
+export const config = { amp: true };
 export default async function RootLayout({ children }) {
 
 
@@ -133,6 +133,9 @@ export default async function RootLayout({ children }) {
       
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375177597277112"
      crossOrigin="anonymous"></script>
+       <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
        <meta name="google-adsense-account" content="ca-pub-1375177597277112" />
 
           <meta name="google-site-verification" content="STuMw9jpkITtrH9p7QBrTRSPePP9MS3sLeVKbRIVEkY" />
