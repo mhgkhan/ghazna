@@ -58,6 +58,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
 }
 
+export const config = { amp: true };
+
 const page = async ({ params }) => {
 
     const userHeaders = await headers();
@@ -81,7 +83,12 @@ const page = async ({ params }) => {
 
 
     return (
-        <article className='min-h-screen md:p-0 px-2' >
+       <>
+        <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-1375177597277112">
+</amp-auto-ads>
+            
+ <article className='min-h-screen md:p-0 px-2' >
             <section role='banner' className="my-5">
                 <div className='container mx-auto sm:px-2 flex lg:flex-row flex-col items-start justify-center gap-10  '>
                     <div className='content lg:w-[70%] w-full sm:px-2'>
@@ -104,6 +111,7 @@ const page = async ({ params }) => {
                 </div>
             </section>
         </article>
+        </>
     )
 }
 export default page
