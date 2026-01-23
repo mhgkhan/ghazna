@@ -134,8 +134,8 @@ export default async function RootLayout({ children }) {
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375177597277112"
      crossOrigin="anonymous"></script>
        <meta name="google-adsense-account" content="ca-pub-1375177597277112" />
-<meta name="google-site-verification" content="o5Qjhfau6AmjpObtl6DTRB6ye13eld0hI-X5OiMwqlQ" />
 
+          <meta name="google-site-verification" content="STuMw9jpkITtrH9p7QBrTRSPePP9MS3sLeVKbRIVEkY" />
        
       </head>
       <body
