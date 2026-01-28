@@ -129,7 +129,7 @@ const page = async ({ searchParams }) => {
 
 
 
-          <div className="blog-head mt-5">
+          {/* <div className="blog-head mt-5">
             <h4>Filter By Tags</h4>
             <div className='py-[1px] bg-gray-400 rounded-lg w-full'></div>
           </div>
@@ -138,7 +138,7 @@ const page = async ({ searchParams }) => {
             {
               Array.from(["Tag1", "Tag2", "Tag3", "Tag4", "Tag5", "Tag6"]).map((ele, ind) => <Link href={`/tags/${ele}`} key={ind} className="filter-radio my-2 rounded-lg py-1 px-2 dark:bg-gray-400 dark:text-white bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-300 dark:hover:text-black hover:bg-gray-500 hover:text-white">{ele}</Link>)
             }
-          </div>
+          </div> */}
 
 
 
