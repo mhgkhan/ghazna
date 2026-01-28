@@ -10,8 +10,8 @@ export default function Footer() {
           <p className="text-center text-white">Copyright&copy; 2025 <Link href={"/"}>GHAZNA</Link> </p>
           <div className="footer-part flex items-center justify-center flex-col gap-2">
             <div className="pages flex gap-4">
-              <Link href={'/about'} className="text-sm text-white hover:underline">Terms & Conditions  </Link>
-              <Link href={'/contactus'} className="text-sm text-white hover:underline">Terms & Conditions  </Link>
+              <Link href={'/about'} className="text-sm text-white hover:underline"> About  </Link>
+              <Link href={'/contactus'} className="text-sm text-white hover:underline"> Contact us  </Link>
               <Link href={'/privacy-policy'} className="text-sm text-white hover:underline">Privacy policy</Link>
               <Link href={'/termsandconditions'} className="text-sm text-white hover:underline">Terms & Conditions  </Link>
               <Link href={'https://ghazna.online/sitemap.xml'} className="text-sm text-white hover:underline">Sitemap  </Link>
