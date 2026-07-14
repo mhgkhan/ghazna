@@ -92,7 +92,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-m-20 scroll-smooth">
       <head>
-
+  <meta name="google-adsense-account" content="ca-pub-1375177597277112">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
