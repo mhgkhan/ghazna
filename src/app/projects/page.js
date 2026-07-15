@@ -45,10 +45,8 @@ const page = () => {
 
             <div className="my-5 p-2 flex items-center justify-center  flex-wrap">
                 {Array.from([
-                    { title: "Ghazna Programmar", subtitle: "My previous Portfolio & Blog website.", year: "2024", image: "/images/projects/ghazaprogrammar.png", link: "https://mhgkhanp.netlify.app/" },
-                    { title: "Ghazna Shop", subtitle: "An Ecommerce Project with all functionalities.", year: "2024", image: "/images/projects/ghaznashop.png", link: "https://ghazna.shop/" },
-                    { title: "KSTP", subtitle: "Khyber Stdents Testing Portal.", year: "2024", image: "/images/projects/kstp.png", link: "https://ghazna.shop/" },
                     { title: "GH Urlshortner", subtitle: "A fullstack URL Shortner Project", year: "2023", image: "/images/projects/usgh.png", link: "https://usgh.netlify.app/" },
+                    { title: "JOBS IN KPK", subtitle: "A Full stack Jobs Post Advertaisor Website Build in Next.js & NodeJs", year: "2026", image: "/images/projects/jobsinkpk.png", link: "https://www.jobsinkpk.online/" },
                 ]).map((ele, ind) => {
                     return <Link href={ele.link} key={ind} className="project-block border border-1 border-gray-500 border-dotted border-t-0 px-4 py-3 md:w-[400px] md:h-[300px] h-auto w-full">
                         <div className="w-full h-[180px]">
